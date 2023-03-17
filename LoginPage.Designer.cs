@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             splitContainer1 = new SplitContainer();
-            button1 = new Button();
+            pictureBox1 = new PictureBox();
+            login_button = new Button();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
-            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -54,21 +54,30 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(button1);
+            splitContainer1.Panel2.Controls.Add(login_button);
             splitContainer1.Panel2.Controls.Add(textBox2);
             splitContainer1.Panel2.Controls.Add(textBox1);
             splitContainer1.Size = new Size(802, 638);
             splitContainer1.SplitterDistance = 335;
             splitContainer1.TabIndex = 0;
             // 
-            // button1
+            // pictureBox1
             // 
-            button1.Location = new Point(206, 408);
-            button1.Name = "button1";
-            button1.Size = new Size(175, 27);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(341, 633);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // login_button
+            // 
+            login_button.Location = new Point(206, 408);
+            login_button.Name = "login_button";
+            login_button.Size = new Size(175, 27);
+            login_button.TabIndex = 2;
+            login_button.Text = "login";
+            login_button.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -84,15 +93,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(232, 26);
             textBox1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 5);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(341, 633);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // LoginPage
             // 
@@ -101,7 +102,7 @@
             ClientSize = new Size(802, 638);
             Controls.Add(splitContainer1);
             Name = "LoginPage";
-            Text = "Form1";
+            Text = "Login Page";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             splitContainer1.Panel2.PerformLayout();
@@ -116,7 +117,7 @@
         private SplitContainer splitContainer1;
         private TextBox textBox2;
         private TextBox textBox1;
-        private Button button1;
+        private Button login_button;
         private PictureBox pictureBox1;
     }
 }
