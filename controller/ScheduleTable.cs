@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mentoring_system.model
+namespace mentoring_system.controller
 {
-    internal class mentor
+    internal class ScheduleTable
     {
-
     }
 }

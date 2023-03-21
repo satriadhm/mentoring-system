@@ -6,25 +6,34 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    enum JenisKelamin
-    {
-        PRIA,
-        WANITA
-    }
-
+    
     enum EducationLevel
     {
         SD,
         SMP,
         SMA
     }
-    internal class mentee
+    enum PilihanSubjek
     {
-        private int Id;
-        private string namaLengkap;
-        private JenisKelamin jenisKelamin;
-        private int umur;
+        KALKULUS,
+        KIMIA,
+        FISIKA
+    }
+    internal class mentee : User
+    {
+       
         private EducationLevel pendidikanTerakhir;
+        private PilihanSubjek subjek;
+
+        
+        internal EducationLevel PendidikanTerakhir { get => pendidikanTerakhir; set => pendidikanTerakhir = value; }
+
+        internal PilihanSubjek 
+            Subjek { get => 
+            Subjek; set => Subjek = value;          
+        }
 
     }
+
+    
 }
