@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    enum JenisKelamin
-    {
-        PRIA,
-        WANITA
-    }
 
     enum EducationLevel
     {
