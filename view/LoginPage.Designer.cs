@@ -134,6 +134,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(232, 27);
             passwordTextBox.TabIndex = 1;
+            passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameTextbox
             // 

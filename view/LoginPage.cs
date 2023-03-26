@@ -1,4 +1,5 @@
 using mentoring_system.view;
+using System.Diagnostics;
 
 namespace mentoring_system
 {
@@ -15,6 +16,7 @@ namespace mentoring_system
             {
                 if (!(usernameTextbox.Text == string.Empty))
                 {
+                    Debug.Assert(usernameTextbox.Text.Length >= 10,"Not a valid name");
                     if (!(passwordTextBox.Text == string.Empty))
                     {
                         this.Hide();
