@@ -16,5 +16,10 @@ namespace mentoring_system.view
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
