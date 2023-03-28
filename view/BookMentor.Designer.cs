@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system.view
 {
-    partial class BookMentor
+    public partial class BookMentor
     {
         /// <summary>
         /// Required designer variable.
@@ -11,6 +11,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))

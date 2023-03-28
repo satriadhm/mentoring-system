@@ -55,6 +55,8 @@
             MilestoneCongratulationsLabel = new Label();
             MilestoneQuantitativeLabel = new Label();
             MilestonePassedLabel = new Label();
+            coursePage1 = new CoursePage();
+            panel5 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             LessonLearnedPanel.SuspendLayout();
@@ -77,6 +79,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(209, 632);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // logoutButton
             // 
@@ -113,8 +116,9 @@
             lessonButton.Name = "lessonButton";
             lessonButton.Size = new Size(103, 28);
             lessonButton.TabIndex = 6;
-            lessonButton.Text = "My Lesson";
+            lessonButton.Text = "My Course";
             lessonButton.UseVisualStyleBackColor = true;
+            lessonButton.Click += lessonButton_Click;
             // 
             // lessonIcon
             // 
@@ -140,6 +144,7 @@
             scheduleButton.TabIndex = 4;
             scheduleButton.Text = "My Schedule";
             scheduleButton.UseVisualStyleBackColor = true;
+            scheduleButton.Click += scheduleButton_Click;
             // 
             // scheduleIcon
             // 
@@ -189,6 +194,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(920, 48);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
             // messageButton
             // 
@@ -296,6 +302,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(206, 125);
             panel3.TabIndex = 4;
+            panel3.Paint += panel3_Paint;
             // 
             // newAppointmentBookedLabel
             // 
@@ -374,17 +381,33 @@
             MilestonePassedLabel.TabIndex = 4;
             MilestonePassedLabel.Text = "Milestone Passed";
             // 
+            // coursePage1
+            // 
+            coursePage1.Location = new Point(215, 52);
+            coursePage1.Name = "coursePage1";
+            coursePage1.Size = new Size(705, 578);
+            coursePage1.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            panel5.Location = new Point(219, 52);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(701, 578);
+            panel5.TabIndex = 9;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(920, 629);
+            Controls.Add(panel2);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(LessonLearnedPanel);
             Controls.Add(greetingLabel);
-            Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(panel5);
+            Controls.Add(coursePage1);
             Name = "Dashboard";
             Text = "Dashboard";
             panel1.ResumeLayout(false);
@@ -428,5 +451,7 @@
         private Label MilestonePassedLabel;
         private Label MilestoneCongratulationsLabel;
         private Label MilestoneQuantitativeLabel;
+        private CoursePage coursePage1;
+        private Panel panel5;
     }
 }
