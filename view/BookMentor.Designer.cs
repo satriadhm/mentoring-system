@@ -49,8 +49,10 @@
             label1 = new Label();
             searchButton = new Button();
             label2 = new Label();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -298,11 +300,22 @@
             label2.TabIndex = 12;
             label2.Text = "Choose the schedule, lesson, and mentor";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(275, 309);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(151, 141);
+            dataGridView1.TabIndex = 13;
+            // 
             // BookMentor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(920, 629);
+            Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(searchButton);
             Controls.Add(label1);
@@ -317,6 +330,7 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -343,5 +357,6 @@
         private Label label1;
         private Button searchButton;
         private Label label2;
+        private DataGridView dataGridView1;
     }
 }
