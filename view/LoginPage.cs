@@ -16,9 +16,10 @@ namespace mentoring_system
             {
                 if (!(usernameTextbox.Text == string.Empty))
                 {
-                    Debug.Assert(usernameTextbox.Text.Length >= 10,"Not a valid name");
+                    //Debug.Assert(usernameTextbox.Text.Length >= 10,"Not a valid name");
                     if (!(passwordTextBox.Text == string.Empty))
                     {
+                        //Debug.Assert(passwordTextBox.Text.Length >= 10, "Not a valid name");
                         this.Hide();
                         Dashboard dashboard = new Dashboard();
                         dashboard.ShowDialog();

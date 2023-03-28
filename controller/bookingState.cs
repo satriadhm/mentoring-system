@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,8 @@ namespace mentoring_system.controller
         }
         public void ActivateTrigger(bookTrigger trigger) 
         {
+            Debug.Assert(Enum.IsDefined(typeof(bookTrigger),trigger),"not a valid value.");
+
             currentState = GetNextState(currentState, trigger);
             Console.WriteLine("Kondisi Booking Mentoring sekarang adalah " +  currentState);    
         }

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    internal class mentor
+    enum subjekMentoring
+    {
+        KALKULUS,
+        PEMROGRAMAN_DASAR
+
+    }
+    internal class mentor : User
     {
 
     }

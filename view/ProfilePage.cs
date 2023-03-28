@@ -1,5 +1,4 @@
-﻿using mentoring_system.controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +10,9 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view
 {
-    public partial class BookMentor : Form
+    public partial class ProfilePage : Form
     {
-        public BookMentor()
+        public ProfilePage()
         {
             InitializeComponent();
         }

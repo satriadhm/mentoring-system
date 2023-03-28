@@ -165,6 +165,7 @@
             bookButton.TabIndex = 2;
             bookButton.Text = "Book a mentor";
             bookButton.UseVisualStyleBackColor = true;
+            bookButton.Click += bookButton_Click;
             // 
             // bookIcon
             // 
@@ -216,6 +217,7 @@
             profileButton.Size = new Size(35, 35);
             profileButton.TabIndex = 1;
             profileButton.UseVisualStyleBackColor = false;
+            profileButton.Click += profileButton_Click;
             // 
             // dashBoardLabel
             // 
