@@ -165,6 +165,7 @@
             bookButton.TabIndex = 2;
             bookButton.Text = "Book a mentor";
             bookButton.UseVisualStyleBackColor = true;
+            bookButton.Click += bookButton_Click;
             // 
             // bookIcon
             // 

@@ -16,5 +16,12 @@ namespace mentoring_system.view
         {
             InitializeComponent();
         }
+
+        private void bookButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BookMentor bookPage = new BookMentor();
+            bookPage.ShowDialog();
+        }
     }
 }
