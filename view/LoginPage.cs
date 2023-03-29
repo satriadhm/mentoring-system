@@ -20,7 +20,7 @@ namespace mentoring_system
                     if (!(passwordTextBox.Text == string.Empty))
                     {
                         this.Hide();
-                        Dashboard dashboard = new Dashboard();
+                        DashboardMentee dashboard = new DashboardMentee();
                         dashboard.ShowDialog();
 
                     }

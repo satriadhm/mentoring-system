@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view
 {
-    public partial class Dashboard : Form
+    public partial class DashboardMentor : Form
     {
-        public Dashboard()
+        public DashboardMentor()
         {
             InitializeComponent();
-        }
-
-        private void bookButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            BookMentor bookPage = new BookMentor();
-            bookPage.ShowDialog();
         }
     }
 }
