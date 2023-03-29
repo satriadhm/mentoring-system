@@ -15,6 +15,34 @@ namespace mentoring_system.view
         public DashboardMentor()
         {
             InitializeComponent();
+            Dropdown.Visible = false;
+        }
+        private void HideDropdown()
+        {
+            if (Dropdown.Visible)
+            {
+                Dropdown.Visible = false;
+            }
+        }
+
+        private void ShowDropdown(Panel submenu)
+        {
+            if (!submenu.Visible)
+            {
+                HideDropdown();
+                submenu.Visible = true;
+            }
+            else
+                submenu.Visible = false;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AppointmentBtn_Click(object sender, EventArgs e)
+        {
+            ShowDropdown(Dropdown);
         }
     }
 }

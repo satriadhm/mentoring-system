@@ -24,7 +24,7 @@ namespace mentoring_system.model
        // private JenisKelamin jenisKelamin;
         private int umur;
 
-        public User(string namaLengkap, string username, string  int umur) 
+        public User(string namaLengkap, string username, string password,  int umur) 
         {
             Debug.Assert(namaLengkap != null);
 
