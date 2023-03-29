@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoursePage));
-            label1 = new Label();
+            CourseYoureTakingLabel = new Label();
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
             label2 = new Label();
@@ -38,20 +38,22 @@
             label5 = new Label();
             pictureBox2 = new PictureBox();
             listBox2 = new ListBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // CourseYoureTakingLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(39, 37);
-            label1.Name = "label1";
-            label1.Size = new Size(227, 31);
-            label1.TabIndex = 0;
-            label1.Text = "Course you're taking";
-            label1.Click += label1_Click;
+            CourseYoureTakingLabel.AutoSize = true;
+            CourseYoureTakingLabel.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            CourseYoureTakingLabel.ForeColor = Color.SaddleBrown;
+            CourseYoureTakingLabel.Location = new Point(417, 94);
+            CourseYoureTakingLabel.Name = "CourseYoureTakingLabel";
+            CourseYoureTakingLabel.Size = new Size(227, 31);
+            CourseYoureTakingLabel.TabIndex = 0;
+            CourseYoureTakingLabel.Text = "Course you're taking";
+            CourseYoureTakingLabel.Click += label1_Click;
             // 
             // listBox1
             // 
@@ -60,7 +62,7 @@
             listBox1.ForeColor = Color.White;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(37, 91);
+            listBox1.Location = new Point(176, 232);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(347, 80);
             listBox1.TabIndex = 1;
@@ -70,7 +72,7 @@
             // 
             pictureBox1.BackColor = Color.NavajoWhite;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(37, 91);
+            pictureBox1.Location = new Point(176, 232);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(80, 80);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -83,7 +85,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.NavajoWhite;
             label2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(123, 106);
+            label2.Location = new Point(262, 247);
             label2.Name = "label2";
             label2.Size = new Size(216, 25);
             label2.TabIndex = 4;
@@ -95,7 +97,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.NavajoWhite;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(124, 134);
+            label3.Location = new Point(263, 275);
             label3.Name = "label3";
             label3.Size = new Size(90, 20);
             label3.TabIndex = 5;
@@ -107,7 +109,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.NavajoWhite;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(124, 235);
+            label4.Location = new Point(263, 376);
             label4.Name = "label4";
             label4.Size = new Size(104, 20);
             label4.TabIndex = 9;
@@ -118,7 +120,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.NavajoWhite;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(123, 207);
+            label5.Location = new Point(262, 348);
             label5.Name = "label5";
             label5.Size = new Size(124, 25);
             label5.TabIndex = 8;
@@ -129,7 +131,7 @@
             // 
             pictureBox2.BackColor = Color.NavajoWhite;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(37, 192);
+            pictureBox2.Location = new Point(176, 333);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(80, 80);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -143,15 +145,28 @@
             listBox2.ForeColor = Color.White;
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 20;
-            listBox2.Location = new Point(37, 192);
+            listBox2.Location = new Point(176, 333);
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(347, 80);
             listBox2.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.SaddleBrown;
+            label1.Location = new Point(501, 136);
+            label1.Name = "label1";
+            label1.Size = new Size(143, 20);
+            label1.TabIndex = 10;
+            label1.Text = "Course you're taking";
+            label1.Click += label1_Click_1;
             // 
             // CoursePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label1);
             Controls.Add(label4);
             Controls.Add(label5);
             Controls.Add(pictureBox2);
@@ -160,7 +175,7 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
-            Controls.Add(label1);
+            Controls.Add(CourseYoureTakingLabel);
             Name = "CoursePage";
             Size = new Size(705, 578);
             Load += CoursePage_Load;
@@ -172,7 +187,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label CourseYoureTakingLabel;
         private ListBox listBox1;
         private PictureBox pictureBox1;
         private Label label2;
@@ -181,5 +196,6 @@
         private Label label5;
         private PictureBox pictureBox2;
         private ListBox listBox2;
+        private Label label1;
     }
 }

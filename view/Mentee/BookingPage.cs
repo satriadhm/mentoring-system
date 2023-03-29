@@ -1,5 +1,4 @@
-﻿using mentoring_system.controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace mentoring_system.view
+namespace mentoring_system.view.Mentee
 {
-    public partial class BookMentor : Form
+    public partial class BookingPage : UserControl
     {
-        public BookMentor()
+        public BookingPage()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

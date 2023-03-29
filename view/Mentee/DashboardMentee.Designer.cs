@@ -1,4 +1,6 @@
-﻿namespace mentoring_system.view
+﻿using mentoring_system.view.Mentee;
+
+namespace mentoring_system.view
 {
     partial class DashboardMentee
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMentee));
-            panel1 = new Panel();
+            panelNavbar = new Panel();
             logoutButton = new Button();
             logoutIcon = new Button();
             lessonButton = new Button();
@@ -38,7 +40,7 @@
             scheduleIcon = new Button();
             bookButton = new Button();
             bookIcon = new Button();
-            panel2 = new Panel();
+            panelHeader = new Panel();
             messageButton = new Button();
             profileButton = new Button();
             dashBoardLabel = new Label();
@@ -55,31 +57,31 @@
             MilestoneCongratulationsLabel = new Label();
             MilestoneQuantitativeLabel = new Label();
             MilestonePassedLabel = new Label();
-            coursePage1 = new CoursePage();
+            coursePage = new CoursePage();
+            bookingPage = new BookingPage();
             panel5 = new Panel();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panelNavbar.SuspendLayout();
+            panelHeader.SuspendLayout();
             LessonLearnedPanel.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panelNavbar
             // 
-            panel1.BackColor = Color.NavajoWhite;
-            panel1.Controls.Add(logoutButton);
-            panel1.Controls.Add(logoutIcon);
-            panel1.Controls.Add(lessonButton);
-            panel1.Controls.Add(lessonIcon);
-            panel1.Controls.Add(scheduleButton);
-            panel1.Controls.Add(scheduleIcon);
-            panel1.Controls.Add(bookButton);
-            panel1.Controls.Add(bookIcon);
-            panel1.Location = new Point(0, -2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(209, 632);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            panelNavbar.BackColor = Color.NavajoWhite;
+            panelNavbar.Controls.Add(logoutButton);
+            panelNavbar.Controls.Add(logoutIcon);
+            panelNavbar.Controls.Add(lessonButton);
+            panelNavbar.Controls.Add(lessonIcon);
+            panelNavbar.Controls.Add(scheduleButton);
+            panelNavbar.Controls.Add(scheduleIcon);
+            panelNavbar.Controls.Add(bookButton);
+            panelNavbar.Controls.Add(bookIcon);
+            panelNavbar.Location = new Point(0, -2);
+            panelNavbar.Name = "panelNavbar";
+            panelNavbar.Size = new Size(209, 632);
+            panelNavbar.TabIndex = 0;
             // 
             // logoutButton
             // 
@@ -184,17 +186,16 @@
             bookIcon.TabIndex = 1;
             bookIcon.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // panelHeader
             // 
-            panel2.BackColor = Color.PeachPuff;
-            panel2.Controls.Add(messageButton);
-            panel2.Controls.Add(profileButton);
-            panel2.Controls.Add(dashBoardLabel);
-            panel2.Location = new Point(0, -2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(920, 48);
-            panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
+            panelHeader.BackColor = Color.PeachPuff;
+            panelHeader.Controls.Add(messageButton);
+            panelHeader.Controls.Add(profileButton);
+            panelHeader.Controls.Add(dashBoardLabel);
+            panelHeader.Location = new Point(0, -2);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(920, 48);
+            panelHeader.TabIndex = 1;
             // 
             // messageButton
             // 
@@ -223,7 +224,6 @@
             profileButton.Size = new Size(35, 35);
             profileButton.TabIndex = 1;
             profileButton.UseVisualStyleBackColor = false;
-          
             // 
             // dashBoardLabel
             // 
@@ -302,7 +302,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(206, 125);
             panel3.TabIndex = 4;
-            panel3.Paint += panel3_Paint;
             // 
             // newAppointmentBookedLabel
             // 
@@ -381,12 +380,19 @@
             MilestonePassedLabel.TabIndex = 4;
             MilestonePassedLabel.Text = "Milestone Passed";
             // 
-            // coursePage1
+            // coursePage
             // 
-            coursePage1.Location = new Point(215, 52);
-            coursePage1.Name = "coursePage1";
-            coursePage1.Size = new Size(705, 578);
-            coursePage1.TabIndex = 6;
+            coursePage.Location = new Point(215, 52);
+            coursePage.Name = "coursePage";
+            coursePage.Size = new Size(705, 578);
+            coursePage.TabIndex = 6;
+            //
+            // BookingPage
+            //
+            bookingPage.Location = new Point(215, 52);
+            bookingPage.Name = "bookingPage";
+            bookingPage.Size = new Size(705, 578);
+            coursePage.TabIndex = 6;
             // 
             // panel5
             // 
@@ -395,24 +401,25 @@
             panel5.Size = new Size(701, 578);
             panel5.TabIndex = 9;
             // 
-            // Dashboard
+            // DashboardMentee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(920, 629);
-            Controls.Add(panel2);
+            Controls.Add(panelHeader);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(LessonLearnedPanel);
             Controls.Add(greetingLabel);
-            Controls.Add(panel1);
+            Controls.Add(panelNavbar);
             Controls.Add(panel5);
-            Controls.Add(coursePage1);
-            Name = "Dashboard";
+            Controls.Add(coursePage);
+            Controls.Add(bookingPage);
+            Name = "DashboardMentee";
             Text = "Dashboard";
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelNavbar.ResumeLayout(false);
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
             LessonLearnedPanel.ResumeLayout(false);
             LessonLearnedPanel.PerformLayout();
             panel3.ResumeLayout(false);
@@ -425,8 +432,8 @@
 
         #endregion
 
-        private Panel panel1;
-        private Panel panel2;
+        private Panel panelNavbar;
+        private Panel panelHeader;
         private Label dashBoardLabel;
         private Button messageButton;
         private Button profileButton;
@@ -451,7 +458,8 @@
         private Label MilestonePassedLabel;
         private Label MilestoneCongratulationsLabel;
         private Label MilestoneQuantitativeLabel;
-        private CoursePage coursePage1;
+        private CoursePage coursePage;
+        private BookingPage bookingPage;
         private Panel panel5;
     }
 }
