@@ -9,7 +9,10 @@ namespace mentoring_system.model
     enum subjekMentoring
     {
         KALKULUS,
-        PEMROGRAMAN_DASAR
+        PEMROGRAMAN_DASAR,
+        KIMIA,
+        FISIKA,
+        BIOLOGI
 
     }
     internal class mentor : User
