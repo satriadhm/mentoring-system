@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system.view
 {
-    partial class Dashboard
+    partial class DashboardMentee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMentee));
             panel1 = new Panel();
             logoutButton = new Button();
             logoutIcon = new Button();

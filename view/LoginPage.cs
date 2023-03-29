@@ -21,7 +21,7 @@ namespace mentoring_system
                     {
                         //Debug.Assert(passwordTextBox.Text.Length >= 10, "Not a valid name");
                         this.Hide();
-                        Dashboard dashboard = new Dashboard();
+                        DashboardMentee dashboard = new DashboardMentee();
                         dashboard.ShowDialog();
 
                     }

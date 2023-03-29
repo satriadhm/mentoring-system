@@ -20,7 +20,7 @@ namespace mentoring_system
                 else
                 {
                     this.Hide();
-                    Dashboard home = new Dashboard();
+                    DashboardMentor home = new DashboardMentor();
                     home.Show();
                 }
             }

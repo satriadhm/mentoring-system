@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view
 {
-    public partial class Dashboard : Form
+    public partial class DashboardMentee : Form
     {
-        public Dashboard()
+        public DashboardMentee()
         {
             InitializeComponent();
             coursePage1.SendToBack();
