@@ -60,11 +60,13 @@ namespace mentoring_system.view
             coursePage = new CoursePage();
             bookingPage = new BookingPage();
             panel5 = new Panel();
+            label1 = new Label();
             panelNavbar.SuspendLayout();
             panelHeader.SuspendLayout();
             LessonLearnedPanel.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panelNavbar
@@ -386,20 +388,32 @@ namespace mentoring_system.view
             coursePage.Name = "coursePage";
             coursePage.Size = new Size(705, 578);
             coursePage.TabIndex = 6;
-            //
-            // BookingPage
-            //
+            // 
+            // bookingPage
+            // 
             bookingPage.Location = new Point(215, 52);
             bookingPage.Name = "bookingPage";
             bookingPage.Size = new Size(705, 578);
-            coursePage.TabIndex = 6;
+            bookingPage.TabIndex = 10;
             // 
             // panel5
             // 
+            panel5.Controls.Add(label1);
             panel5.Location = new Point(219, 52);
             panel5.Name = "panel5";
             panel5.Size = new Size(701, 578);
             panel5.TabIndex = 9;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Historic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.SaddleBrown;
+            label1.Location = new Point(404, 299);
+            label1.Name = "label1";
+            label1.Size = new Size(274, 46);
+            label1.TabIndex = 11;
+            label1.Text = "Lesson's History";
             // 
             // DashboardMentee
             // 
@@ -426,6 +440,8 @@ namespace mentoring_system.view
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -461,5 +477,6 @@ namespace mentoring_system.view
         private CoursePage coursePage;
         private BookingPage bookingPage;
         private Panel panel5;
+        private Label label1;
     }
 }

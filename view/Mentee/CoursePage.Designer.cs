@@ -48,7 +48,7 @@
             CourseYoureTakingLabel.AutoSize = true;
             CourseYoureTakingLabel.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             CourseYoureTakingLabel.ForeColor = Color.SaddleBrown;
-            CourseYoureTakingLabel.Location = new Point(417, 94);
+            CourseYoureTakingLabel.Location = new Point(423, 64);
             CourseYoureTakingLabel.Name = "CourseYoureTakingLabel";
             CourseYoureTakingLabel.Size = new Size(227, 31);
             CourseYoureTakingLabel.TabIndex = 0;
@@ -155,7 +155,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(501, 136);
+            label1.Location = new Point(507, 106);
             label1.Name = "label1";
             label1.Size = new Size(143, 20);
             label1.TabIndex = 10;

@@ -17,6 +17,8 @@ namespace mentoring_system.model
     }
     internal class mentor : User
     {
-
+        public mentor(string namaLengkap, string username, string password, int umur) : base(namaLengkap, username, password, umur)
+        {
+        }
     }
 }

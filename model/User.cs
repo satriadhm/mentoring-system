@@ -1,25 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
+    enum JenisKelamin
+    {
+        PRIA,
+        WANITA
+    }
     internal class User
     {
-        enum JenisKelamin
-        {
-            PRIA,
-            WANITA
-        }
+
+        private string username;
 
         private int Id;
-        private string ?namaLengkap;
+        private string NamaLengkap;
+        private string userName;
+        private string password;
        // private JenisKelamin jenisKelamin;
         private int umur;
+
+        public User(string namaLengkap, string username, string  int umur) 
+        {
+            Debug.Assert(namaLengkap != null);
+
+            Random random = new Random();
+            Debug.Assert(namaLengkap.Length <= 30);
+            Debug.Assert(username.Length <= 10);
+            Debug.Assert(!string.IsNullOrEmpty(namaLengkap));
+            Debug.Assert(!string.IsNullOrEmpty(userName));
+            this.NamaLengkap = namaLengkap;
+            this.userName = username;
+            this.umur = umur;
+            this.Id = random.Next();
+
+        }
         public int ID { get => Id; set => Id = value; }
-        public string NamaLengkap { get => namaLengkap; set => namaLengkap = value; }
+        
         public int Umur { get => umur; set => umur = value; }
          
 
