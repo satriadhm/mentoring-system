@@ -16,7 +16,7 @@ namespace mentoring_system.model
 
         private int Id;
         private string ?namaLengkap;
-        private JenisKelamin jenisKelamin;
+       // private JenisKelamin jenisKelamin;
         private int umur;
         public int ID { get => Id; set => Id = value; }
         public string NamaLengkap { get => namaLengkap; set => namaLengkap = value; }

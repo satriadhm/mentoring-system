@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system
 {
-    partial class LoginPage
+    partial class LoginMentee
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginMentee));
             splitContainer1 = new SplitContainer();
             pictureBox1 = new PictureBox();
             loginAsset = new PictureBox();

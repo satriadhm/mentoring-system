@@ -28,77 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            button1 = new Button();
-            button2 = new Button();
+            pictureMentor = new PictureBox();
+            pictureMentee = new PictureBox();
+            buttonMentor = new Button();
+            buttonMentee = new Button();
             label1 = new Label();
             label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureMentor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureMentee).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pictureMentor
             // 
-            pictureBox1.Image = Properties.Resources.teacher;
-            pictureBox1.Location = new Point(171, 206);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(200, 200);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pictureMentor.Image = Properties.Resources.teacher;
+            pictureMentor.Location = new Point(171, 206);
+            pictureMentor.Name = "pictureMentor";
+            pictureMentor.Size = new Size(200, 200);
+            pictureMentor.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureMentor.TabIndex = 0;
+            pictureMentor.TabStop = false;
             // 
-            // pictureBox2
+            // pictureMentee
             // 
-            pictureBox2.Image = Properties.Resources.student;
-            pictureBox2.Location = new Point(452, 206);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(200, 200);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            pictureMentee.Image = Properties.Resources.student;
+            pictureMentee.Location = new Point(452, 206);
+            pictureMentee.Name = "pictureMentee";
+            pictureMentee.Size = new Size(200, 200);
+            pictureMentee.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureMentee.TabIndex = 1;
+            pictureMentee.TabStop = false;
             // 
-            // button1
+            // buttonMentor
             // 
-            button1.Font = new Font("Poppins Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(171, 426);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 45);
-            button1.TabIndex = 2;
-            button1.Text = "Mentor";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonMentor.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMentor.Location = new Point(171, 426);
+            buttonMentor.Name = "buttonMentor";
+            buttonMentor.Size = new Size(200, 45);
+            buttonMentor.TabIndex = 2;
+            buttonMentor.Text = "Mentor";
+            buttonMentor.UseVisualStyleBackColor = true;
+            buttonMentor.Click += buttonMentor_Click;
             // 
-            // button2
+            // buttonMentee
             // 
-            button2.Font = new Font("Poppins Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(452, 426);
-            button2.Name = "button2";
-            button2.Size = new Size(200, 45);
-            button2.TabIndex = 3;
-            button2.Text = "Mentee";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonMentee.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMentee.Location = new Point(452, 426);
+            buttonMentee.Name = "buttonMentee";
+            buttonMentee.Size = new Size(200, 45);
+            buttonMentee.TabIndex = 3;
+            buttonMentee.Text = "Mentee";
+            buttonMentee.UseVisualStyleBackColor = true;
+            buttonMentee.Click += buttonMentee_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Poppins SemiBold", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(106, 55);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(146, 55);
             label1.Name = "label1";
-            label1.Size = new Size(596, 53);
+            label1.Size = new Size(506, 36);
             label1.TabIndex = 4;
             label1.Text = "Selamat Datang di aplikasi Mentoring";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Poppins Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(183, 108);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(200, 115);
             label2.Name = "label2";
-            label2.Size = new Size(454, 36);
+            label2.Size = new Size(388, 25);
             label2.TabIndex = 5;
             label2.Text = "Silakan pilih user role sesuai kebutuhanmu!";
             // 
@@ -109,24 +107,24 @@
             ClientSize = new Size(802, 637);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(buttonMentee);
+            Controls.Add(buttonMentor);
+            Controls.Add(pictureMentee);
+            Controls.Add(pictureMentor);
             Name = "LandingPage";
-            Text = "Landing_Page";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            Text = "Landing Page";
+            ((System.ComponentModel.ISupportInitialize)pictureMentor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureMentee).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private Button button1;
-        private Button button2;
+        private PictureBox pictureMentor;
+        private PictureBox pictureMentee;
+        private Button buttonMentor;
+        private Button buttonMentee;
         private Label label1;
         private Label label2;
     }

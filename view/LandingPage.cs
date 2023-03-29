@@ -17,27 +17,18 @@ namespace mentoring_system.view
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            LoginMentor login = new LoginMentor();
-            login.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonMentee_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginMentor mentor = new LoginMentor();
-            mentor.Show();
+            LoginMentee mentee = new LoginMentee();
+            mentee.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void buttonMentor_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            LoginMentor login = new LoginMentor();
+            login.Show();
         }
     }
 }

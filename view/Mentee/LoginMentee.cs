@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace mentoring_system
 {
-    public partial class LoginPage : Form
+    public partial class LoginMentee : Form
     {
-        public LoginPage()
+        public LoginMentee()
         {
             InitializeComponent();
         }
