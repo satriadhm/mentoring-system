@@ -20,15 +20,8 @@ namespace mentoring_system.view
         private void bookButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            BookMentor bookingPage = new BookMentor();
-            bookingPage.ShowDialog();
-        }
-
-        private void profileButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ProfilePage profilepage = new ProfilePage();
-            profilepage.ShowDialog();
+            BookMentor bookPage = new BookMentor();
+            bookPage.ShowDialog();
         }
     }
 }

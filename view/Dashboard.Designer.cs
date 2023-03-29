@@ -217,7 +217,7 @@
             profileButton.Size = new Size(35, 35);
             profileButton.TabIndex = 1;
             profileButton.UseVisualStyleBackColor = false;
-            profileButton.Click += profileButton_Click;
+          
             // 
             // dashBoardLabel
             // 
