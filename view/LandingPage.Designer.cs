@@ -84,21 +84,21 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(146, 55);
+            label1.Location = new Point(191, 62);
             label1.Name = "label1";
-            label1.Size = new Size(506, 36);
+            label1.Size = new Size(426, 36);
             label1.TabIndex = 4;
-            label1.Text = "Selamat Datang di aplikasi Mentoring";
+            label1.Text = "Welcome to Mentoring System!";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(200, 115);
+            label2.Location = new Point(294, 120);
             label2.Name = "label2";
-            label2.Size = new Size(388, 25);
+            label2.Size = new Size(238, 25);
             label2.TabIndex = 5;
-            label2.Text = "Silakan pilih user role sesuai kebutuhanmu!";
+            label2.Text = "You can choose your role ";
             // 
             // LandingPage
             // 
