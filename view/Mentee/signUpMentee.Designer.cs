@@ -41,6 +41,7 @@
             pictureBox1 = new PictureBox();
             RegisterNowLabel = new Label();
             label1 = new Label();
+            loginButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -151,11 +152,22 @@
             label1.TabIndex = 14;
             label1.Text = "Register and scale up your skill!";
             // 
+            // loginButton
+            // 
+            loginButton.Location = new Point(532, 556);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(218, 28);
+            loginButton.TabIndex = 15;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += loginButton_Click;
+            // 
             // signUpMentee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 638);
+            Controls.Add(loginButton);
             Controls.Add(label1);
             Controls.Add(RegisterNowLabel);
             Controls.Add(pictureBox1);
@@ -189,5 +201,6 @@
         private PictureBox pictureBox1;
         private Label RegisterNowLabel;
         private Label label1;
+        private Button loginButton;
     }
 }
