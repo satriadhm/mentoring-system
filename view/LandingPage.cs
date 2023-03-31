@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mentoring_system.view.Mentee;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace mentoring_system.view
         private void buttonMentee_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginMentee mentee = new LoginMentee();
+            signUpMentee mentee = new signUpMentee();
             mentee.Show();
         }
 

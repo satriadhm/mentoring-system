@@ -13,14 +13,13 @@ namespace mentoring_system.model
         SMA
     }
 
-    internal class mentee : User
+    public class mentee : User
     {
         
         private EducationLevel pendidikanTerakhir;
 
-        public mentee(string namaLengkap, string username, string password, int umur) : base(namaLengkap, username, password, umur)
+        public mentee(string namaLengkap, string username, string password, string umur, Role role) : base(namaLengkap, username, password, umur, role)
         {
-
         }
 
         internal EducationLevel PendidikanTerakhir { get => pendidikanTerakhir; set => pendidikanTerakhir = value; }
