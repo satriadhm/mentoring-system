@@ -15,9 +15,9 @@ namespace mentoring_system.model
         BIOLOGI
 
     }
-    internal class mentor : User
+    public class mentor : User
     {
-        public mentor(string namaLengkap, string username, string password, int umur) : base(namaLengkap, username, password, umur)
+        public mentor(string namaLengkap, string username, string password, string umur, Role role) : base(namaLengkap, username, password, umur, role)
         {
         }
     }

@@ -7,48 +7,40 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    enum JenisKelamin
+
+    public enum Role
     {
-        PRIA,
-        WANITA
+        MENTOR,
+        MENTEE
     }
-    internal class User
+    public class User
     {
+        public int Id { get; set; }
+        public string NamaLengkap { get; set; }
+        public string userName { get; set; }
+        public string password { get; set; }
+        public string umur { get; set; }
+        public Role role { get; set; }
 
-        private string username;
-
-        private int Id;
-        private string NamaLengkap;
-        private string userName;
-        private string password;
-        private JenisKelamin jenisKelamin;
-        private int umur;
-
-        public User(string namaLengkap, string username, string password, int umur)
+        public User(string namaLengkap, string username, string password, string umur, Role role)
         {
             Debug.Assert(namaLengkap != null);
 
             Random random = new Random();
-            Debug.Assert(namaLengkap.Length <= 30);
-            Debug.Assert(username.Length <= 10);
-            Debug.Assert(!string.IsNullOrEmpty(namaLengkap));
-            Debug.Assert(!string.IsNullOrEmpty(userName));
-            //Debug.Assert();
             this.NamaLengkap = namaLengkap;
             this.userName = username;
             this.umur = umur;
             this.Id = random.Next();
+            this.role = role;
+            this.password = password;
+            //Debug.Assert(namaLengkap.Length <= 30);
+            //Debug.Assert(username.Length <= 10);
+            //Debug.Assert(!string.IsNullOrEmpty(namaLengkap));
+            //Debug.Assert(!string.IsNullOrEmpty(userName));
+            //Debug.Assert();
 
         }
-        public int ID { get => Id; set => Id = value; }
-        
-        public int Umur { get => umur; set => umur = value; }
-         
 
     }
 
-    class userState 
-    {
-        
-    }
 }
