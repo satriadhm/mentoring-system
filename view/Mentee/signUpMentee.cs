@@ -30,6 +30,6 @@ public partial class signUpMentee : Form
     {
         this.Hide();
         LoginMentee login = new LoginMentee();
-        login.Show();   
+        login.Show();
     }
 }
