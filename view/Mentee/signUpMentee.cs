@@ -23,6 +23,9 @@ public partial class signUpMentee : Form
 
         JSONparserBase jSONparserBase = new JSONparserBase();
         jSONparserBase.WriteJSON(menteeData);
+        this.Hide();
+        DashboardMentee dashboard = new DashboardMentee();
+        dashboard.Show();
 
     }
 
@@ -30,6 +33,6 @@ public partial class signUpMentee : Form
     {
         this.Hide();
         LoginMentee login = new LoginMentee();
-        login.Show();   
+        login.Show();
     }
 }

@@ -115,12 +115,15 @@
             // 
             // registerButton
             // 
-            registerButton.Location = new Point(532, 510);
+            registerButton.BackColor = Color.NavajoWhite;
+            registerButton.FlatAppearance.BorderSize = 0;
+            registerButton.FlatStyle = FlatStyle.Flat;
+            registerButton.Location = new Point(532, 499);
             registerButton.Name = "registerButton";
-            registerButton.Size = new Size(218, 28);
+            registerButton.Size = new Size(218, 39);
             registerButton.TabIndex = 11;
             registerButton.Text = "Register";
-            registerButton.UseVisualStyleBackColor = true;
+            registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += registerButton_Click;
             // 
             // pictureBox1
@@ -154,12 +157,15 @@
             // 
             // loginButton
             // 
+            loginButton.BackColor = Color.PeachPuff;
+            loginButton.FlatAppearance.BorderSize = 0;
+            loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Location = new Point(532, 556);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(218, 28);
+            loginButton.Size = new Size(218, 33);
             loginButton.TabIndex = 15;
             loginButton.Text = "Login";
-            loginButton.UseVisualStyleBackColor = true;
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
             // signUpMentee
