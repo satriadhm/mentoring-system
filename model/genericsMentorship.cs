@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    internal class genericsMentorship<T>
+    public class genericsMentorship<T>
     {
         public int ID { get; set; }
         public T MentorID { get; set; }

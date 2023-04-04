@@ -59,6 +59,7 @@ namespace mentoring_system.view
             MilestonePassedLabel = new Label();
             coursePage = new CoursePage();
             bookingPage = new BookingPage();
+            mySchedulePage = new MySchedulePage();
             panel5 = new Panel();
             label1 = new Label();
             panelNavbar.SuspendLayout();
@@ -396,6 +397,13 @@ namespace mentoring_system.view
             bookingPage.Name = "bookingPage";
             bookingPage.Size = new Size(705, 578);
             bookingPage.TabIndex = 10;
+            //
+            // mySchedulePage
+            // 
+            mySchedulePage.Location = new Point(215, 52);
+            mySchedulePage.Name = "mySchedulePage";
+            mySchedulePage.Size = new Size(705, 578);
+            mySchedulePage.TabIndex = 10;
             // 
             // panel5
             // 
