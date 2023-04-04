@@ -476,6 +476,7 @@ namespace mentoring_system.view
         private Label MilestoneQuantitativeLabel;
         private CoursePage coursePage;
         private BookingPage bookingPage;
+        private MySchedulePage mySchedulePage;
         private Panel panel5;
         private Label label1;
     }
