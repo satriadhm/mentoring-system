@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mentoring_system.view.Mentee;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,8 @@ namespace mentoring_system.view
             InitializeComponent();
             coursePage.SendToBack();
             bookingPage.SendToBack();
+            mySchedulePage.SendToBack();
+            
         }
 
         private void bookButton_Click(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace mentoring_system.view
 
         private void scheduleButton_Click(object sender, EventArgs e)
         {
-
+            mySchedulePage.BringToFront();
         }
 
         private void lessonButton_Click(object sender, EventArgs e)
