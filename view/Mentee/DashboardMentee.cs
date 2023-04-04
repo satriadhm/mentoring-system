@@ -19,7 +19,7 @@ namespace mentoring_system.view
             coursePage.SendToBack();
             bookingPage.SendToBack();
             mySchedulePage.SendToBack();
-            
+
         }
 
         private void bookButton_Click(object sender, EventArgs e)
@@ -43,6 +43,11 @@ namespace mentoring_system.view
         private void lessonButton_Click(object sender, EventArgs e)
         {
             coursePage.BringToFront();
+        }
+
+        private void LessonLearnedPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
