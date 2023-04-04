@@ -148,7 +148,7 @@
             AppointmentBtn.Padding = new Padding(15, 0, 0, 0);
             AppointmentBtn.Size = new Size(250, 48);
             AppointmentBtn.TabIndex = 2;
-            AppointmentBtn.Text = "{Appointment}";
+            AppointmentBtn.Text = "Appointment";
             AppointmentBtn.TextAlign = ContentAlignment.MiddleLeft;
             AppointmentBtn.UseVisualStyleBackColor = true;
             AppointmentBtn.Click += AppointmentBtn_Click;

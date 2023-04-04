@@ -5,7 +5,7 @@ namespace mentoring_system.controller
 {
     public class JSONparserBase
     {
-        public void WriteJSON(User Data)
+        public void WriteJSON(User Data, string roleName)
         {
             //[Opsional] Merapikan format JSON
             JsonSerializerOptions options = new JsonSerializerOptions()
@@ -16,7 +16,15 @@ namespace mentoring_system.controller
             String jsonString = JsonSerializer.Serialize(Data,options);
             Console.WriteLine(jsonString);
             //Membuat file JSON yg berisi string hasil serialization
-            File.WriteAllText("C:\\Users\\glori\\OneDrive\\Desktop\\things to do\\dev\\mentoring-system\\JSON\\data.json", jsonString);
+            File.WriteAllText("../../../JSON/data"+roleName+".json", jsonString);
+        }
+
+        public void ReadJSON(User? Data, string roleName) 
+        {
+            //Baca file Json yang diinginkan
+            String jsonString = File.ReadAllText("\"../../../JSON/data" + roleName+".json");
+            //Deserialize file json menjadi object
+            Data = JsonSerializer.Deserialize<User>(jsonString);
         }
     }
 }

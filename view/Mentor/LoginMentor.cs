@@ -34,5 +34,12 @@ namespace mentoring_system
         {
 
         }
+
+        private void loginButton_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            DashboardMentor mentor = new DashboardMentor();
+            mentor.Show();
+        }
     }
 }
