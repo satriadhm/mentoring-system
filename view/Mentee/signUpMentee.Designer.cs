@@ -41,6 +41,7 @@
             pictureBox1 = new PictureBox();
             RegisterNowLabel = new Label();
             label1 = new Label();
+            loginButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -114,12 +115,15 @@
             // 
             // registerButton
             // 
-            registerButton.Location = new Point(532, 510);
+            registerButton.BackColor = Color.NavajoWhite;
+            registerButton.FlatAppearance.BorderSize = 0;
+            registerButton.FlatStyle = FlatStyle.Flat;
+            registerButton.Location = new Point(532, 499);
             registerButton.Name = "registerButton";
-            registerButton.Size = new Size(218, 28);
+            registerButton.Size = new Size(218, 39);
             registerButton.TabIndex = 11;
             registerButton.Text = "Register";
-            registerButton.UseVisualStyleBackColor = true;
+            registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += registerButton_Click;
             // 
             // pictureBox1
@@ -151,11 +155,25 @@
             label1.TabIndex = 14;
             label1.Text = "Register and scale up your skill!";
             // 
+            // loginButton
+            // 
+            loginButton.BackColor = Color.PeachPuff;
+            loginButton.FlatAppearance.BorderSize = 0;
+            loginButton.FlatStyle = FlatStyle.Flat;
+            loginButton.Location = new Point(532, 556);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(218, 33);
+            loginButton.TabIndex = 15;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += loginButton_Click;
+            // 
             // signUpMentee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 638);
+            Controls.Add(loginButton);
             Controls.Add(label1);
             Controls.Add(RegisterNowLabel);
             Controls.Add(pictureBox1);
@@ -189,5 +207,6 @@
         private PictureBox pictureBox1;
         private Label RegisterNowLabel;
         private Label label1;
+        private Button loginButton;
     }
 }

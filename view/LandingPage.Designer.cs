@@ -34,7 +34,6 @@
             registerMenteeButton = new Button();
             label1 = new Label();
             label2 = new Label();
-            loginButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureMentor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureMentee).BeginInit();
             SuspendLayout();
@@ -101,21 +100,11 @@
             label2.TabIndex = 5;
             label2.Text = "Register and choose your role ";
             // 
-            // loginButton
-            // 
-            loginButton.Location = new Point(336, 520);
-            loginButton.Name = "loginButton";
-            loginButton.Size = new Size(146, 34);
-            loginButton.TabIndex = 6;
-            loginButton.Text = "I have an account";
-            loginButton.UseVisualStyleBackColor = true;
-            // 
             // LandingPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 637);
-            Controls.Add(loginButton);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(registerMenteeButton);
@@ -138,6 +127,5 @@
         private Button registerMenteeButton;
         private Label label1;
         private Label label2;
-        private Button loginButton;
     }
 }

@@ -18,11 +18,21 @@ public partial class signUpMentee : Form
         string usernameMentee = usernameTextBox.Text;
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
-        Console.WriteLine(namaLengkapMentee+usernameMentee+passwordMentee+umurMentee);
+        Console.WriteLine(namaLengkapMentee + usernameMentee + passwordMentee + umurMentee);
         model.mentee menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee, Role.MENTEE);
 
         JSONparserBase jSONparserBase = new JSONparserBase();
         jSONparserBase.WriteJSON(menteeData);
-    
+        this.Hide();
+        DashboardMentee dashboard = new DashboardMentee();
+        dashboard.Show();
+
+    }
+
+    private void loginButton_Click(object sender, EventArgs e)
+    {
+        this.Hide();
+        LoginMentee login = new LoginMentee();
+        login.Show();
     }
 }
