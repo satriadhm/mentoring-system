@@ -7,33 +7,34 @@ using System.Threading.Tasks;
 
 // Referensi https://github.com/Satria2133/StateBasedTableDriven_SoftwareConstruction/blob/master/Program.cs
 
+
 namespace mentoring_system.controller
 {
-    enum bookState 
+    
+    public class bookingState
+
     {
-        NONE,
-        READY,
-        PENDING,
-        CANCELLED,
-        COMPLETED,
-    };
-    enum bookTrigger
-    {
-        PAYMENT,
-        REGISTER,
-        CHOOSEDATE,
-        CANCELDATE
-    }
-    class bookingState
-    {
+        public enum bookState
+        {
+            NONE,
+            READY,
+            PENDING,
+            CANCELLED,
+            COMPLETED,
+        };
+        public enum bookTrigger
+        {
+            PAYMENT,
+            REGISTER,
+            CHOOSEDATE,
+            CANCELDATE
+        }
         bookState currentState = bookState.NONE;
         public class Transition
         {
-            public bookState currentState;
-            public bookState
-        finalState;
-            public bookTrigger
-        trigger;
+           public bookState currentState;
+            public bookState finalState;
+            public bookTrigger trigger;
             public Transition(bookState currentState, bookState finalState, bookTrigger trigger)
             {
                 this.currentState = currentState;
@@ -48,7 +49,7 @@ namespace mentoring_system.controller
             new Transition(bookState.PENDING, bookState.CANCELLED, bookTrigger.CANCELDATE)
 
         };
-        private bookState GetNextState(bookState currentState, bookTrigger trigger)
+        public bookState GetNextState(bookState currentState, bookTrigger trigger)
         {
             bookState finalState = currentState;
             for (int i = 0; i < transisi.Length; i++) 

@@ -22,7 +22,8 @@ public partial class signUpMentee : Form
         model.mentee menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee, Role.MENTEE);
 
         JSONparserBase jSONparserBase = new JSONparserBase();
-        jSONparserBase.WriteJSON(menteeData);
+        jSONparserBase.WriteJSON(menteeData, "mentee");
+
         this.Hide();
         DashboardMentee dashboard = new DashboardMentee();
         dashboard.Show();

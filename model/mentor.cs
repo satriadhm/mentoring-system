@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    enum subjekMentoring
+   public enum subjekMentoring
     {
         KALKULUS,
         PEMROGRAMAN_DASAR,

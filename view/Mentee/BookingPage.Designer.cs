@@ -28,26 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
             label2 = new Label();
-            searchButton = new Button();
+            submitButton = new Button();
             BookAMentorLabel = new Label();
             comboBoxCourseName = new ComboBox();
             masukListButton = new Button();
             bayarButton = new Button();
             bookMentorDateTimePicker = new DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            comboBoxMentorName = new ComboBox();
+            mentorNameLabel = new Label();
+            scheduleLabel = new Label();
+            label1 = new Label();
+            mentorshipRequestData = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)mentorshipRequestData).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(48, 273);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(151, 141);
-            dataGridView1.TabIndex = 21;
             // 
             // label2
             // 
@@ -55,20 +49,21 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Historic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(379, 110);
+            label2.Location = new Point(372, 110);
             label2.Name = "label2";
             label2.Size = new Size(277, 20);
             label2.TabIndex = 20;
             label2.Text = "Choose the schedule, lesson, and mentor";
             // 
-            // searchButton
+            // submitButton
             // 
-            searchButton.Location = new Point(521, 180);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(135, 29);
-            searchButton.TabIndex = 19;
-            searchButton.Text = "Search";
-            searchButton.UseVisualStyleBackColor = true;
+            submitButton.Location = new Point(521, 180);
+            submitButton.Name = "submitButton";
+            submitButton.Size = new Size(135, 29);
+            submitButton.TabIndex = 19;
+            submitButton.Text = "Submit";
+            submitButton.UseVisualStyleBackColor = true;
+            submitButton.Click += submitButton_Click;
             // 
             // BookAMentorLabel
             // 
@@ -86,9 +81,9 @@
             // 
             comboBoxCourseName.FormattingEnabled = true;
             comboBoxCourseName.Items.AddRange(new object[] { "Kalkulus", "Pemrograman Dasar", "Kimia ", "Fisika", "Biologi" });
-            comboBoxCourseName.Location = new Point(326, 180);
+            comboBoxCourseName.Location = new Point(341, 180);
             comboBoxCourseName.Name = "comboBoxCourseName";
-            comboBoxCourseName.Size = new Size(176, 28);
+            comboBoxCourseName.Size = new Size(161, 28);
             comboBoxCourseName.TabIndex = 18;
             // 
             // masukListButton
@@ -121,18 +116,78 @@
             // 
             // bookMentorDateTimePicker
             // 
-            bookMentorDateTimePicker.Location = new Point(48, 182);
+            bookMentorDateTimePicker.Location = new Point(143, 181);
             bookMentorDateTimePicker.Name = "bookMentorDateTimePicker";
-            bookMentorDateTimePicker.Size = new Size(250, 27);
+            bookMentorDateTimePicker.Size = new Size(180, 27);
             bookMentorDateTimePicker.TabIndex = 15;
+            // 
+            // comboBoxMentorName
+            // 
+            comboBoxMentorName.FormattingEnabled = true;
+            comboBoxMentorName.Items.AddRange(new object[] { "Kalkulus", "Pemrograman Dasar", "Kimia ", "Fisika", "Biologi" });
+            comboBoxMentorName.Location = new Point(19, 180);
+            comboBoxMentorName.Name = "comboBoxMentorName";
+            comboBoxMentorName.Size = new Size(98, 28);
+            comboBoxMentorName.TabIndex = 21;
+            // 
+            // mentorNameLabel
+            // 
+            mentorNameLabel.AutoSize = true;
+            mentorNameLabel.BackColor = Color.Transparent;
+            mentorNameLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            mentorNameLabel.ForeColor = Color.SaddleBrown;
+            mentorNameLabel.Location = new Point(19, 148);
+            mentorNameLabel.Name = "mentorNameLabel";
+            mentorNameLabel.Size = new Size(53, 20);
+            mentorNameLabel.TabIndex = 22;
+            mentorNameLabel.Text = "Name";
+            // 
+            // scheduleLabel
+            // 
+            scheduleLabel.AutoSize = true;
+            scheduleLabel.BackColor = Color.Transparent;
+            scheduleLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            scheduleLabel.ForeColor = Color.SaddleBrown;
+            scheduleLabel.Location = new Point(143, 148);
+            scheduleLabel.Name = "scheduleLabel";
+            scheduleLabel.Size = new Size(77, 20);
+            scheduleLabel.TabIndex = 23;
+            scheduleLabel.Text = "Schedule";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.SaddleBrown;
+            label1.Location = new Point(341, 148);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 20);
+            label1.TabIndex = 24;
+            label1.Text = "Subject";
+            // 
+            // mentorshipRequestData
+            // 
+            mentorshipRequestData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            mentorshipRequestData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mentorshipRequestData.Location = new Point(19, 228);
+            mentorshipRequestData.Name = "mentorshipRequestData";
+            mentorshipRequestData.RowHeadersWidth = 51;
+            mentorshipRequestData.RowTemplate.Height = 29;
+            mentorshipRequestData.Size = new Size(637, 216);
+            mentorshipRequestData.TabIndex = 25;
             // 
             // BookingPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(mentorshipRequestData);
+            Controls.Add(label1);
+            Controls.Add(scheduleLabel);
+            Controls.Add(mentorNameLabel);
+            Controls.Add(comboBoxMentorName);
             Controls.Add(label2);
-            Controls.Add(searchButton);
+            Controls.Add(submitButton);
             Controls.Add(BookAMentorLabel);
             Controls.Add(comboBoxCourseName);
             Controls.Add(masukListButton);
@@ -140,20 +195,24 @@
             Controls.Add(bookMentorDateTimePicker);
             Name = "BookingPage";
             Size = new Size(705, 578);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += BookingPage_Load;
+            ((System.ComponentModel.ISupportInitialize)mentorshipRequestData).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label label2;
-        private Button searchButton;
+        private Button submitButton;
         private Label BookAMentorLabel;
         private ComboBox comboBoxCourseName;
         private Button masukListButton;
         private Button bayarButton;
         private DateTimePicker bookMentorDateTimePicker;
+        private ComboBox comboBoxMentorName;
+        private Label mentorNameLabel;
+        private Label scheduleLabel;
+        private Label label1;
+        private DataGridView mentorshipRequestData;
     }
 }
