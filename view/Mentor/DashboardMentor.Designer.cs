@@ -54,21 +54,21 @@
             NavBar.Dock = DockStyle.Left;
             NavBar.Location = new Point(0, 0);
             NavBar.Name = "NavBar";
-            NavBar.Size = new Size(250, 653);
+            NavBar.Size = new Size(273, 653);
             NavBar.TabIndex = 0;
             // 
             // LogOutBtn
             // 
-            LogOutBtn.Dock = DockStyle.Top;
+            LogOutBtn.Dock = DockStyle.Bottom;
             LogOutBtn.FlatAppearance.BorderSize = 0;
             LogOutBtn.FlatAppearance.MouseOverBackColor = Color.Aqua;
             LogOutBtn.FlatStyle = FlatStyle.Flat;
-            LogOutBtn.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LogOutBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             LogOutBtn.ForeColor = Color.Crimson;
-            LogOutBtn.Location = new Point(0, 334);
+            LogOutBtn.Location = new Point(0, 605);
             LogOutBtn.Name = "LogOutBtn";
             LogOutBtn.Padding = new Padding(15, 0, 0, 0);
-            LogOutBtn.Size = new Size(250, 48);
+            LogOutBtn.Size = new Size(273, 48);
             LogOutBtn.TabIndex = 5;
             LogOutBtn.Text = "Log Out";
             LogOutBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -80,12 +80,12 @@
             YourClassBtn.FlatAppearance.BorderSize = 0;
             YourClassBtn.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
             YourClassBtn.FlatStyle = FlatStyle.Flat;
-            YourClassBtn.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            YourClassBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             YourClassBtn.ForeColor = SystemColors.Control;
-            YourClassBtn.Location = new Point(0, 286);
+            YourClassBtn.Location = new Point(0, 290);
             YourClassBtn.Name = "YourClassBtn";
             YourClassBtn.Padding = new Padding(15, 0, 0, 0);
-            YourClassBtn.Size = new Size(250, 48);
+            YourClassBtn.Size = new Size(273, 48);
             YourClassBtn.TabIndex = 3;
             YourClassBtn.Text = "Your Class";
             YourClassBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -99,7 +99,7 @@
             Dropdown.Dock = DockStyle.Top;
             Dropdown.Location = new Point(0, 196);
             Dropdown.Name = "Dropdown";
-            Dropdown.Size = new Size(250, 90);
+            Dropdown.Size = new Size(273, 94);
             Dropdown.TabIndex = 4;
             // 
             // RequestsBtn
@@ -107,12 +107,12 @@
             RequestsBtn.Dock = DockStyle.Top;
             RequestsBtn.FlatAppearance.BorderSize = 0;
             RequestsBtn.FlatStyle = FlatStyle.Flat;
-            RequestsBtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            RequestsBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             RequestsBtn.ForeColor = SystemColors.Control;
             RequestsBtn.Location = new Point(0, 45);
             RequestsBtn.Name = "RequestsBtn";
             RequestsBtn.Padding = new Padding(35, 0, 0, 0);
-            RequestsBtn.Size = new Size(250, 45);
+            RequestsBtn.Size = new Size(273, 45);
             RequestsBtn.TabIndex = 1;
             RequestsBtn.Text = "Requests";
             RequestsBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,12 +123,12 @@
             ScheduleBtn.Dock = DockStyle.Top;
             ScheduleBtn.FlatAppearance.BorderSize = 0;
             ScheduleBtn.FlatStyle = FlatStyle.Flat;
-            ScheduleBtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ScheduleBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             ScheduleBtn.ForeColor = SystemColors.Control;
             ScheduleBtn.Location = new Point(0, 0);
             ScheduleBtn.Name = "ScheduleBtn";
             ScheduleBtn.Padding = new Padding(35, 0, 0, 0);
-            ScheduleBtn.Size = new Size(250, 45);
+            ScheduleBtn.Size = new Size(273, 45);
             ScheduleBtn.TabIndex = 0;
             ScheduleBtn.Text = "Schedule";
             ScheduleBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -141,12 +141,12 @@
             AppointmentBtn.FlatAppearance.BorderSize = 0;
             AppointmentBtn.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
             AppointmentBtn.FlatStyle = FlatStyle.Flat;
-            AppointmentBtn.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            AppointmentBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             AppointmentBtn.ForeColor = SystemColors.Control;
             AppointmentBtn.Location = new Point(0, 148);
             AppointmentBtn.Name = "AppointmentBtn";
             AppointmentBtn.Padding = new Padding(15, 0, 0, 0);
-            AppointmentBtn.Size = new Size(250, 48);
+            AppointmentBtn.Size = new Size(273, 48);
             AppointmentBtn.TabIndex = 2;
             AppointmentBtn.Text = "Appointment";
             AppointmentBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -159,12 +159,12 @@
             HomeBtn.FlatAppearance.BorderSize = 0;
             HomeBtn.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
             HomeBtn.FlatStyle = FlatStyle.Flat;
-            HomeBtn.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            HomeBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             HomeBtn.ForeColor = SystemColors.Control;
             HomeBtn.Location = new Point(0, 100);
             HomeBtn.Name = "HomeBtn";
             HomeBtn.Padding = new Padding(15, 0, 0, 0);
-            HomeBtn.Size = new Size(250, 48);
+            HomeBtn.Size = new Size(273, 48);
             HomeBtn.TabIndex = 1;
             HomeBtn.Text = "Home";
             HomeBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -175,7 +175,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(250, 100);
+            panel2.Size = new Size(273, 100);
             panel2.TabIndex = 0;
             // 
             // DashboardMentor
