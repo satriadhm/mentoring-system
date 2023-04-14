@@ -34,7 +34,7 @@ namespace mentoring_system.view.Mentee
             controller.bookingState state = new controller.bookingState();
             state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
 
-            table.Rows.Add(comboBoxMentorName.SelectedText,bookMentorDateTimePicker.Value,comboBoxCourseName.SelectedText);
+            table.Rows.Add(comboBoxMentorName.SelectedText, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedText);
         }
     }
 }

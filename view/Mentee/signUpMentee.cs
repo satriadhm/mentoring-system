@@ -6,23 +6,24 @@ namespace mentoring_system.view.Mentee;
 public partial class signUpMentee : Form
 {
 
-
+    static HttpClient client = new HttpClient();
     public signUpMentee()
     {
         InitializeComponent();
     }
 
-    private void registerButton_Click(object sender, EventArgs e)
+    private async void registerButton_Click(object sender, EventArgs e)
     {
         string namaLengkapMentee = namaLengkapTextBox.Text;
         string usernameMentee = usernameTextBox.Text;
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
         Console.WriteLine(namaLengkapMentee + usernameMentee + passwordMentee + umurMentee);
-        model.mentee menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee, Role.MENTEE);
+        model.mentee menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
+        await client.PostAsJsonAsync("http://localhost:5132/api/mentee", menteeData);
 
-        JSONparserBase jSONparserBase = new JSONparserBase();
-        jSONparserBase.WriteJSON(menteeData, "mentee");
+        //JSONparserBase jSONparserBase = new JSONparserBase();
+        //jSONparserBase.WriteJSON(menteeData, "mentee");
 
         this.Hide();
         DashboardMentee dashboard = new DashboardMentee();

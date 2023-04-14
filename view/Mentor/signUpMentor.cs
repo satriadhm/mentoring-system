@@ -9,30 +9,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace mentoring_system.view.Mentor
 {
     public partial class signUpMentor : Form
     {
+        static HttpClient client = new HttpClient();
         public signUpMentor()
         {
             InitializeComponent();
         }
 
-        private void registerButton_Click(object sender, EventArgs e)
+        private async void registerButton_Click(object sender, EventArgs e)
         {
             string namaLengkapMentor= namaLengkapTextBox.Text;
             string usernameMentor= usernameTextBox.Text;
             string passwordMentor = passwordTextBox.Text;
             string umurMentor = umurTextBox.Text;
-            Console.WriteLine(namaLengkapMentor + usernameMentor + passwordMentor + umurMentor);
-            model.mentee menteeData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, Role.MENTOR);
+            model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor);
+            await client.PostAsJsonAsync("http://localhost:5132/api/mentor", mentorData);
 
-            JSONparserBase jSONparserBase = new JSONparserBase();
-            jSONparserBase.WriteJSON(menteeData,"mentor");
+            //JSONparserBase jSONparserBase = new JSONparserBase(); ;
+            //jSONparserBase.WriteJSON(mentorData,"mentor");
             this.Hide();
             DashboardMentee dashboard = new DashboardMentee();
             dashboard.Show();
         }
+
     }
 }
