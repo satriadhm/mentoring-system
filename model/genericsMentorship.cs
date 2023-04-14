@@ -8,13 +8,13 @@ namespace mentoring_system.model
 {
     public class genericsMentorship<T>
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public T MentorID { get; set; }
         public T MenteeID { get; set;}
 
-        public genericsMentorship(int iD, T mentorID, T menteeID)
+        public genericsMentorship(int Id, T mentorID, T menteeID)
         {
-            ID = iD;
+            this.Id = Id;
             MentorID = mentorID;
             MenteeID = menteeID;
         }

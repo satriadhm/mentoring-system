@@ -6,25 +6,14 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.model
 {
-    enum EducationLevel
-    {
-        SD,
-        SMP,
-        SMA
-    }
 
     public class mentee : User
     {
-        
-        private EducationLevel pendidikanTerakhir;
 
-        public mentee(string namaLengkap, string username, string password, string umur, Role role) : base(namaLengkap, username, password, umur, role)
+        public mentee(string namaLengkap, string username, string password, string umur) : base(namaLengkap, username, password, umur)
         {
+            this.role = (Role)0;
         }
-
-        internal EducationLevel PendidikanTerakhir { get => pendidikanTerakhir; set => pendidikanTerakhir = value; }
-
-
 
     }
 

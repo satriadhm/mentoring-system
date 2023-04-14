@@ -17,8 +17,10 @@ namespace mentoring_system.model
     }
     public class mentor : User
     {
-        public mentor(string namaLengkap, string username, string password, string umur, Role role) : base(namaLengkap, username, password, umur, role)
+        public mentor(string namaLengkap, string username, string password, string umur) : base(namaLengkap, username, password, umur)
         {
+        
+            this.role = (Role)1;
         }
     }
 }

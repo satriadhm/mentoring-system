@@ -22,23 +22,21 @@ namespace mentoring_system.model
         public string umur { get; set; }
         public Role role { get; set; }
 
-        public User(string namaLengkap, string username, string password, string umur, Role role)
-
-        {
-            Debug.Assert(namaLengkap != null);
-
+        public User(string namaLengkap, string username, string password, string umur)
+        { 
             Random random = new Random();
             this.NamaLengkap = namaLengkap;
             this.userName = username;
             this.umur = umur;
             this.Id = random.Next();
-            this.role = role;
             this.password = password;
-            //Debug.Assert(namaLengkap.Length <= 30);
-            //Debug.Assert(username.Length <= 10);
-            //Debug.Assert(!string.IsNullOrEmpty(namaLengkap));
-            //Debug.Assert(!string.IsNullOrEmpty(userName));
-            //Debug.Assert();
+
+            Debug.Assert(!string.IsNullOrEmpty(namaLengkap), "Nama Lengkap tidak boleh kosong.");
+            Debug.Assert(!string.IsNullOrEmpty(userName), "Username tidak boleh kosong.");
+            Debug.Assert(!string.IsNullOrEmpty(password), "Password tidak boleh kosong.");
+            Debug.Assert(namaLengkap.Length <= 30, "Nama Lengkap maksimal 3 kata.");
+            Debug.Assert(username.Length <= 10, "Username maksimal 10 karakter.");
+
 
         }
 

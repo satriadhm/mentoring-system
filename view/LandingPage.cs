@@ -1,4 +1,5 @@
 ﻿using mentoring_system.view.Mentee;
+using mentoring_system.view.Mentor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,8 +29,8 @@ namespace mentoring_system.view
         private void buttonMentor_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginMentor login = new LoginMentor();
-            login.Show();
+            signUpMentor mentee = new signUpMentor();
+            mentee.Show();
         }
     }
 }

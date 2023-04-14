@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mentoring-system", "mentoring-system.csproj", "{DD25A3FD-1ED9-4FFF-80F3-79A7B20D3266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apimentoringsystem", "..\apimentoringsystem\apimentoringsystem.csproj", "{E8E9CA9B-104D-4209-8722-8CE4ACB2D942}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-mentoring-system", "..\apimentoringsystem\api-mentoring-system.csproj", "{E8E9CA9B-104D-4209-8722-8CE4ACB2D942}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
