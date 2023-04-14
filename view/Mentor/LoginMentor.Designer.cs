@@ -34,9 +34,9 @@
             copyWritingLabel = new Label();
             passwordLabel = new Label();
             usernameLabel = new Label();
-            loginButton = new Button();
             passwordTextBox = new TextBox();
             usernameTextbox = new TextBox();
+            loginButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)loginAsset).BeginInit();
             SuspendLayout();
@@ -90,16 +90,6 @@
             usernameLabel.TabIndex = 12;
             usernameLabel.Text = "Username";
             // 
-            // loginButton
-            // 
-            loginButton.Location = new Point(559, 438);
-            loginButton.Name = "loginButton";
-            loginButton.Size = new Size(175, 27);
-            loginButton.TabIndex = 11;
-            loginButton.Text = "login";
-            loginButton.UseVisualStyleBackColor = true;
-            loginButton.Click += loginButton_Click_1;
-            // 
             // passwordTextBox
             // 
             passwordTextBox.Location = new Point(502, 362);
@@ -116,15 +106,28 @@
             usernameTextbox.Size = new Size(232, 26);
             usernameTextbox.TabIndex = 9;
             // 
+            // loginButton
+            // 
+            loginButton.BackColor = Color.LightSkyBlue;
+            loginButton.FlatAppearance.BorderSize = 0;
+            loginButton.FlatStyle = FlatStyle.Flat;
+            loginButton.Location = new Point(516, 440);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(218, 33);
+            loginButton.TabIndex = 28;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += loginButton_Click;
+            // 
             // LoginMentor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 637);
+            Controls.Add(loginButton);
             Controls.Add(copyWritingLabel);
             Controls.Add(passwordLabel);
             Controls.Add(usernameLabel);
-            Controls.Add(loginButton);
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextbox);
             Controls.Add(pictureBox1);
@@ -143,8 +146,8 @@
         private Label copyWritingLabel;
         private Label passwordLabel;
         private Label usernameLabel;
-        private Button loginButton;
         private TextBox passwordTextBox;
         private TextBox usernameTextbox;
+        private Button loginButton;
     }
 }

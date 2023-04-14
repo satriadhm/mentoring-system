@@ -26,8 +26,8 @@ namespace mentoring_system.view.Mentor
 
         private async void registerButton_Click(object sender, EventArgs e)
         {
-            string namaLengkapMentor= namaLengkapTextBox.Text;
-            string usernameMentor= usernameTextBox.Text;
+            string namaLengkapMentor = namaLengkapTextBox.Text;
+            string usernameMentor = usernameTextBox.Text;
             string passwordMentor = passwordTextBox.Text;
             string umurMentor = umurTextBox.Text;
             model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor);

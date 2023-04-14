@@ -29,17 +29,5 @@ namespace mentoring_system
                 MessageBox.Show(Text, ex.Message);
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginButton_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            DashboardMentor mentor = new DashboardMentor();
-            mentor.Show();
-        }
     }
 }

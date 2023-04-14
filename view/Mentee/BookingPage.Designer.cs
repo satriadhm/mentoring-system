@@ -32,7 +32,7 @@
             submitButton = new Button();
             BookAMentorLabel = new Label();
             comboBoxCourseName = new ComboBox();
-            bayarButton = new Button();
+            proceedButton = new Button();
             bookMentorDateTimePicker = new DateTimePicker();
             comboBoxMentorName = new ComboBox();
             mentorNameLabel = new Label();
@@ -85,19 +85,19 @@
             comboBoxCourseName.Size = new Size(161, 28);
             comboBoxCourseName.TabIndex = 18;
             // 
-            // bayarButton
+            // proceedButton
             // 
-            bayarButton.BackColor = Color.NavajoWhite;
-            bayarButton.FlatAppearance.BorderSize = 0;
-            bayarButton.FlatStyle = FlatStyle.Flat;
-            bayarButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            bayarButton.ForeColor = Color.SaddleBrown;
-            bayarButton.Location = new Point(406, 479);
-            bayarButton.Name = "bayarButton";
-            bayarButton.Size = new Size(250, 29);
-            bayarButton.TabIndex = 16;
-            bayarButton.Text = "Proceed";
-            bayarButton.UseVisualStyleBackColor = false;
+            proceedButton.BackColor = Color.NavajoWhite;
+            proceedButton.FlatAppearance.BorderSize = 0;
+            proceedButton.FlatStyle = FlatStyle.Flat;
+            proceedButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            proceedButton.ForeColor = Color.SaddleBrown;
+            proceedButton.Location = new Point(406, 479);
+            proceedButton.Name = "proceedButton";
+            proceedButton.Size = new Size(250, 29);
+            proceedButton.TabIndex = 16;
+            proceedButton.Text = "Proceed";
+            proceedButton.UseVisualStyleBackColor = false;
             // 
             // bookMentorDateTimePicker
             // 
@@ -175,7 +175,7 @@
             Controls.Add(submitButton);
             Controls.Add(BookAMentorLabel);
             Controls.Add(comboBoxCourseName);
-            Controls.Add(bayarButton);
+            Controls.Add(proceedButton);
             Controls.Add(bookMentorDateTimePicker);
             Name = "BookingPage";
             Size = new Size(705, 578);
@@ -190,7 +190,7 @@
         private Button submitButton;
         private Label BookAMentorLabel;
         private ComboBox comboBoxCourseName;
-        private Button bayarButton;
+        private Button proceedButton;
         private DateTimePicker bookMentorDateTimePicker;
         private ComboBox comboBoxMentorName;
         private Label mentorNameLabel;
