@@ -8,11 +8,9 @@ namespace mentoring_system.model
 {
    public enum subjekMentoring
     {
-        KALKULUS,
-        PEMROGRAMAN_DASAR,
-        KIMIA,
-        FISIKA,
-        BIOLOGI
+        interactionDesign,
+        Algorithm,
+        dataStructure
 
     }
     public class mentor : User

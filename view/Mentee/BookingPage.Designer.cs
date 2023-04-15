@@ -79,7 +79,6 @@
             // comboBoxCourseName
             // 
             comboBoxCourseName.FormattingEnabled = true;
-            comboBoxCourseName.Items.AddRange(new object[] { "Kalkulus", "Pemrograman Dasar", "Kimia ", "Fisika", "Biologi" });
             comboBoxCourseName.Location = new Point(341, 180);
             comboBoxCourseName.Name = "comboBoxCourseName";
             comboBoxCourseName.Size = new Size(161, 28);
@@ -98,6 +97,7 @@
             proceedButton.TabIndex = 16;
             proceedButton.Text = "Proceed";
             proceedButton.UseVisualStyleBackColor = false;
+            proceedButton.Click += proceedButton_Click;
             // 
             // bookMentorDateTimePicker
             // 
@@ -109,7 +109,6 @@
             // comboBoxMentorName
             // 
             comboBoxMentorName.FormattingEnabled = true;
-            comboBoxMentorName.Items.AddRange(new object[] { "Kalkulus", "Pemrograman Dasar", "Kimia ", "Fisika", "Biologi" });
             comboBoxMentorName.Location = new Point(19, 180);
             comboBoxMentorName.Name = "comboBoxMentorName";
             comboBoxMentorName.Size = new Size(98, 28);
