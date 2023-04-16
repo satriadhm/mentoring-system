@@ -10,32 +10,46 @@ namespace mentoring_system
             InitializeComponent();
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private async void loginButton_Click(object sender, EventArgs e)
         {
-            try 
+            HttpClient client = new HttpClient();
+            try
             {
                 if (!(usernameTextbox.Text == string.Empty))
                 {
-                    
+
                     if (!(passwordTextBox.Text == string.Empty))
                     {
+
+                        string usernameMentee = usernameTextbox.Text;
+                        string passwordMentee = passwordTextBox.Text;
+                        Console.WriteLine(usernameMentee + passwordMentee);
+                        model.mentee menteeData = new("Unknown", usernameMentee, passwordMentee, "Unknown");
+                        await client.PostAsJsonAsync("http://localhost:5132/api/mentee", menteeData);
                         this.Hide();
                         DashboardMentee dashboard = new DashboardMentee();
                         dashboard.ShowDialog();
 
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show(" password empty", "login page");
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("username empty", "login page");
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(Text, ex.Message);
             }
+        }
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

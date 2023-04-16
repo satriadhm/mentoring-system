@@ -49,5 +49,12 @@ namespace mentoring_system.view
         {
 
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LandingPage landingPage = new LandingPage();
+            landingPage.Show();
+        }
     }
 }

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Security.Policy;
 
 namespace mentoring_system.view
 {
@@ -16,7 +19,20 @@ namespace mentoring_system.view
         {
             InitializeComponent();
             Dropdown.Visible = false;
+            GetUserInfoAsync();
+            
+            
         }
+        public async Task GetUserInfoAsync()
+        {
+            
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync("http://localhost:5132/api/mentor");
+            List<model.mentor> users = JsonConvert.DeserializeObject<List<model.mentor>>(json);
+            string mentorName = users[0].userName;
+            userName.Text = $"Welcome, {mentorName}";
+        }
+
         private void HideDropdown()
         {
             if (Dropdown.Visible)
@@ -83,6 +99,15 @@ namespace mentoring_system.view
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userName_Click(object sender, EventArgs e)
+        {
         }
     }
 }
