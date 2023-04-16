@@ -261,6 +261,7 @@ namespace mentoring_system.view
             LessonLearnedPanel.Name = "LessonLearnedPanel";
             LessonLearnedPanel.Size = new Size(187, 127);
             LessonLearnedPanel.TabIndex = 3;
+            LessonLearnedPanel.Paint += LessonLearnedPanel_Paint;
             // 
             // newLeasonLearnedLabel
             // 
