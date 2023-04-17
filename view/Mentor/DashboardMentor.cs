@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Security.Policy;
+using mentoring_system.view.Mentor;
 
 namespace mentoring_system.view
 {
@@ -19,13 +20,14 @@ namespace mentoring_system.view
         {
             InitializeComponent();
             Dropdown.Visible = false;
+            mentorSchedule1.SendToBack();
             GetUserInfoAsync();
-            
-            
+
+
         }
         public async Task GetUserInfoAsync()
         {
-            
+
             HttpClient client = new HttpClient();
             string json = await client.GetStringAsync("http://localhost:5132/api/mentor");
             List<model.mentor> users = JsonConvert.DeserializeObject<List<model.mentor>>(json);
@@ -53,7 +55,7 @@ namespace mentoring_system.view
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            mentorSchedule1.BringToFront();
         }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
@@ -108,6 +110,18 @@ namespace mentoring_system.view
 
         private void userName_Click(object sender, EventArgs e)
         {
+        }
+
+        private void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LandingPage landingPage = new LandingPage();
+            landingPage.Show();
+        }
+
+        private void HomeBtn_Click(object sender, EventArgs e)
+        {
+            mentorSchedule1.SendToBack();
         }
     }
 }

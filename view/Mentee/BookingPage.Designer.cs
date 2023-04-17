@@ -48,17 +48,18 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Historic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(372, 110);
+            label2.Location = new Point(326, 82);
             label2.Name = "label2";
-            label2.Size = new Size(277, 20);
+            label2.Size = new Size(224, 15);
             label2.TabIndex = 20;
             label2.Text = "Choose the schedule, lesson, and mentor";
             // 
             // submitButton
             // 
-            submitButton.Location = new Point(521, 180);
+            submitButton.Location = new Point(456, 135);
+            submitButton.Margin = new Padding(3, 2, 3, 2);
             submitButton.Name = "submitButton";
-            submitButton.Size = new Size(135, 29);
+            submitButton.Size = new Size(118, 22);
             submitButton.TabIndex = 19;
             submitButton.Text = "Submit";
             submitButton.UseVisualStyleBackColor = true;
@@ -70,19 +71,21 @@
             BookAMentorLabel.BackColor = Color.Transparent;
             BookAMentorLabel.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             BookAMentorLabel.ForeColor = Color.SaddleBrown;
-            BookAMentorLabel.Location = new Point(480, 70);
+            BookAMentorLabel.Location = new Point(420, 52);
             BookAMentorLabel.Name = "BookAMentorLabel";
-            BookAMentorLabel.Size = new Size(176, 31);
+            BookAMentorLabel.Size = new Size(149, 25);
             BookAMentorLabel.TabIndex = 14;
             BookAMentorLabel.Text = "Book a Mentor";
             // 
             // comboBoxCourseName
             // 
             comboBoxCourseName.FormattingEnabled = true;
-            comboBoxCourseName.Location = new Point(341, 180);
+            comboBoxCourseName.Location = new Point(298, 135);
+            comboBoxCourseName.Margin = new Padding(3, 2, 3, 2);
             comboBoxCourseName.Name = "comboBoxCourseName";
-            comboBoxCourseName.Size = new Size(161, 28);
+            comboBoxCourseName.Size = new Size(141, 23);
             comboBoxCourseName.TabIndex = 18;
+            comboBoxCourseName.SelectedIndexChanged += comboBoxCourseName_SelectedIndexChanged;
             // 
             // proceedButton
             // 
@@ -91,9 +94,10 @@
             proceedButton.FlatStyle = FlatStyle.Flat;
             proceedButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             proceedButton.ForeColor = Color.SaddleBrown;
-            proceedButton.Location = new Point(406, 479);
+            proceedButton.Location = new Point(355, 359);
+            proceedButton.Margin = new Padding(3, 2, 3, 2);
             proceedButton.Name = "proceedButton";
-            proceedButton.Size = new Size(250, 29);
+            proceedButton.Size = new Size(219, 22);
             proceedButton.TabIndex = 16;
             proceedButton.Text = "Proceed";
             proceedButton.UseVisualStyleBackColor = false;
@@ -101,17 +105,19 @@
             // 
             // bookMentorDateTimePicker
             // 
-            bookMentorDateTimePicker.Location = new Point(143, 181);
+            bookMentorDateTimePicker.Location = new Point(125, 136);
+            bookMentorDateTimePicker.Margin = new Padding(3, 2, 3, 2);
             bookMentorDateTimePicker.Name = "bookMentorDateTimePicker";
-            bookMentorDateTimePicker.Size = new Size(180, 27);
+            bookMentorDateTimePicker.Size = new Size(158, 23);
             bookMentorDateTimePicker.TabIndex = 15;
             // 
             // comboBoxMentorName
             // 
             comboBoxMentorName.FormattingEnabled = true;
-            comboBoxMentorName.Location = new Point(19, 180);
+            comboBoxMentorName.Location = new Point(17, 135);
+            comboBoxMentorName.Margin = new Padding(3, 2, 3, 2);
             comboBoxMentorName.Name = "comboBoxMentorName";
-            comboBoxMentorName.Size = new Size(98, 28);
+            comboBoxMentorName.Size = new Size(86, 23);
             comboBoxMentorName.TabIndex = 21;
             // 
             // mentorNameLabel
@@ -120,9 +126,9 @@
             mentorNameLabel.BackColor = Color.Transparent;
             mentorNameLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             mentorNameLabel.ForeColor = Color.SaddleBrown;
-            mentorNameLabel.Location = new Point(19, 148);
+            mentorNameLabel.Location = new Point(17, 111);
             mentorNameLabel.Name = "mentorNameLabel";
-            mentorNameLabel.Size = new Size(53, 20);
+            mentorNameLabel.Size = new Size(43, 15);
             mentorNameLabel.TabIndex = 22;
             mentorNameLabel.Text = "Name";
             // 
@@ -132,9 +138,9 @@
             scheduleLabel.BackColor = Color.Transparent;
             scheduleLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             scheduleLabel.ForeColor = Color.SaddleBrown;
-            scheduleLabel.Location = new Point(143, 148);
+            scheduleLabel.Location = new Point(125, 111);
             scheduleLabel.Name = "scheduleLabel";
-            scheduleLabel.Size = new Size(77, 20);
+            scheduleLabel.Size = new Size(63, 15);
             scheduleLabel.TabIndex = 23;
             scheduleLabel.Text = "Schedule";
             // 
@@ -144,9 +150,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(341, 148);
+            label1.Location = new Point(298, 111);
             label1.Name = "label1";
-            label1.Size = new Size(65, 20);
+            label1.Size = new Size(53, 15);
             label1.TabIndex = 24;
             label1.Text = "Subject";
             // 
@@ -154,16 +160,17 @@
             // 
             mentorshipRequestData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             mentorshipRequestData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mentorshipRequestData.Location = new Point(19, 228);
+            mentorshipRequestData.Location = new Point(17, 171);
+            mentorshipRequestData.Margin = new Padding(3, 2, 3, 2);
             mentorshipRequestData.Name = "mentorshipRequestData";
             mentorshipRequestData.RowHeadersWidth = 51;
             mentorshipRequestData.RowTemplate.Height = 29;
-            mentorshipRequestData.Size = new Size(637, 216);
+            mentorshipRequestData.Size = new Size(557, 162);
             mentorshipRequestData.TabIndex = 25;
             // 
             // BookingPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(mentorshipRequestData);
             Controls.Add(label1);
@@ -176,8 +183,9 @@
             Controls.Add(comboBoxCourseName);
             Controls.Add(proceedButton);
             Controls.Add(bookMentorDateTimePicker);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "BookingPage";
-            Size = new Size(705, 578);
+            Size = new Size(617, 434);
             Load += BookingPage_Load;
             ((System.ComponentModel.ISupportInitialize)mentorshipRequestData).EndInit();
             ResumeLayout(false);

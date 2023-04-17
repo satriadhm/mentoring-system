@@ -24,8 +24,8 @@ namespace mentoring_system
                     string usernameMentor = usernameTextbox.Text;
                     string passwordMentor = passwordTextBox.Text;
                     Console.WriteLine(usernameMentor + passwordMentor);
-                    model.mentee menteeData = new("Unknown", usernameMentor, passwordMentor, "Unknown");
-                    await client.PostAsJsonAsync("http://localhost:5132/api/mentor", menteeData);
+                    model.mentor mentorData = new("Unknown", usernameMentor, passwordMentor, "Unknown");
+                    await client.PostAsJsonAsync("http://localhost:5132/api/mentor", mentorData);
                     this.Hide();
                     DashboardMentor home = new DashboardMentor();
                     

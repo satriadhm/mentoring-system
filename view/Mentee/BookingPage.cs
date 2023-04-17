@@ -72,5 +72,10 @@ namespace mentoring_system.view.Mentee
         {
             this.BackColor = Color.White;
         }
+
+        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
