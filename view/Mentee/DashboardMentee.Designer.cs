@@ -98,6 +98,7 @@ namespace mentoring_system.view
             logoutButton.TabIndex = 8;
             logoutButton.Text = "Log Out";
             logoutButton.UseVisualStyleBackColor = true;
+            logoutButton.Click += logoutButton_Click;
             // 
             // logoutIcon
             // 
@@ -261,6 +262,7 @@ namespace mentoring_system.view
             LessonLearnedPanel.Name = "LessonLearnedPanel";
             LessonLearnedPanel.Size = new Size(187, 127);
             LessonLearnedPanel.TabIndex = 3;
+            LessonLearnedPanel.Paint += LessonLearnedPanel_Paint;
             // 
             // newLeasonLearnedLabel
             // 
@@ -396,7 +398,7 @@ namespace mentoring_system.view
             bookingPage.Name = "bookingPage";
             bookingPage.Size = new Size(705, 578);
             bookingPage.TabIndex = 10;
-            //
+            // 
             // mySchedulePage
             // 
             mySchedulePage.Location = new Point(215, 52);

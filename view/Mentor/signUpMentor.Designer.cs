@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signUpMentor));
-            label1 = new Label();
-            RegisterNowLabel = new Label();
             umurLabel = new Label();
             umurTextBox = new TextBox();
             passwordLabel = new Label();
             usernameLabel = new Label();
-            namaLengkapLabel = new Label();
             passwordTextBox = new TextBox();
             usernameTextBox = new TextBox();
             namaLengkapTextBox = new TextBox();
@@ -46,28 +43,10 @@
             dataStructureRadioButton = new RadioButton();
             interactionDesignRadioButton = new RadioButton();
             algorithmProgrammingRadioButton = new RadioButton();
+            namaLengkapLabel = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoginPageMentor).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Historic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(399, 54);
-            label1.Name = "label1";
-            label1.Size = new Size(216, 20);
-            label1.TabIndex = 24;
-            label1.Text = "Register and scale up your skill!";
-            // 
-            // RegisterNowLabel
-            // 
-            RegisterNowLabel.AutoSize = true;
-            RegisterNowLabel.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            RegisterNowLabel.Location = new Point(399, 23);
-            RegisterNowLabel.Name = "RegisterNowLabel";
-            RegisterNowLabel.Size = new Size(185, 31);
-            RegisterNowLabel.TabIndex = 23;
-            RegisterNowLabel.Text = "REGISTER NOW";
             // 
             // umurLabel
             // 
@@ -105,16 +84,6 @@
             usernameLabel.Size = new Size(80, 20);
             usernameLabel.TabIndex = 19;
             usernameLabel.Text = "Username";
-            // 
-            // namaLengkapLabel
-            // 
-            namaLengkapLabel.AutoSize = true;
-            namaLengkapLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            namaLengkapLabel.Location = new Point(399, 104);
-            namaLengkapLabel.Name = "namaLengkapLabel";
-            namaLengkapLabel.Size = new Size(114, 20);
-            namaLengkapLabel.TabIndex = 18;
-            namaLengkapLabel.Text = "Nama Lengkap";
             // 
             // passwordTextBox
             // 
@@ -157,6 +126,7 @@
             loginButton.TabIndex = 27;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += loginButton_Click;
             // 
             // registerButton
             // 
@@ -214,6 +184,26 @@
             algorithmProgrammingRadioButton.Text = "Algorithm Programming";
             algorithmProgrammingRadioButton.UseVisualStyleBackColor = true;
             // 
+            // namaLengkapLabel
+            // 
+            namaLengkapLabel.AutoSize = true;
+            namaLengkapLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            namaLengkapLabel.Location = new Point(399, 104);
+            namaLengkapLabel.Name = "namaLengkapLabel";
+            namaLengkapLabel.Size = new Size(114, 20);
+            namaLengkapLabel.TabIndex = 18;
+            namaLengkapLabel.Text = "Nama Lengkap";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Historic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(399, 54);
+            label1.Name = "label1";
+            label1.Size = new Size(216, 20);
+            label1.TabIndex = 24;
+            label1.Text = "Register and scale up your skill!";
+            // 
             // signUpMentor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -227,7 +217,6 @@
             Controls.Add(registerButton);
             Controls.Add(pictureBoxLoginPageMentor);
             Controls.Add(label1);
-            Controls.Add(RegisterNowLabel);
             Controls.Add(umurLabel);
             Controls.Add(umurTextBox);
             Controls.Add(passwordLabel);
@@ -244,14 +233,10 @@
         }
 
         #endregion
-
-        private Label label1;
-        private Label RegisterNowLabel;
         private Label umurLabel;
         private TextBox umurTextBox;
         private Label passwordLabel;
         private Label usernameLabel;
-        private Label namaLengkapLabel;
         private TextBox passwordTextBox;
         private TextBox usernameTextBox;
         private TextBox namaLengkapTextBox;
@@ -262,5 +247,7 @@
         private RadioButton dataStructureRadioButton;
         private RadioButton interactionDesignRadioButton;
         private RadioButton algorithmProgrammingRadioButton;
+        private Label label1;
+        private Label namaLengkapLabel;
     }
 }

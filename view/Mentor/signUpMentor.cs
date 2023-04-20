@@ -36,9 +36,15 @@ namespace mentoring_system.view.Mentor
             //JSONparserBase jSONparserBase = new JSONparserBase(); ;
             //jSONparserBase.WriteJSON(mentorData,"mentor");
             this.Hide();
-            DashboardMentee dashboard = new DashboardMentee();
+            DashboardMentor dashboard = new DashboardMentor();
             dashboard.Show();
         }
 
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginMentor login = new LoginMentor();
+            login.Show();
+        }
     }
 }

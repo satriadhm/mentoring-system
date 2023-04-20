@@ -76,5 +76,10 @@ namespace mentoring_system.view.Mentee
             paymentpage.Show();
 
         }
+
+        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
