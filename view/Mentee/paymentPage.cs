@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view.Mentee
 {
-    public partial class proceedPage : UserControl
+    public partial class PaymentPage : Form
     {
-        public proceedPage()
+        public PaymentPage()
         {
             InitializeComponent();
         }
