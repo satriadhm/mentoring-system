@@ -186,6 +186,7 @@
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextBox);
             Controls.Add(namaLengkapTextBox);
+            MaximizeBox = false;
             Name = "signUpMentee";
             Text = "Register / Sign Up";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

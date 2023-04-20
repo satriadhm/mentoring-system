@@ -151,6 +151,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 638);
             Controls.Add(splitContainer1);
+            MaximizeBox = false;
             Name = "LoginMentee";
             Text = "Login Page";
             splitContainer1.Panel1.ResumeLayout(false);

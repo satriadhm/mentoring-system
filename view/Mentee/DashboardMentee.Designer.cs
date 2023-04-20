@@ -439,6 +439,7 @@ namespace mentoring_system.view
             Controls.Add(panel5);
             Controls.Add(coursePage);
             Controls.Add(bookingPage);
+            MaximizeBox = false;
             Name = "DashboardMentee";
             Text = "Dashboard";
             panelNavbar.ResumeLayout(false);

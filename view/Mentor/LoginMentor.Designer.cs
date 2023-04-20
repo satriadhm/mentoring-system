@@ -132,6 +132,7 @@
             Controls.Add(usernameTextbox);
             Controls.Add(pictureBox1);
             Controls.Add(loginAsset);
+            MaximizeBox = false;
             Name = "LoginMentor";
             Text = "Login Page";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

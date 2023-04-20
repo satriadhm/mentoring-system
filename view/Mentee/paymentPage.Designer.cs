@@ -104,6 +104,7 @@
             Controls.Add(ewalletRadioButton);
             Controls.Add(paymentMethodLabel);
             Controls.Add(proceedButton);
+            MaximizeBox = false;
             Name = "PaymentPage";
             Text = "PaymentPage";
             ResumeLayout(false);
