@@ -143,14 +143,16 @@
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 26);
             usernameTextbox.TabIndex = 0;
+            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             // 
-            // LoginPage
+            // LoginMentee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 638);
             Controls.Add(splitContainer1);
-            Name = "LoginPage";
+            MaximizeBox = false;
+            Name = "LoginMentee";
             Text = "Login Page";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);

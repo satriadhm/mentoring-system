@@ -8,17 +8,17 @@ namespace mentoring_system.model
 {
    public enum subjekMentoring
     {
-        KALKULUS,
-        PEMROGRAMAN_DASAR,
-        KIMIA,
-        FISIKA,
-        BIOLOGI
+        interactionDesign,
+        Algorithm,
+        dataStructure
 
     }
     public class mentor : User
     {
-        public mentor(string namaLengkap, string username, string password, string umur, Role role) : base(namaLengkap, username, password, umur, role)
+        public mentor(string namaLengkap, string username, string password, string umur) : base(namaLengkap, username, password, umur)
         {
+        
+            this.role = (Role)1;
         }
     }
 }

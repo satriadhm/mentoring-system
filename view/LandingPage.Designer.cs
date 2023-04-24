@@ -111,6 +111,7 @@
             Controls.Add(registerMentorButton);
             Controls.Add(pictureMentee);
             Controls.Add(pictureMentor);
+            MaximizeBox = false;
             Name = "LandingPage";
             Text = "Landing Page";
             ((System.ComponentModel.ISupportInitialize)pictureMentor).EndInit();
