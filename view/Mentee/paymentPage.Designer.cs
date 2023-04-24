@@ -93,6 +93,7 @@
             proceedButton.TabIndex = 22;
             proceedButton.Text = "Proceed";
             proceedButton.UseVisualStyleBackColor = false;
+            proceedButton.Click += proceedButton_Click;
             // 
             // PaymentPage
             // 

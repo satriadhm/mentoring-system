@@ -16,5 +16,10 @@ namespace mentoring_system.view.Mentee
         {
             InitializeComponent();
         }
+
+        private void proceedButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
