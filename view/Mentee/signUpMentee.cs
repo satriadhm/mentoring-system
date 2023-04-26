@@ -1,5 +1,6 @@
 ﻿using mentoring_system.controller;
 using mentoring_system.model;
+using System.Diagnostics;
 
 namespace mentoring_system.view.Mentee;
 
@@ -14,22 +15,38 @@ public partial class signUpMentee : Form
 
     private async void registerButton_Click(object sender, EventArgs e)
     {
+        // Pre Condition: Semua field harus terisi
+        Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
+        Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
+        Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
+        Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
+
         string namaLengkapMentee = namaLengkapTextBox.Text;
         string usernameMentee = usernameTextBox.Text;
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
-        Console.WriteLine(namaLengkapMentee + usernameMentee + passwordMentee + umurMentee);
+        string url = "http://localhost:5132/api/mentee";
         model.mentee menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
-        await client.PostAsJsonAsync("http://localhost:5132/api/mentee", menteeData);
+        try
+        {
+            HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeData);
+            response.EnsureSuccessStatusCode();
 
-        //JSONparserBase jSONparserBase = new JSONparserBase();
-        //jSONparserBase.WriteJSON(menteeData, "mentee");
+            // Post Condition: Response dari API mengindikasikan data mentee baru berhasil ditambahkan
+            Debug.Assert(response.IsSuccessStatusCode, "Data mentee baru tidak berhasil ditambahkan");
+        }
+        catch (Exception ex)
+        {
+            // Exception: Menampilkan pesan error saat terjadi exception
+            System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+            System.Diagnostics.Debug.WriteLine("Error: " + url);
+        }
 
         this.Hide();
         DashboardMentee dashboard = new DashboardMentee();
         dashboard.Show();
-
     }
+
 
     private void loginButton_Click(object sender, EventArgs e)
     {

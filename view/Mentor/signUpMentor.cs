@@ -30,11 +30,42 @@ namespace mentoring_system.view.Mentor
             string usernameMentor = usernameTextBox.Text;
             string passwordMentor = passwordTextBox.Text;
             string umurMentor = umurTextBox.Text;
-            model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor);
-            await client.PostAsJsonAsync("http://localhost:5132/api/mentor", mentorData);
+
+            subjekMentoring subjek;
+
+            if (dataStructureRadioButton.Checked)
+            {
+                subjek = subjekMentoring.dataStructure;
+            }
+            else if (algorithmProgrammingRadioButton.Checked)
+            {
+                subjek = subjekMentoring.Algorithm;
+            }
+            else if (interactionDesignRadioButton.Checked)
+            {
+                subjek = subjekMentoring.interactionDesign;
+            }
+            else 
+            {
+                subjek = 0;
+            }
+            model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
+            Console.WriteLine(mentorData.NamaLengkap,mentorData.umur,mentorData.userName);
+            string url = "http://localhost:5132/api/mentor";
+            try
+            {
+                HttpResponseMessage response = await client.PostAsJsonAsync(url, mentorData);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Error: " + url);
+            }
 
             //JSONparserBase jSONparserBase = new JSONparserBase(); ;
             //jSONparserBase.WriteJSON(mentorData,"mentor");
+
             this.Hide();
             DashboardMentor dashboard = new DashboardMentor();
             dashboard.Show();
