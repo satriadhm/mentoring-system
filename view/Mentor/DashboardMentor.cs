@@ -20,7 +20,7 @@ namespace mentoring_system.view
         {
             InitializeComponent();
             Dropdown.Visible = false;
-            mentorSchedule1.SendToBack();
+            //mentorSchedule1.SendToBack();
             GetUserInfoAsync();
 
 
@@ -121,7 +121,7 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            mentorSchedule1.SendToBack();
+            //mentorSchedule1.SendToBack();
         }
     }
 }

@@ -262,7 +262,6 @@ namespace mentoring_system.view
             LessonLearnedPanel.Name = "LessonLearnedPanel";
             LessonLearnedPanel.Size = new Size(187, 127);
             LessonLearnedPanel.TabIndex = 3;
-            LessonLearnedPanel.Paint += LessonLearnedPanel_Paint;
             // 
             // newLeasonLearnedLabel
             // 
@@ -439,6 +438,8 @@ namespace mentoring_system.view
             Controls.Add(panel5);
             Controls.Add(coursePage);
             Controls.Add(bookingPage);
+            Controls.Add(mySchedulePage);
+            MaximizeBox = false;
             Name = "DashboardMentee";
             Text = "Dashboard";
             panelNavbar.ResumeLayout(false);

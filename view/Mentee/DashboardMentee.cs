@@ -45,11 +45,6 @@ namespace mentoring_system.view
             coursePage.BringToFront();
         }
 
-        private void LessonLearnedPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Hide();

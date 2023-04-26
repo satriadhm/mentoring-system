@@ -19,6 +19,7 @@ namespace mentoring_system.view.Mentee
         static HttpClient client = new HttpClient();
 
         DataTable table = new DataTable("Mentorship Request");
+
         public BookingPage()
         {
             InitializeComponent();
@@ -69,8 +70,11 @@ namespace mentoring_system.view.Mentee
         }
 
         private void proceedButton_Click(object sender, EventArgs e)
-        {
-            this.BackColor = Color.White;
+        { 
+            // tambahkan user control baru
+            PaymentPage paymentpage = new PaymentPage();
+            paymentpage.Show();
+
         }
 
         private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)

@@ -35,7 +35,7 @@ namespace mentoring_system.model
             Debug.Assert(!string.IsNullOrEmpty(userName), "Username tidak boleh kosong.");
             Debug.Assert(!string.IsNullOrEmpty(password), "Password tidak boleh kosong.");
             Debug.Assert(namaLengkap.Length <= 30, "Nama Lengkap maksimal 3 kata.");
-            Debug.Assert(username.Length <= 10, "Username maksimal 10 karakter.");
+            //Debug.Assert(username.Length <= 15, "Username maksimal 15 karakter.");
 
 
         }

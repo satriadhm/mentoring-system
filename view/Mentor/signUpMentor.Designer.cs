@@ -225,6 +225,7 @@
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextBox);
             Controls.Add(namaLengkapTextBox);
+            MaximizeBox = false;
             Name = "signUpMentor";
             Text = "signUpMentor";
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoginPageMentor).EndInit();

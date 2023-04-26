@@ -5,7 +5,12 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mentoring-system", "mentoring-system.csproj", "{DD25A3FD-1ED9-4FFF-80F3-79A7B20D3266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-mentoring-system", "..\apimentoringsystem\api-mentoring-system.csproj", "{E8E9CA9B-104D-4209-8722-8CE4ACB2D942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-mentoring-system", "..\apimentoringsystem\api-mentoring-system.csproj", "{E8E9CA9B-104D-4209-8722-8CE4ACB2D942}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD9F6CAD-4A48-4187-AFC3-A6AF2FBC4252}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
