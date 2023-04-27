@@ -33,11 +33,16 @@ namespace mentoring_system.view.Mentor
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             ScheduleTable.Rows.Add(comboBox1.SelectedItem, dateTimePicker1.Value);
-            
-            
+            genericsMentorship<string> mentorship = new genericsMentorship<string>(1, "Mentor123", "Mentee456");
+
+            HttpClient client = new HttpClient();
+            string baseUrl = "http://localhost:5132/api/mentorship";
+            HttpResponseMessage response = await client.PostAsJsonAsync(baseUrl, mentorship);
+
+
         }
 
         private void ScheduleTable_CellContentClick(object sender, DataGridViewCellEventArgs e)

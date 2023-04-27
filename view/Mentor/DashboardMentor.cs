@@ -122,6 +122,12 @@ namespace mentoring_system.view
         private void HomeBtn_Click(object sender, EventArgs e)
         {
             mentorSchedule2.SendToBack();
+            requests1.SendToBack();
+        }
+
+        private void RequestsBtn_Click(object sender, EventArgs e)
+        {
+            requests1.BringToFront();
         }
     }
 }
