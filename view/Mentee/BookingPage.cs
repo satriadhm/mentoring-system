@@ -80,22 +80,13 @@ namespace mentoring_system.view.Mentee
             string menteeName = await client.GetStringAsync("http://localhost:5132/api/mentee");
             List<model.mentee> menteeList = JsonConvert.DeserializeObject<List<model.mentee>>(menteeName);
 
-            
-            for (int i = 0; i < menteeList.Count; i++)
-            {
-                MentorshipRequest menteeRequest = new MentorshipRequest(menteeList[i].NamaLengkap, bookMentorDateTimePicker.Value, selectedSubject);
-                string url = "http://localhost:5132/api/mentorshipRequest";
+            MentorshipRequest menteeRequest = new MentorshipRequest(menteeList[menteeList.Count-1].NamaLengkap, bookMentorDateTimePicker.Value, selectedSubject);
+            string url = "http://localhost:5132/api/mentorshipRequest";
 
-                HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
-                
-                response.EnsureSuccessStatusCode();
-                Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
-            }
-            
+            HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
 
-            
-
-            //Console.WriteLine(comboBoxMentorName.SelectedItem.ToString() +  comboBoxCourseName.SelectedItem.ToString());
+            response.EnsureSuccessStatusCode();
+            Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
 
             table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
 
