@@ -1,26 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace mentoring_system.model
 {
-   public enum subjekMentoring
+    public enum subjekMentoring
     {
         interactionDesign,
         Algorithm,
         dataStructure
-
     }
+
     public class mentor : User
     {
-        private subjekMentoring Subjek { get; set; }
+        public subjekMentoring Subjek { get; set; }
 
         public mentor(string namaLengkap, string username, string password, string umur, subjekMentoring subjek) : base(namaLengkap, username, password, umur)
         {
+            Contract.Requires(!string.IsNullOrEmpty(namaLengkap));
+            Contract.Requires(!string.IsNullOrEmpty(username));
+            Contract.Requires(!string.IsNullOrEmpty(password));
+            Contract.Requires(!string.IsNullOrEmpty(umur));
+            Contract.Requires(Enum.IsDefined(typeof(subjekMentoring), subjek));
+            Contract.Ensures(this.Subjek == subjek);
+            Contract.Ensures(this.role == Role.MENTOR);
+
             this.Subjek = subjek;
-            this.role = (Role)1;
+            this.role = Role.MENTOR;
         }
     }
 }
