@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,9 +24,10 @@ namespace mentoring_system.view.Mentee
 
         public BookingPage()
         {
+
             InitializeComponent();
             LoadDataMentor();
-            LoadDataCourse();
+
         }
         private async void LoadDataMentor()
         {
@@ -35,8 +38,10 @@ namespace mentoring_system.view.Mentee
                 var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
                 foreach (var item in data)
                 {
-                    comboBoxMentorName.Items.Add(item.NamaLengkap);
+                    comboBoxMentorName.Items.Add(item);
+                    LoadDataCourse(item.Subjek);
                 }
+                comboBoxMentorName.DisplayMember = "NamaLengkap";
             }
             catch (Exception ex)
             {
@@ -44,11 +49,15 @@ namespace mentoring_system.view.Mentee
             }
         }
 
-        private void LoadDataCourse()
+        private void LoadDataCourse(subjekMentoring subjek)
         {
+            comboBoxCourseName.Items.Clear();
             foreach (string subjekMentoring in Enum.GetNames(typeof(model.subjekMentoring)))
             {
-                comboBoxCourseName.Items.Add(subjekMentoring);
+                if (subjekMentoring == subjek.ToString())
+                {
+                    comboBoxCourseName.Items.Add(subjekMentoring);
+                }
             }
         }
         private void BookingPage_Load(object sender, EventArgs e)
@@ -59,27 +68,57 @@ namespace mentoring_system.view.Mentee
             mentorshipRequestData.DataSource = table;
         }
 
-        private void submitButton_Click(object sender, EventArgs e)
+        private async void submitButton_Click(object sender, EventArgs e)
         {
 
             controller.bookingState state = new controller.bookingState();
             state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
 
-            table.Rows.Add(comboBoxMentorName.SelectedItem, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
+            subjekMentoring selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
+
+            mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
+            string selectedMentorName = selectedMentor.NamaLengkap;
+
+            MentorshipRequest menteeRequest = new MentorshipRequest(selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
+
+            string url = "http://localhost:5132/api/mentorshipRequest";
+
+            HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
+
+            response.EnsureSuccessStatusCode();
+
+            Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
+
+            //Console.WriteLine(comboBoxMentorName.SelectedItem.ToString() +  comboBoxCourseName.SelectedItem.ToString());
+
+            table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
+
 
         }
 
         private void proceedButton_Click(object sender, EventArgs e)
-        { 
+        {
             // tambahkan user control baru
             PaymentPage paymentpage = new PaymentPage();
             paymentpage.Show();
 
         }
 
-        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxMentorName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBoxCourseName.Items.Clear();
 
+            // get selected mentor
+            mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
+
+            // add courses for the selected mentor
+            foreach (string subjekMentoring in Enum.GetNames(typeof(model.subjekMentoring)))
+            {
+                if (subjekMentoring == selectedMentor.Subjek.ToString())
+                {
+                    comboBoxCourseName.Items.Add(subjekMentoring);
+                }
+            }
         }
     }
 }
