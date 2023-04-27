@@ -37,7 +37,6 @@
             ScheduleBtn = new Button();
             AppointmentBtn = new Button();
             HomeBtn = new Button();
-            panel2 = new Panel();
             label6 = new Label();
             label7 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -53,6 +52,8 @@
             label5 = new Label();
             pictureBox2 = new PictureBox();
             userName = new Label();
+            mentorSchedule2 = new Mentor.MentorSchedule();
+            panel2 = new Panel();
             panel4 = new Panel();
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
@@ -194,14 +195,6 @@
             HomeBtn.UseVisualStyleBackColor = true;
             HomeBtn.Click += HomeBtn_Click;
             // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(273, 100);
-            panel2.TabIndex = 0;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -244,7 +237,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(677, 192);
+            tableLayoutPanel1.Size = new Size(721, 192);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // label8
@@ -388,6 +381,22 @@
             userName.Text = "{name}";
             userName.Click += userName_Click;
             // 
+            // mentorSchedule2
+            // 
+            mentorSchedule2.Location = new Point(279, 0);
+            mentorSchedule2.Margin = new Padding(3, 4, 3, 4);
+            mentorSchedule2.Name = "mentorSchedule2";
+            mentorSchedule2.Size = new Size(702, 653);
+            mentorSchedule2.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(273, 100);
+            panel2.TabIndex = 0;
+            // 
             // panel4
             // 
             panel4.Location = new Point(280, 0);
@@ -410,6 +419,7 @@
             Controls.Add(label1);
             Controls.Add(NavBar);
             Controls.Add(panel4);
+            Controls.Add(mentorSchedule2);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
             Text = "Homepage";
@@ -436,7 +446,6 @@
         private Button YourClassBtn;
         private Button AppointmentBtn;
         private Button HomeBtn;
-        private Panel panel2;
         private Button RequestsBtn;
         private Button LogOutBtn;
         private Panel panel1;
@@ -456,6 +465,8 @@
         private Label userName;
         private System.CodeDom.CodeTypeReference schedule1;
         private Mentor.MentorSchedule mentorSchedule1;
+        private Panel panel2;
+        private Mentor.MentorSchedule mentorSchedule2;
         private Panel panel4;
     }
 }
