@@ -20,7 +20,7 @@ namespace mentoring_system.view
         {
             InitializeComponent();
             Dropdown.Visible = false;
-            //mentorSchedule1.SendToBack();
+            mentorSchedule2.SendToBack();
             GetUserInfoAsync();
 
 
@@ -55,7 +55,7 @@ namespace mentoring_system.view
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            mentorSchedule1.BringToFront();
+            mentorSchedule2.BringToFront();
         }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
@@ -121,7 +121,13 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            //mentorSchedule1.SendToBack();
+            mentorSchedule2.SendToBack();
+            requests1.SendToBack();
+        }
+
+        private void RequestsBtn_Click(object sender, EventArgs e)
+        {
+            requests1.BringToFront();
         }
     }
 }

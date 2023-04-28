@@ -1,5 +1,6 @@
 ﻿using mentoring_system.controller;
 using mentoring_system.model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,10 +25,8 @@ namespace mentoring_system.view.Mentee
 
         public BookingPage()
         {
-
             InitializeComponent();
             LoadDataMentor();
-
         }
         private async void LoadDataMentor()
         {
@@ -78,18 +77,16 @@ namespace mentoring_system.view.Mentee
 
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
+            string menteeName = await client.GetStringAsync("http://localhost:5132/api/mentee");
+            List<model.mentee> menteeList = JsonConvert.DeserializeObject<List<model.mentee>>(menteeName);
 
-            MentorshipRequest menteeRequest = new MentorshipRequest(selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
-
+            MentorshipRequest menteeRequest = new MentorshipRequest(menteeList[menteeList.Count-1].NamaLengkap, bookMentorDateTimePicker.Value, selectedSubject);
             string url = "http://localhost:5132/api/mentorshipRequest";
 
             HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
 
             response.EnsureSuccessStatusCode();
-
             Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
-
-            //Console.WriteLine(comboBoxMentorName.SelectedItem.ToString() +  comboBoxCourseName.SelectedItem.ToString());
 
             table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
 
@@ -119,6 +116,11 @@ namespace mentoring_system.view.Mentee
                     comboBoxCourseName.Items.Add(subjekMentoring);
                 }
             }
+        }
+
+        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
