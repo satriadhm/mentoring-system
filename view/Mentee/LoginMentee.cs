@@ -36,19 +36,19 @@ namespace mentoring_system
                             MessageBox.Show("password empty", "login page");
                             break;
                         default:
-                            var response = await client.GetAsync($"http://localhost:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
+                            var response = await client.GetAsync($"http://128.199.77.50:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
                             if (response != null && response.IsSuccessStatusCode)
                             {
-                                    var result = await response.Content.ReadFromJsonAsync<mentee[]>();
-                                    if (result.Length == 1)
-                                    {
-                                        int id = result[0].Id;
-                                        string stringId = id.ToString();
-                                        mentee menteeData = await client.GetFromJsonAsync<mentee>("http://localhost:5132/api/mentee/" + stringId);
-                                        this.Hide();
-                                        DashboardMentee dashboard = new DashboardMentee();
-                                        dashboard.ShowDialog();
-                                    }
+                                var result = await response.Content.ReadFromJsonAsync<mentee[]>();
+                                if (result.Length == 1)
+                                {
+                                    int id = result[0].Id;
+                                    string stringId = id.ToString();
+                                    mentee menteeData = await client.GetFromJsonAsync<mentee>("http://128.199.77.50:5132/api/mentee/" + stringId);
+                                    this.Hide();
+                                    DashboardMentee dashboard = new DashboardMentee();
+                                    dashboard.ShowDialog();
+                                }
                             }
                             break;
                     }
@@ -68,6 +68,10 @@ namespace mentoring_system
             return false;
         }
 
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-      
-    }
+
+}

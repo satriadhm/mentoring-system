@@ -32,7 +32,7 @@ namespace mentoring_system.view.Mentee
         {
             try
             {
-                var response = await client.GetAsync("http://localhost:5132/api/mentor");
+                var response = await client.GetAsync("http://128.199.77.50:5132/api/mentor");
                 response.EnsureSuccessStatusCode();
                 var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
                 foreach (var item in data)
@@ -69,7 +69,6 @@ namespace mentoring_system.view.Mentee
 
         private async void submitButton_Click(object sender, EventArgs e)
         {
-
             controller.bookingState state = new controller.bookingState();
             state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
 
@@ -77,11 +76,11 @@ namespace mentoring_system.view.Mentee
 
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
-            string menteeName = await client.GetStringAsync("http://localhost:5132/api/mentee");
+            string menteeName = await client.GetStringAsync("http://128.199.77.50:5132/api/mentee");
             List<model.mentee> menteeList = JsonConvert.DeserializeObject<List<model.mentee>>(menteeName);
 
             MentorshipRequest menteeRequest = new MentorshipRequest(menteeList[menteeList.Count-1].NamaLengkap, bookMentorDateTimePicker.Value, selectedSubject);
-            string url = "http://localhost:5132/api/mentorshipRequest";
+            string url = "http://128.199.77.50:5132/api/mentorshipRequest";
 
             HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
 

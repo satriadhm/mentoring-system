@@ -64,6 +64,7 @@
             umurTextBox.Name = "umurTextBox";
             umurTextBox.Size = new Size(335, 27);
             umurTextBox.TabIndex = 21;
+            umurTextBox.TextChanged += umurTextBox_TextChanged;
             // 
             // passwordLabel
             // 

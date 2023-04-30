@@ -51,5 +51,10 @@ namespace mentoring_system.view
             LandingPage landingPage = new LandingPage();
             landingPage.Show();
         }
+
+        private void greetingLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

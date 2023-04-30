@@ -247,7 +247,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1061, 192);
+            tableLayoutPanel1.Size = new Size(1231, 192);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // label8
@@ -298,6 +298,7 @@
             label2.TabIndex = 5;
             label2.Text = "Programming Algorithm";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Click += label2_Click_1;
             // 
             // label4
             // 

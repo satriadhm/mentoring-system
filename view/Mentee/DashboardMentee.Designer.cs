@@ -251,6 +251,7 @@ namespace mentoring_system.view
             greetingLabel.Size = new Size(341, 46);
             greetingLabel.TabIndex = 2;
             greetingLabel.Text = "Hi, Have a Nice Day!";
+            greetingLabel.Click += greetingLabel_Click;
             // 
             // LessonLearnedPanel
             // 

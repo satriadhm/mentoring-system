@@ -45,13 +45,13 @@ namespace mentoring_system.view.Mentor
             {
                 subjek = subjekMentoring.interactionDesign;
             }
-            else 
+            else
             {
                 subjek = 0;
             }
             model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
-            Console.WriteLine(mentorData.NamaLengkap,mentorData.umur,mentorData.userName);
-            string url = "http://localhost:5132/api/mentor";
+            Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
+            string url = "http://128.199.77.50:5132/api/mentor";
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(url, mentorData);
@@ -76,6 +76,11 @@ namespace mentoring_system.view.Mentor
             this.Hide();
             LoginMentor login = new LoginMentor();
             login.Show();
+        }
+
+        private void umurTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

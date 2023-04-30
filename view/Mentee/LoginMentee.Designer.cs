@@ -143,6 +143,7 @@
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 26);
             usernameTextbox.TabIndex = 0;
+            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             // 
             // LoginMentee
             // 

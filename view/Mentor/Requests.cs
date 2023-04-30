@@ -24,7 +24,7 @@ namespace mentoring_system.view.Mentor
 
         public async void GetMenteeRequestAsync()
         {
-            string request = await client.GetStringAsync("http://localhost:5132/api/mentorshipRequest");
+            string request = await client.GetStringAsync("http://128.199.77.50:5132/api/mentorshipRequest");
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
             for (int i=0; i<requestsList.Count; i++)
             {
