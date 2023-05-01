@@ -8,7 +8,6 @@ public partial class signUpMentee : Form
 {
 
     public static HttpClient client = new HttpClient();
-
     public static bool isSignup { get; set;  }    
     public static model.mentee menteeData {get; set;}
 
@@ -47,6 +46,7 @@ public partial class signUpMentee : Form
             System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
             System.Diagnostics.Debug.WriteLine("Error: " + urlLocal);
         }
+        isSignup = true;
 
         this.Hide();
         DashboardMentee dashboard = new DashboardMentee();
