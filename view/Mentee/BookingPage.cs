@@ -120,5 +120,10 @@ namespace mentoring_system.view.Mentee
                 }
             }
         }
+
+        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
