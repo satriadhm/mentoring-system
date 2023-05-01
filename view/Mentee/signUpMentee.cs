@@ -34,7 +34,7 @@ public partial class signUpMentee : Form
         menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
         try
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, menteeData);
+            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeData);
             response.EnsureSuccessStatusCode();
 
             // Post Condition: Response dari API mengindikasikan data mentee baru berhasil ditambahkan
@@ -44,7 +44,7 @@ public partial class signUpMentee : Form
         {
             // Exception: Menampilkan pesan error saat terjadi exception
             System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-            System.Diagnostics.Debug.WriteLine("Error: " + urlLocal);
+            System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
         }
         isSignup = true;
 

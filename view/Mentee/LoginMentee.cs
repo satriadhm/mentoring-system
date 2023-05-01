@@ -39,7 +39,7 @@ namespace mentoring_system
                             MessageBox.Show("password empty", "login page");
                             break;
                         default:
-                            var response = await client.GetAsync($"http://localhost:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
+                            var response = await client.GetAsync($"http://128.199.77.50:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
                             if (response != null && response.IsSuccessStatusCode)
                             {
                                 var result = await response.Content.ReadFromJsonAsync<mentee[]>();
@@ -49,7 +49,7 @@ namespace mentoring_system
                                     string stringId = id.ToString();
                                     string urlCloud = "http://128.199.77.50:5132/api/mentee/";
                                     string urlLocal = "http://localhost:5132/api/mentee/";
-                                    menteeData = await client.GetFromJsonAsync<mentee>(urlLocal + stringId);
+                                    menteeData = await client.GetFromJsonAsync<mentee>(urlCloud + stringId);
                                     this.Hide();
                                     DashboardMentee dashboard = new DashboardMentee();
                                     dashboard.ShowDialog();
