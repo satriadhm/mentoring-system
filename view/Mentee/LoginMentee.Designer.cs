@@ -120,12 +120,15 @@
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(247, 445);
+            loginButton.BackColor = Color.PeachPuff;
+            loginButton.FlatAppearance.BorderSize = 0;
+            loginButton.FlatStyle = FlatStyle.Flat;
+            loginButton.Location = new Point(204, 434);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(175, 27);
+            loginButton.Size = new Size(218, 38);
             loginButton.TabIndex = 2;
-            loginButton.Text = "login";
-            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
             // passwordTextBox

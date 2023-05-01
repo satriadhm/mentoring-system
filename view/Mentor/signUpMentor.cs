@@ -51,16 +51,17 @@ namespace mentoring_system.view.Mentor
             }
             model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap,mentorData.umur,mentorData.userName);
-            string url = "http://localhost:5132/api/mentor";
+            string urlCloud = "http://128.199.77.50:5132/api/mentor";
+            string urlLocal = "http://localhost:5132/api/mentor";
             try
             {
-                HttpResponseMessage response = await client.PostAsJsonAsync(url, mentorData);
+                HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, mentorData);
                 response.EnsureSuccessStatusCode();
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-                System.Diagnostics.Debug.WriteLine("Error: " + url);
+                System.Diagnostics.Debug.WriteLine("Error: " + urlLocal);
             }
 
             //JSONparserBase jSONparserBase = new JSONparserBase(); ;

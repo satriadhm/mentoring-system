@@ -33,7 +33,9 @@ namespace mentoring_system.view.Mentee
         {
             try
             {
-                var response = await client.GetAsync("http://localhost:5132/api/mentor");
+                string urlCloud = "http://128.199.77.50:5132/api/mentor";
+                string urlLocal = "http://localhost:5132/api/mentor";
+                var response = await client.GetAsync(urlLocal);
                 response.EnsureSuccessStatusCode();
                 var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
                 foreach (var item in data)
@@ -78,14 +80,25 @@ namespace mentoring_system.view.Mentee
 
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
+            model.mentee menteeData;
 
-            MentorshipRequest menteeRequest = new MentorshipRequest(selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
+            if (signUpMentee.isSignup) 
+            {
+                menteeData = signUpMentee.menteeData;
+               
+            }else 
+            {
+                menteeData = LoginMentee.menteeData;
+                
+            }
+            MentorshipRequest menteeRequest = new MentorshipRequest(menteeData, selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
 
-            string url = "http://localhost:5132/api/mentorshipRequest";
+            string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
+            string urlLocal = "http://localhost:5132/api/MentorshipRequest";
 
-            HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
+            HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, menteeRequest);
 
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
 
             Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
 

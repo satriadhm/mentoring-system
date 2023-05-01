@@ -7,13 +7,17 @@ namespace mentoring_system.view.Mentee;
 public partial class signUpMentee : Form
 {
 
-    static HttpClient client = new HttpClient();
+    public static HttpClient client = new HttpClient();
+
+    public static bool isSignup { get; set;  }    
+    public static model.mentee menteeData {get; set;}
+
     public signUpMentee()
     {
         InitializeComponent();
     }
 
-    private async void registerButton_Click(object sender, EventArgs e)
+    public async void registerButton_Click(object sender, EventArgs e)
     {
         // Pre Condition: Semua field harus terisi
         Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
@@ -25,11 +29,13 @@ public partial class signUpMentee : Form
         string usernameMentee = usernameTextBox.Text;
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
-        string url = "http://localhost:5132/api/mentee";
-        model.mentee menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
+        string urlCloud = "http://128.199.77.50:5132/api/mentee";
+        string urlLocal = "http://localhost:5132/api/mentee";
+
+        menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
         try
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeData);
+            HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, menteeData);
             response.EnsureSuccessStatusCode();
 
             // Post Condition: Response dari API mengindikasikan data mentee baru berhasil ditambahkan
@@ -39,7 +45,7 @@ public partial class signUpMentee : Form
         {
             // Exception: Menampilkan pesan error saat terjadi exception
             System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-            System.Diagnostics.Debug.WriteLine("Error: " + url);
+            System.Diagnostics.Debug.WriteLine("Error: " + urlLocal);
         }
 
         this.Hide();
