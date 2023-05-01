@@ -105,6 +105,7 @@
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 26);
             usernameTextbox.TabIndex = 9;
+            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             // 
             // loginButton
             // 

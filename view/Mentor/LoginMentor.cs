@@ -28,7 +28,7 @@ namespace mentoring_system
                     //await client.PostAsJsonAsync("http://128.199.77.50:5132/api/mentor", mentorData);
                     this.Hide();
                     DashboardMentor home = new DashboardMentor();
-                    
+
                     home.Show();
                 }
             }
@@ -36,6 +36,11 @@ namespace mentoring_system
             {
                 MessageBox.Show(Text, ex.Message);
             }
+        }
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

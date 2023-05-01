@@ -339,6 +339,7 @@ namespace mentoring_system.view
             appointmentBookedLabel.Size = new Size(160, 20);
             appointmentBookedLabel.TabIndex = 3;
             appointmentBookedLabel.Text = "Appointment Booked";
+            appointmentBookedLabel.Click += appointmentBookedLabel_Click;
             // 
             // panel4
             // 

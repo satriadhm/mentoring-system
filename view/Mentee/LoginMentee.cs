@@ -17,7 +17,7 @@ namespace mentoring_system
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
-          
+
             try
             {
                 bool admin = isAdmin(usernameTextbox.Text, passwordTextBox.Text);
@@ -49,7 +49,7 @@ namespace mentoring_system
                                     string stringId = id.ToString();
                                     string urlCloud = "http://128.199.77.50:5132/api/mentee/";
                                     string urlLocal = "http://localhost:5132/api/mentee/";
-                                    menteeData = await client.GetFromJsonAsync<mentee>(urlLocal + stringId);
+                                    menteeData = await client.GetFromJsonAsync<mentee>(urlCloud + stringId);
                                     this.Hide();
                                     DashboardMentee dashboard = new DashboardMentee();
                                     dashboard.ShowDialog();
@@ -74,6 +74,11 @@ namespace mentoring_system
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copyWritingLabel_Click(object sender, EventArgs e)
         {
 
         }

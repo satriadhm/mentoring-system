@@ -8,8 +8,8 @@ public partial class signUpMentee : Form
 {
 
     public static HttpClient client = new HttpClient();
-    public static bool isSignup { get; set;  }    
-    public static model.mentee menteeData {get; set;}
+    public static bool isSignup { get; set; }
+    public static model.mentee menteeData { get; set; }
 
     public signUpMentee()
     {
@@ -34,7 +34,7 @@ public partial class signUpMentee : Form
         menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
         try
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, menteeData);
+            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeData);
             response.EnsureSuccessStatusCode();
 
             // Post Condition: Response dari API mengindikasikan data mentee baru berhasil ditambahkan
@@ -44,7 +44,7 @@ public partial class signUpMentee : Form
         {
             // Exception: Menampilkan pesan error saat terjadi exception
             System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-            System.Diagnostics.Debug.WriteLine("Error: " + urlLocal);
+            System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
         }
         isSignup = true;
 
@@ -59,5 +59,10 @@ public partial class signUpMentee : Form
         this.Hide();
         LoginMentee login = new LoginMentee();
         login.Show();
+    }
+
+    private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

@@ -35,7 +35,7 @@ namespace mentoring_system.view.Mentee
             {
                 string urlCloud = "http://128.199.77.50:5132/api/mentor";
                 string urlLocal = "http://localhost:5132/api/mentor";
-                var response = await client.GetAsync(urlLocal);
+                var response = await client.GetAsync(urlCloud);
                 response.EnsureSuccessStatusCode();
                 var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
                 foreach (var item in data)
@@ -96,7 +96,7 @@ namespace mentoring_system.view.Mentee
             string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
             string urlLocal = "http://localhost:5132/api/MentorshipRequest";
 
-            HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, menteeRequest);
+            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeRequest);
 
             response.EnsureSuccessStatusCode();
 
