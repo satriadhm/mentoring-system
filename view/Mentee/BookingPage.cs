@@ -81,7 +81,7 @@ namespace mentoring_system.view.Mentee
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
             model.mentee menteeData;
-
+            Console.WriteLine(signUpMentee.isSignup);
             if (signUpMentee.isSignup) 
             {
                 menteeData = signUpMentee.menteeData;
@@ -98,7 +98,7 @@ namespace mentoring_system.view.Mentee
 
             HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, menteeRequest);
 
-            //response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
 
             Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
 
