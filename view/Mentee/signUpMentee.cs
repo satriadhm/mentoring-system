@@ -1,4 +1,5 @@
 ﻿using mentoring_system.controller;
+using mentoring_system.implementation;
 using mentoring_system.model;
 using System.Diagnostics;
 
@@ -6,6 +7,7 @@ namespace mentoring_system.view.Mentee;
 
 public partial class signUpMentee : Form
 {
+    registerstate registerState = new registerstate();
 
     public static HttpClient client = new HttpClient();
     public static bool isSignup { get; set;  }    
