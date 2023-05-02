@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfilePage));
             pictureBox1 = new PictureBox();
-            lessonLearnedLabel = new Label();
             pictureBox2 = new PictureBox();
             FirstName = new TextBox();
             LastName = new TextBox();
@@ -61,18 +60,6 @@
             pictureBox1.Size = new Size(764, 106);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click_2;
-            // 
-            // lessonLearnedLabel
-            // 
-            lessonLearnedLabel.AutoSize = true;
-            lessonLearnedLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lessonLearnedLabel.ForeColor = SystemColors.ActiveCaptionText;
-            lessonLearnedLabel.Location = new Point(39, 272);
-            lessonLearnedLabel.Name = "lessonLearnedLabel";
-            lessonLearnedLabel.Size = new Size(0, 20);
-            lessonLearnedLabel.TabIndex = 3;
-            lessonLearnedLabel.Click += lessonLearnedLabel_Click;
             // 
             // pictureBox2
             // 
@@ -82,7 +69,6 @@
             pictureBox2.Size = new Size(210, 391);
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click_1;
             // 
             // FirstName
             // 
@@ -134,7 +120,6 @@
             label2.Size = new Size(106, 28);
             label2.TabIndex = 13;
             label2.Text = "First Name";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -168,7 +153,6 @@
             label5.Size = new Size(67, 28);
             label5.TabIndex = 16;
             label5.Text = "Phone";
-            label5.Click += label5_Click;
             // 
             // label6
             // 
@@ -200,7 +184,6 @@
             UpdateButtton.TabIndex = 18;
             UpdateButtton.Text = "Update";
             UpdateButtton.UseVisualStyleBackColor = false;
-            UpdateButtton.Click += button1_Click;
             // 
             // CancelButton
             // 
@@ -215,7 +198,6 @@
             CancelButton.TabIndex = 19;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = false;
-            CancelButton.Click += button2_Click;
             // 
             // pictureBox3
             // 
@@ -227,7 +209,6 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 20;
             pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
             // 
             // label7
             // 
@@ -250,7 +231,6 @@
             label8.Size = new Size(118, 31);
             label8.TabIndex = 22;
             label8.Text = "Username";
-            label8.Click += label8_Click;
             // 
             // ProfilePage
             // 
@@ -273,7 +253,6 @@
             Controls.Add(Email);
             Controls.Add(LastName);
             Controls.Add(FirstName);
-            Controls.Add(lessonLearnedLabel);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Name = "ProfilePage";
@@ -288,7 +267,6 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Label lessonLearnedLabel;
         private PictureBox pictureBox2;
         private TextBox FirstName;
         private TextBox LastName;
