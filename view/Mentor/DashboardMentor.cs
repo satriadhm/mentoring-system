@@ -20,7 +20,7 @@ namespace mentoring_system.view
         {
             InitializeComponent();
             Dropdown.Visible = false;
-            //mentorSchedule1.SendToBack();
+            mentorSchedule2.SendToBack();
             GetUserInfoAsync();
 
 
@@ -29,7 +29,7 @@ namespace mentoring_system.view
         {
 
             HttpClient client = new HttpClient();
-            string json = await client.GetStringAsync("http://localhost:5132/api/mentor");
+            string json = await client.GetStringAsync("http://128.199.77.50:5132/api/mentor");
             List<model.mentor> users = JsonConvert.DeserializeObject<List<model.mentor>>(json);
             string mentorName = users[0].userName;
             userName.Text = $"Welcome, {mentorName}";
@@ -55,7 +55,7 @@ namespace mentoring_system.view
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            mentorSchedule1.BringToFront();
+            mentorSchedule2.BringToFront();
         }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
@@ -121,7 +121,18 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            //mentorSchedule1.SendToBack();
+            mentorSchedule2.SendToBack();
+            requests1.SendToBack();
+        }
+
+        private void RequestsBtn_Click(object sender, EventArgs e)
+        {
+            requests1.BringToFront();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -53,7 +53,9 @@
             label5 = new Label();
             pictureBox2 = new PictureBox();
             userName = new Label();
+            mentorSchedule2 = new Mentor.MentorSchedule();
             panel4 = new Panel();
+            requests1 = new Mentor.Requests();
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -76,7 +78,7 @@
             NavBar.Dock = DockStyle.Left;
             NavBar.Location = new Point(0, 0);
             NavBar.Name = "NavBar";
-            NavBar.Size = new Size(273, 653);
+            NavBar.Size = new Size(273, 748);
             NavBar.TabIndex = 0;
             // 
             // LogOutBtn
@@ -87,7 +89,7 @@
             LogOutBtn.FlatStyle = FlatStyle.Flat;
             LogOutBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             LogOutBtn.ForeColor = Color.Crimson;
-            LogOutBtn.Location = new Point(0, 605);
+            LogOutBtn.Location = new Point(0, 700);
             LogOutBtn.Name = "LogOutBtn";
             LogOutBtn.Padding = new Padding(15, 0, 0, 0);
             LogOutBtn.Size = new Size(273, 48);
@@ -140,6 +142,7 @@
             RequestsBtn.Text = "Requests";
             RequestsBtn.TextAlign = ContentAlignment.MiddleLeft;
             RequestsBtn.UseVisualStyleBackColor = true;
+            RequestsBtn.Click += RequestsBtn_Click;
             // 
             // ScheduleBtn
             // 
@@ -244,7 +247,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(677, 192);
+            tableLayoutPanel1.Size = new Size(1231, 192);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // label8
@@ -295,6 +298,7 @@
             label2.TabIndex = 5;
             label2.Text = "Programming Algorithm";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Click += label2_Click_1;
             // 
             // label4
             // 
@@ -388,6 +392,14 @@
             userName.Text = "{name}";
             userName.Click += userName_Click;
             // 
+            // mentorSchedule2
+            // 
+            mentorSchedule2.Location = new Point(279, 0);
+            mentorSchedule2.Margin = new Padding(3, 4, 3, 4);
+            mentorSchedule2.Name = "mentorSchedule2";
+            mentorSchedule2.Size = new Size(702, 653);
+            mentorSchedule2.TabIndex = 0;
+            // 
             // panel4
             // 
             panel4.Location = new Point(280, 0);
@@ -395,6 +407,13 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(701, 653);
             panel4.TabIndex = 12;
+            // 
+            // requests1
+            // 
+            requests1.Location = new Point(273, 0);
+            requests1.Name = "requests1";
+            requests1.Size = new Size(879, 748);
+            requests1.TabIndex = 13;
             // 
             // DashboardMentor
             // 
@@ -410,6 +429,8 @@
             Controls.Add(label1);
             Controls.Add(NavBar);
             Controls.Add(panel4);
+            Controls.Add(requests1);
+            Controls.Add(mentorSchedule2);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
             Text = "Homepage";
@@ -436,7 +457,6 @@
         private Button YourClassBtn;
         private Button AppointmentBtn;
         private Button HomeBtn;
-        private Panel panel2;
         private Button RequestsBtn;
         private Button LogOutBtn;
         private Panel panel1;
@@ -456,6 +476,9 @@
         private Label userName;
         private System.CodeDom.CodeTypeReference schedule1;
         private Mentor.MentorSchedule mentorSchedule1;
+        private Panel panel2;
+        private Mentor.MentorSchedule mentorSchedule2;
         private Panel panel4;
+        private Mentor.Requests requests1;
     }
 }

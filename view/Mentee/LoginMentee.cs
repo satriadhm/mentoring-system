@@ -39,7 +39,7 @@ namespace mentoring_system
                             MessageBox.Show("password empty", "login page");
                             break;
                         default:
-                            var response = await client.GetAsync($"http://localhost:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
+                            var response = await client.GetAsync($"http://128.199.77.50:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
                             if (response != null && response.IsSuccessStatusCode)
                             {
                                 var result = await response.Content.ReadFromJsonAsync<mentee[]>();
