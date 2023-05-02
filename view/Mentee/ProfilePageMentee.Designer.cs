@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system.view
 {
-    partial class ProfilePage
+    partial class ProfilePageMentee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfilePage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfilePageMentee));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             FirstName = new TextBox();

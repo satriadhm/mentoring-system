@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.implementation
 {
-    internal class registerstate 
-    { 
-         public enum bookState
+    internal class registerstate
+    {
+        public enum bookState
         {
             NONE,
             LOGIN,
@@ -44,6 +44,10 @@ namespace mentoring_system.implementation
             };
         public bookState GetNextState(bookState currentState, bookTrigger trigger)
         {
+            // Prekondisi
+            Debug.Assert(Enum.IsDefined(typeof(bookState), currentState), "Invalid current state.");
+            Debug.Assert(Enum.IsDefined(typeof(bookTrigger), trigger), "Invalid trigger.");
+
             bookState finalState = currentState;
             for (int i = 0; i < transisi.Length; i++)
             {
@@ -51,16 +55,32 @@ namespace mentoring_system.implementation
                 if (currentState == change.currentState && trigger == change.trigger)
                 {
                     finalState = change.finalState;
+                    break;
                 }
             }
+
+            // Postkondisi
+            Debug.Assert(Enum.IsDefined(typeof(bookState), finalState), "Invalid final state.");
+
             return finalState;
         }
+
         public void ActivateTrigger(bookTrigger trigger)
         {
-            Debug.Assert(Enum.IsDefined(typeof(bookTrigger), trigger), "not a valid value.");
+            // Prekondisi
+            Debug.Assert(Enum.IsDefined(typeof(bookTrigger), trigger), "Invalid trigger.");
 
-            currentState = GetNextState(currentState, trigger);
-            Console.WriteLine("Kondisi akun sekarang adalah " + currentState);
+            try
+            {
+                bookState newState = GetNextState(currentState, trigger);
+                Console.WriteLine("Kondisi akun sekarang adalah " + newState);
+                currentState = newState;
+            }
+            catch (Exception e)
+            {
+                // Exception
+                Console.WriteLine("Error: " + e.Message);
+            }
         }
     }
 }
