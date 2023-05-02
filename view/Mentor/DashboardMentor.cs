@@ -11,28 +11,21 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Security.Policy;
 using mentoring_system.view.Mentor;
+using mentoring_system.model;
 
 namespace mentoring_system.view
 {
     public partial class DashboardMentor : Form
     {
-        public DashboardMentor()
+        private mentor Mentor;
+        public DashboardMentor(mentor Mentor)
         {
+            this.Mentor = Mentor;
             InitializeComponent();
             Dropdown.Visible = false;
             mentorSchedule2.SendToBack();
-            GetUserInfoAsync();
+            userName.Text = $"Welcome, {Mentor.NamaLengkap}";
 
-
-        }
-        public async Task GetUserInfoAsync()
-        {
-
-            HttpClient client = new HttpClient();
-            string json = await client.GetStringAsync("http://128.199.77.50:5132/api/mentor");
-            List<model.mentor> users = JsonConvert.DeserializeObject<List<model.mentor>>(json);
-            string mentorName = users[0].userName;
-            userName.Text = $"Welcome, {mentorName}";
         }
 
         private void HideDropdown()

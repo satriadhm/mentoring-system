@@ -55,7 +55,7 @@
             userName = new Label();
             mentorSchedule2 = new Mentor.MentorSchedule();
             panel4 = new Panel();
-            requests1 = new Mentor.Requests();
+            requests1 = new Mentor.Requests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();

@@ -49,10 +49,11 @@ namespace mentoring_system.view.Mentor
             {
                 subjek = 0;
             }
-            model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
+            mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
-            string urlCloud = "http://128.199.77.50:5132/api/mentor";
+            
             string urlLocal = "http://localhost:5132/api/mentor";
+            string urlCloud = "http://128.199.77.50:5132/api/mentor";
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, mentorData);
@@ -64,11 +65,9 @@ namespace mentoring_system.view.Mentor
                 System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
             }
 
-            //JSONparserBase jSONparserBase = new JSONparserBase(); ;
-            //jSONparserBase.WriteJSON(mentorData,"mentor");
 
             this.Hide();
-            DashboardMentor dashboard = new DashboardMentor();
+            DashboardMentor dashboard = new DashboardMentor(mentorData);
             dashboard.Show();
         }
 

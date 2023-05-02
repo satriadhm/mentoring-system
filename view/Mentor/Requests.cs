@@ -15,9 +15,11 @@ namespace mentoring_system.view.Mentor
     public partial class Requests : UserControl
     {
         static HttpClient client = new HttpClient();
+        mentor MentorName;
 
-        public Requests()
+        public Requests(mentor MentorName)
         {
+            this.MentorName = MentorName;
             InitializeComponent();
             GetMenteeRequestAsync();
         }
@@ -28,9 +30,11 @@ namespace mentoring_system.view.Mentor
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
             for (int i=0; i<requestsList.Count; i++)
             {
-                MenteeRequests.Rows.Add(requestsList[i].name, requestsList[i].schedule);
+                if (requestsList[i].name == MentorName.NamaLengkap)
+                {
+                    MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);
+                }
             }
-            //MenteeRequests.Rows.Add(requestsList[0].name, requestsList[0].schedule);
         }
 
         private void MenteeRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
