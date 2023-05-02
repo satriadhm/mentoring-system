@@ -252,6 +252,7 @@ namespace mentoring_system.view
             greetingLabel.Size = new Size(341, 46);
             greetingLabel.TabIndex = 2;
             greetingLabel.Text = "Hi, Have a Nice Day!";
+            greetingLabel.Click += greetingLabel_Click;
             // 
             // LessonLearnedPanel
             // 
@@ -329,18 +330,6 @@ namespace mentoring_system.view
             AppointmentBookedQuantitativeLabel.Size = new Size(49, 57);
             AppointmentBookedQuantitativeLabel.TabIndex = 3;
             AppointmentBookedQuantitativeLabel.Text = "3";
-            // 
-            // appointmentBookedLabel
-            // 
-            appointmentBookedLabel.AutoSize = true;
-            appointmentBookedLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            appointmentBookedLabel.ForeColor = SystemColors.ButtonHighlight;
-            appointmentBookedLabel.Location = new Point(16, 11);
-            appointmentBookedLabel.Name = "appointmentBookedLabel";
-            appointmentBookedLabel.Size = new Size(160, 20);
-            appointmentBookedLabel.TabIndex = 3;
-            appointmentBookedLabel.Text = "Appointment Booked";
-            appointmentBookedLabel.Click += appointmentBookedLabel_Click;
             // 
             // panel4
             // 

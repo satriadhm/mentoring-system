@@ -1,18 +1,4 @@
-﻿using mentoring_system.controller;
-using mentoring_system.model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using mentoring_system.model;
 using mentoring_system.implementation;
 
 namespace mentoring_system.view.Mentor
@@ -54,10 +40,11 @@ namespace mentoring_system.view.Mentor
             {
                 subjek = 0;
             }
-            model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
+            mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
-            string urlCloud = "http://128.199.77.50:5132/api/mentor";
+            
             string urlLocal = "http://localhost:5132/api/mentor";
+            string urlCloud = "http://128.199.77.50:5132/api/mentor";
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, mentorData);
@@ -69,12 +56,10 @@ namespace mentoring_system.view.Mentor
                 System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
             }
 
-            //JSONparserBase jSONparserBase = new JSONparserBase(); ;
-            //jSONparserBase.WriteJSON(mentorData,"mentor");
 
             this.Hide();
-            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
-            DashboardMentor dashboard = new DashboardMentor();
+            //registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
+            DashboardMentor dashboard = new DashboardMentor(mentorData);
             dashboard.Show();
         }
 
