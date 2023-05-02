@@ -80,6 +80,7 @@ namespace mentoring_system.view.Mentee
 
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
+
             model.mentee menteeData;
             Console.WriteLine(signUpMentee.isSignup);
             if (signUpMentee.isSignup) 

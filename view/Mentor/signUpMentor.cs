@@ -55,7 +55,7 @@ namespace mentoring_system.view.Mentor
             string urlLocal = "http://localhost:5132/api/mentor";
             try
             {
-                HttpResponseMessage response = await client.PostAsJsonAsync(urlLocal, mentorData);
+                HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, mentorData);
                 response.EnsureSuccessStatusCode();
             }
             catch (Exception ex)
