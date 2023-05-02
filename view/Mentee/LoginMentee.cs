@@ -21,7 +21,7 @@ namespace mentoring_system
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
-          
+
             try
             {
                 bool admin = isAdmin(usernameTextbox.Text, passwordTextBox.Text);
@@ -79,6 +79,11 @@ namespace mentoring_system
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copyWritingLabel_Click(object sender, EventArgs e)
         {
 
         }

@@ -50,12 +50,12 @@ namespace mentoring_system.view.Mentor
             {
                 subjek = subjekMentoring.interactionDesign;
             }
-            else 
+            else
             {
                 subjek = 0;
             }
             model.mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
-            Console.WriteLine(mentorData.NamaLengkap,mentorData.umur,mentorData.userName);
+            Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
             string urlCloud = "http://128.199.77.50:5132/api/mentor";
             string urlLocal = "http://localhost:5132/api/mentor";
             try
@@ -66,7 +66,7 @@ namespace mentoring_system.view.Mentor
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-                System.Diagnostics.Debug.WriteLine("Error: " + urlLocal);
+                System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
             }
 
             //JSONparserBase jSONparserBase = new JSONparserBase(); ;
@@ -83,6 +83,11 @@ namespace mentoring_system.view.Mentor
             this.Hide();
             LoginMentor login = new LoginMentor();
             login.Show();
+        }
+
+        private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

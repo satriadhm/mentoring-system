@@ -99,6 +99,7 @@
             copyWritingLabel.TabIndex = 6;
             copyWritingLabel.Text = "\"Unlock your potential with our mentorship program - register now!\"";
             copyWritingLabel.TextAlign = ContentAlignment.TopRight;
+            copyWritingLabel.Click += copyWritingLabel_Click;
             // 
             // passwordLabel
             // 

@@ -105,6 +105,7 @@
             namaLengkapTextBox.Name = "namaLengkapTextBox";
             namaLengkapTextBox.Size = new Size(335, 27);
             namaLengkapTextBox.TabIndex = 15;
+            namaLengkapTextBox.TextChanged += namaLengkapTextBox_TextChanged;
             // 
             // pictureBoxLoginPageMentor
             // 

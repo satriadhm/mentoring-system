@@ -41,5 +41,10 @@ namespace mentoring_system
                 MessageBox.Show(Text, ex.Message);
             }
         }
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

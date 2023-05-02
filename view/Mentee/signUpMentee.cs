@@ -10,8 +10,8 @@ public partial class signUpMentee : Form
     registerstate registerState = new registerstate();
 
     public static HttpClient client = new HttpClient();
-    public static bool isSignup { get; set;  }    
-    public static model.mentee menteeData {get; set;}
+    public static bool isSignup { get; set; }
+    public static model.mentee menteeData { get; set; }
 
     public signUpMentee()
     {
@@ -61,5 +61,10 @@ public partial class signUpMentee : Form
         this.Hide();
         LoginMentee login = new LoginMentee();
         login.Show();
+    }
+
+    private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
