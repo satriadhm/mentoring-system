@@ -32,4 +32,9 @@ public partial class signUpMentee : Form
         LoginMentee login = new LoginMentee();
         login.Show();
     }
+
+    private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

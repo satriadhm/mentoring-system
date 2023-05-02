@@ -32,19 +32,19 @@
             pictureBox1 = new PictureBox();
             lessonLearnedLabel = new Label();
             pictureBox2 = new PictureBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            FirstName = new TextBox();
+            LastName = new TextBox();
+            Email = new TextBox();
+            Phone = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox5 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            Location = new TextBox();
+            UpdateButtton = new Button();
+            CancelButton = new Button();
             pictureBox3 = new PictureBox();
             label7 = new Label();
             label8 = new Label();
@@ -84,33 +84,33 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click_1;
             // 
-            // textBox1
+            // FirstName
             // 
-            textBox1.Location = new Point(246, 174);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 27);
-            textBox1.TabIndex = 6;
+            FirstName.Location = new Point(246, 174);
+            FirstName.Name = "FirstName";
+            FirstName.Size = new Size(194, 27);
+            FirstName.TabIndex = 6;
             // 
-            // textBox2
+            // LastName
             // 
-            textBox2.Location = new Point(485, 174);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(194, 27);
-            textBox2.TabIndex = 7;
+            LastName.Location = new Point(485, 174);
+            LastName.Name = "LastName";
+            LastName.Size = new Size(194, 27);
+            LastName.TabIndex = 7;
             // 
-            // textBox3
+            // Email
             // 
-            textBox3.Location = new Point(246, 249);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(194, 27);
-            textBox3.TabIndex = 8;
+            Email.Location = new Point(246, 249);
+            Email.Name = "Email";
+            Email.Size = new Size(194, 27);
+            Email.TabIndex = 8;
             // 
-            // textBox4
+            // Phone
             // 
-            textBox4.Location = new Point(485, 249);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(194, 27);
-            textBox4.TabIndex = 9;
+            Phone.Location = new Point(485, 249);
+            Phone.Name = "Phone";
+            Phone.Size = new Size(194, 27);
+            Phone.TabIndex = 9;
             // 
             // label1
             // 
@@ -181,39 +181,41 @@
             label6.TabIndex = 17;
             label6.Text = "Location";
             // 
-            // textBox5
+            // Location
             // 
-            textBox5.Location = new Point(246, 331);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(194, 27);
-            textBox5.TabIndex = 10;
+            Location.Location = new Point(246, 331);
+            Location.Name = "Location";
+            Location.Size = new Size(194, 27);
+            Location.TabIndex = 10;
             // 
-            // button1
+            // UpdateButtton
             // 
-            button1.BackColor = Color.MediumBlue;
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(246, 402);
-            button1.Name = "button1";
-            button1.Size = new Size(106, 47);
-            button1.TabIndex = 18;
-            button1.Text = "Update";
-            button1.UseVisualStyleBackColor = false;
+            UpdateButtton.BackColor = Color.MediumBlue;
+            UpdateButtton.BackgroundImageLayout = ImageLayout.None;
+            UpdateButtton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            UpdateButtton.ForeColor = SystemColors.ControlLightLight;
+            UpdateButtton.Location = new Point(246, 402);
+            UpdateButtton.Name = "UpdateButtton";
+            UpdateButtton.Size = new Size(106, 47);
+            UpdateButtton.TabIndex = 18;
+            UpdateButtton.Text = "Update";
+            UpdateButtton.UseVisualStyleBackColor = false;
+            UpdateButtton.Click += button1_Click;
             // 
-            // button2
+            // CancelButton
             // 
-            button2.BackColor = Color.Snow;
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.DimGray;
-            button2.Location = new Point(385, 402);
-            button2.Name = "button2";
-            button2.Size = new Size(106, 47);
-            button2.TabIndex = 19;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            CancelButton.AccessibleName = "Default Button";
+            CancelButton.BackColor = Color.Snow;
+            CancelButton.BackgroundImageLayout = ImageLayout.None;
+            CancelButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            CancelButton.ForeColor = Color.DimGray;
+            CancelButton.Location = new Point(385, 402);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(106, 47);
+            CancelButton.TabIndex = 19;
+            CancelButton.Text = "Cancel";
+            CancelButton.UseVisualStyleBackColor = false;
+            CancelButton.Click += button2_Click;
             // 
             // pictureBox3
             // 
@@ -258,19 +260,19 @@
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(pictureBox3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(CancelButton);
+            Controls.Add(UpdateButtton);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(Location);
+            Controls.Add(Phone);
+            Controls.Add(Email);
+            Controls.Add(LastName);
+            Controls.Add(FirstName);
             Controls.Add(lessonLearnedLabel);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
@@ -288,19 +290,19 @@
         private PictureBox pictureBox1;
         private Label lessonLearnedLabel;
         private PictureBox pictureBox2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox FirstName;
+        private TextBox LastName;
+        private TextBox Email;
+        private TextBox Phone;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox5;
-        private Button button1;
-        private Button button2;
+        private TextBox Location;
+        private Button UpdateButtton;
+        private Button CancelButton;
         private PictureBox pictureBox3;
         private Label label7;
         private Label label8;
