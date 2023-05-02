@@ -60,7 +60,7 @@ namespace mentoring_system.implementation
             Debug.Assert(Enum.IsDefined(typeof(bookTrigger), trigger), "not a valid value.");
 
             currentState = GetNextState(currentState, trigger);
-            Console.WriteLine("Kondisi Booking Mentoring sekarang adalah " + currentState);
+            Console.WriteLine("Kondisi akun sekarang adalah " + currentState);
         }
     }
 }
