@@ -46,7 +46,7 @@ namespace mentoring_system.view
             landingPage.Show();
         }
 
-        private void appointmentBookedLabel_Click(object sender, EventArgs e)
+        private void greetingLabel_Click(object sender, EventArgs e)
         {
 
         }

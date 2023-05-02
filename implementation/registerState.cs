@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.implementation
 {
-    internal class registerstate
+    public class registerstate
     {
         public enum bookState
         {

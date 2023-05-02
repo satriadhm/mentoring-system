@@ -11,28 +11,21 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Security.Policy;
 using mentoring_system.view.Mentor;
+using mentoring_system.model;
 
 namespace mentoring_system.view
 {
     public partial class DashboardMentor : Form
     {
-        public DashboardMentor()
+        private mentor Mentor;
+        public DashboardMentor(mentor Mentor)
         {
+            this.Mentor = Mentor;
             InitializeComponent();
             Dropdown.Visible = false;
-            //mentorSchedule1.SendToBack();
-            GetUserInfoAsync();
+            mentorSchedule2.SendToBack();
+            userName.Text = $"Welcome, {Mentor.NamaLengkap}";
 
-
-        }
-        public async Task GetUserInfoAsync()
-        {
-
-            HttpClient client = new HttpClient();
-            string json = await client.GetStringAsync("http://localhost:5132/api/mentor");
-            List<model.mentor> users = JsonConvert.DeserializeObject<List<model.mentor>>(json);
-            string mentorName = users[0].userName;
-            userName.Text = $"Welcome, {mentorName}";
         }
 
         private void HideDropdown()
@@ -55,7 +48,7 @@ namespace mentoring_system.view
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            mentorSchedule1.BringToFront();
+            mentorSchedule2.BringToFront();
         }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
@@ -121,7 +114,18 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            //mentorSchedule1.SendToBack();
+            mentorSchedule2.SendToBack();
+            requests1.SendToBack();
+        }
+
+        private void RequestsBtn_Click(object sender, EventArgs e)
+        {
+            requests1.BringToFront();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
