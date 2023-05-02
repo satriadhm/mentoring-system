@@ -48,7 +48,6 @@ public partial class signUpMentee : Form
             System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
             System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
         }
-
         isSignup = true;
 
         this.Hide();
