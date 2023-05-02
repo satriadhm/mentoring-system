@@ -1,3 +1,4 @@
+using mentoring_system.implementation;
 using mentoring_system.model;
 using mentoring_system.view;
 using System.Diagnostics;
@@ -7,12 +8,15 @@ namespace mentoring_system
 {
     public partial class LoginMentee : Form
     {
+        registerstate registerState = new registerstate();
         public static mentee menteeData { get; set; }
 
         HttpClient client = new HttpClient();
         public LoginMentee()
         {
             InitializeComponent();
+           
+            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
@@ -24,6 +28,7 @@ namespace mentoring_system
                 if (admin)
                 {
                     this.Hide();
+                    registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
                     DashboardMentee dashboard = new DashboardMentee();
                     dashboard.ShowDialog();
 

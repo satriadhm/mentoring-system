@@ -13,15 +13,20 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using mentoring_system.implementation;
 
 namespace mentoring_system.view.Mentor
 {
     public partial class signUpMentor : Form
     {
+        registerstate registerState = new registerstate();
+
         static HttpClient client = new HttpClient();
         public signUpMentor()
         {
             InitializeComponent();
+            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_SIGNUP_PAGE);
+
         }
 
         private async void registerButton_Click(object sender, EventArgs e)
@@ -68,6 +73,7 @@ namespace mentoring_system.view.Mentor
             //jSONparserBase.WriteJSON(mentorData,"mentor");
 
             this.Hide();
+            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
             DashboardMentor dashboard = new DashboardMentor();
             dashboard.Show();
         }
