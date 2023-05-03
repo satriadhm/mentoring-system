@@ -62,6 +62,7 @@
             label2.Size = new Size(526, 31);
             label2.TabIndex = 19;
             label2.Text = "View and manage incoming mentorship requests.";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -73,6 +74,7 @@
             label1.Size = new Size(329, 45);
             label1.TabIndex = 18;
             label1.Text = "Mentorship Requests";
+            label1.Click += label1_Click;
             // 
             // MenteeRequests
             // 
@@ -95,6 +97,7 @@
             MenteeRequests.RowTemplate.Height = 25;
             MenteeRequests.Size = new Size(634, 333);
             MenteeRequests.TabIndex = 20;
+            MenteeRequests.CellContentClick += MenteeRequests_CellContentClick;
             // 
             // nameColumn
             // 
@@ -124,7 +127,7 @@
             button1.Text = "Accept";
             button1.UseVisualStyleBackColor = false;
             // 
-            // UserControl1
+            // Requests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -133,7 +136,7 @@
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
             Controls.Add(button1);
-            Name = "UserControl1";
+            Name = "Requests";
             Size = new Size(700, 600);
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).EndInit();
             ResumeLayout(false);

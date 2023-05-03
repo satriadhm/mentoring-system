@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Security.Policy;
-using mentoring_system.view.Mentor;
+﻿using mentoring_system.view.Mentor;
 using mentoring_system.model;
 
 namespace mentoring_system.view
@@ -20,12 +8,14 @@ namespace mentoring_system.view
         private mentor Mentor;
         public DashboardMentor(mentor Mentor)
         {
-            this.Mentor = Mentor;
             InitializeComponent();
-            Dropdown.Visible = false;
-            mentorSchedule2.SendToBack();
-            userName.Text = $"Welcome, {Mentor.NamaLengkap}";
+            this.Mentor = Mentor;
+            string[] textSubjek = { "UI/UX Design", "Programming Algorithm", "Data Structure" };
 
+            Dropdown.Visible = false;
+            mentorProfile.SendToBack();
+            userName.Text = $"Welcome, {Mentor.NamaLengkap}";
+            SubjekText.Text = $"Your Mentoring Subject: {textSubjek[(int)Mentor.Subjek]}";
         }
 
         private void HideDropdown()
@@ -48,7 +38,7 @@ namespace mentoring_system.view
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            mentorSchedule2.BringToFront();
+            mentorProfile.BringToFront();
         }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
@@ -114,8 +104,9 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            mentorSchedule2.SendToBack();
+            mentorProfile.SendToBack();
             requests1.SendToBack();
+            //profileMentor1.SendToBack();
         }
 
         private void RequestsBtn_Click(object sender, EventArgs e)
@@ -124,6 +115,20 @@ namespace mentoring_system.view
         }
 
         private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e) //Profile Button
+        {
+            //profileMentor1.BringToFront();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void SubjekText_Click(object sender, EventArgs e)
         {
 
         }

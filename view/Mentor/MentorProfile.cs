@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view.Mentor
 {
-    public partial class MentorSchedule : UserControl
+    public partial class MentorProfile : UserControl
     {
         //DataGridView ScheduleTable = new DataGridView();
 
-        public MentorSchedule()
+        public MentorProfile()
         {
             InitializeComponent();
         }

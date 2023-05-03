@@ -40,6 +40,8 @@ namespace mentoring_system.view.Mentor
             {
                 subjek = 0;
             }
+
+            
             mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
 
