@@ -91,6 +91,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(335, 27);
             passwordTextBox.TabIndex = 17;
+            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // usernameTextBox
             // 
@@ -162,6 +163,7 @@
             dataStructureRadioButton.TabStop = true;
             dataStructureRadioButton.Text = "Data Structure";
             dataStructureRadioButton.UseVisualStyleBackColor = true;
+            dataStructureRadioButton.CheckedChanged += dataStructureRadioButton_CheckedChanged;
             // 
             // interactionDesignRadioButton
             // 

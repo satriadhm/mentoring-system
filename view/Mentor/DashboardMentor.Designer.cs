@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMentor));
             NavBar = new Panel();
+            button1 = new Button();
             LogOutBtn = new Button();
             YourClassBtn = new Button();
             Dropdown = new Panel();
@@ -55,7 +56,7 @@
             userName = new Label();
             mentorSchedule2 = new Mentor.MentorSchedule();
             panel4 = new Panel();
-            requests1 = new Mentor.Requests(Mentor);
+            requests1 = new Mentor.Requests();
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             NavBar.AutoScroll = true;
             NavBar.BackColor = SystemColors.ActiveBorder;
+            NavBar.Controls.Add(button1);
             NavBar.Controls.Add(LogOutBtn);
             NavBar.Controls.Add(YourClassBtn);
             NavBar.Controls.Add(Dropdown);
@@ -78,8 +80,25 @@
             NavBar.Dock = DockStyle.Left;
             NavBar.Location = new Point(0, 0);
             NavBar.Name = "NavBar";
-            NavBar.Size = new Size(273, 748);
+            NavBar.Size = new Size(273, 653);
             NavBar.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Control;
+            button1.Location = new Point(0, 337);
+            button1.Name = "button1";
+            button1.Padding = new Padding(15, 0, 0, 0);
+            button1.Size = new Size(273, 48);
+            button1.TabIndex = 6;
+            button1.Text = "Your Profile";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
             // 
             // LogOutBtn
             // 
@@ -89,7 +108,7 @@
             LogOutBtn.FlatStyle = FlatStyle.Flat;
             LogOutBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             LogOutBtn.ForeColor = Color.Crimson;
-            LogOutBtn.Location = new Point(0, 700);
+            LogOutBtn.Location = new Point(0, 605);
             LogOutBtn.Name = "LogOutBtn";
             LogOutBtn.Padding = new Padding(15, 0, 0, 0);
             LogOutBtn.Size = new Size(273, 48);
@@ -410,10 +429,10 @@
             // 
             // requests1
             // 
-            requests1.Location = new Point(273, 0);
+            requests1.Location = new Point(279, 0);
             requests1.Name = "requests1";
-            requests1.Size = new Size(879, 748);
-            requests1.TabIndex = 13;
+            requests1.Size = new Size(702, 653);
+            requests1.TabIndex = 0;
             // 
             // DashboardMentor
             // 
@@ -429,8 +448,8 @@
             Controls.Add(label1);
             Controls.Add(NavBar);
             Controls.Add(panel4);
-            Controls.Add(requests1);
             Controls.Add(mentorSchedule2);
+            Controls.Add(requests1);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
             Text = "Homepage";
@@ -453,7 +472,6 @@
 
         private Panel NavBar;
         private Panel Dropdown;
-        private Button ScheduleBtn;
         private Button YourClassBtn;
         private Button AppointmentBtn;
         private Button HomeBtn;
@@ -479,6 +497,8 @@
         private Panel panel2;
         private Mentor.MentorSchedule mentorSchedule2;
         private Panel panel4;
+        private Button button1;
+        private Button ScheduleBtn;
         private Mentor.Requests requests1;
     }
 }

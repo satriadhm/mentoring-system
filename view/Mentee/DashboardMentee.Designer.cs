@@ -331,6 +331,13 @@ namespace mentoring_system.view
             AppointmentBookedQuantitativeLabel.TabIndex = 3;
             AppointmentBookedQuantitativeLabel.Text = "3";
             // 
+            // appointmentBookedLabel
+            // 
+            appointmentBookedLabel.Location = new Point(0, 0);
+            appointmentBookedLabel.Name = "appointmentBookedLabel";
+            appointmentBookedLabel.Size = new Size(100, 23);
+            appointmentBookedLabel.TabIndex = 4;
+            // 
             // panel4
             // 
             panel4.BackColor = Color.DarkSeaGreen;

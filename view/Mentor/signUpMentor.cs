@@ -42,7 +42,7 @@ namespace mentoring_system.view.Mentor
             }
             mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
-            
+
             string urlLocal = "http://localhost:5132/api/mentor";
             string urlCloud = "http://128.199.77.50:5132/api/mentor";
             try
@@ -71,6 +71,16 @@ namespace mentoring_system.view.Mentor
         }
 
         private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataStructureRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
