@@ -91,6 +91,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(335, 27);
             passwordTextBox.TabIndex = 17;
+            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // usernameTextBox
             // 
@@ -105,6 +106,7 @@
             namaLengkapTextBox.Name = "namaLengkapTextBox";
             namaLengkapTextBox.Size = new Size(335, 27);
             namaLengkapTextBox.TabIndex = 15;
+            namaLengkapTextBox.TextChanged += namaLengkapTextBox_TextChanged;
             // 
             // pictureBoxLoginPageMentor
             // 
@@ -161,6 +163,7 @@
             dataStructureRadioButton.TabStop = true;
             dataStructureRadioButton.Text = "Data Structure";
             dataStructureRadioButton.UseVisualStyleBackColor = true;
+            dataStructureRadioButton.CheckedChanged += dataStructureRadioButton_CheckedChanged;
             // 
             // interactionDesignRadioButton
             // 

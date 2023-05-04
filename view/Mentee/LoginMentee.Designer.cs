@@ -99,6 +99,7 @@
             copyWritingLabel.TabIndex = 6;
             copyWritingLabel.Text = "\"Unlock your potential with our mentorship program - register now!\"";
             copyWritingLabel.TextAlign = ContentAlignment.TopRight;
+            copyWritingLabel.Click += copyWritingLabel_Click;
             // 
             // passwordLabel
             // 
@@ -120,12 +121,15 @@
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(247, 445);
+            loginButton.BackColor = Color.PeachPuff;
+            loginButton.FlatAppearance.BorderSize = 0;
+            loginButton.FlatStyle = FlatStyle.Flat;
+            loginButton.Location = new Point(204, 434);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(175, 27);
+            loginButton.Size = new Size(218, 38);
             loginButton.TabIndex = 2;
-            loginButton.Text = "login";
-            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
             // passwordTextBox
@@ -135,14 +139,6 @@
             passwordTextBox.Size = new Size(232, 27);
             passwordTextBox.TabIndex = 1;
             passwordTextBox.UseSystemPasswordChar = true;
-            // 
-            // usernameTextbox
-            // 
-            usernameTextbox.Location = new Point(190, 294);
-            usernameTextbox.Multiline = true;
-            usernameTextbox.Name = "usernameTextbox";
-            usernameTextbox.Size = new Size(232, 26);
-            usernameTextbox.TabIndex = 0;
             // 
             // LoginMentee
             // 

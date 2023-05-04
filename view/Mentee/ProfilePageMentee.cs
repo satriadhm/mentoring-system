@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view
 {
-    public partial class ProfilePage : Form
+    public partial class ProfilePageMentee : Form
     {
-        public ProfilePage()
+        public ProfilePageMentee()
         {
             InitializeComponent();
         }
+
     }
 }

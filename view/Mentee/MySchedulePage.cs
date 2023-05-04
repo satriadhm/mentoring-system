@@ -21,5 +21,10 @@ namespace mentoring_system.view.Mentee
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

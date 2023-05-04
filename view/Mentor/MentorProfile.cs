@@ -1,4 +1,6 @@
-﻿using mentoring_system.controller;
+﻿using apimentoringsystem.Controllers;
+using mentoring_system.controller;
+using mentoring_system.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +13,11 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view.Mentor
 {
-    public partial class MentorSchedule : UserControl
+    public partial class MentorProfile : UserControl
     {
         //DataGridView ScheduleTable = new DataGridView();
 
-        public MentorSchedule()
+        public MentorProfile()
         {
             InitializeComponent();
         }
@@ -33,7 +35,6 @@ namespace mentoring_system.view.Mentor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ScheduleTable.Rows.Add(comboBox1.SelectedItem, dateTimePicker1.Value);
         }
 
         private void ScheduleTable_CellContentClick(object sender, DataGridViewCellEventArgs e)

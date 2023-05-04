@@ -28,12 +28,6 @@ namespace mentoring_system.view
             bookingPage.BringToFront();
         }
 
-        private void profileButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ProfilePage profilepage = new ProfilePage();
-            profilepage.ShowDialog();
-        }
 
         private void scheduleButton_Click(object sender, EventArgs e)
         {
@@ -50,6 +44,18 @@ namespace mentoring_system.view
             this.Hide();
             LandingPage landingPage = new LandingPage();
             landingPage.Show();
+        }
+
+        private void greetingLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileButton_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProfilePageMentee profilepage = new ProfilePageMentee();
+            profilepage.ShowDialog();
         }
     }
 }

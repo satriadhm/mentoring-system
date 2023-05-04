@@ -1,5 +1,6 @@
 ﻿using mentoring_system.controller;
 using mentoring_system.model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,16 +25,16 @@ namespace mentoring_system.view.Mentee
 
         public BookingPage()
         {
-
             InitializeComponent();
             LoadDataMentor();
-
         }
         private async void LoadDataMentor()
         {
             try
             {
-                var response = await client.GetAsync("http://localhost:5132/api/mentor");
+                string urlCloud = "http://128.199.77.50:5132/api/mentor";
+                string urlLocal = "http://localhost:5132/api/mentor";
+                var response = await client.GetAsync(urlCloud);
                 response.EnsureSuccessStatusCode();
                 var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
                 foreach (var item in data)
@@ -70,7 +71,6 @@ namespace mentoring_system.view.Mentee
 
         private async void submitButton_Click(object sender, EventArgs e)
         {
-
             controller.bookingState state = new controller.bookingState();
             state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
 
@@ -79,17 +79,26 @@ namespace mentoring_system.view.Mentee
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
 
-            MentorshipRequest menteeRequest = new MentorshipRequest(selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
+            model.mentee menteeData;
+            Console.WriteLine(signUpMentee.isSignup);
+            if (signUpMentee.isSignup) 
+            {
+                menteeData = signUpMentee.menteeData;
+               
+            }else 
+            {
+                menteeData = LoginMentee.menteeData;
+                
+            }
+            MentorshipRequest menteeRequest = new MentorshipRequest(menteeData, selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
 
-            string url = "http://localhost:5132/api/mentorshipRequest";
+            string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
+            string urlLocal = "http://localhost:5132/api/MentorshipRequest";
 
-            HttpResponseMessage response = await client.PostAsJsonAsync(url, menteeRequest);
+            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeRequest);
 
             response.EnsureSuccessStatusCode();
-
             Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
-
-            //Console.WriteLine(comboBoxMentorName.SelectedItem.ToString() +  comboBoxCourseName.SelectedItem.ToString());
 
             table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
 
