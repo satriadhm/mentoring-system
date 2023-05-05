@@ -140,6 +140,13 @@
             passwordTextBox.TabIndex = 1;
             passwordTextBox.UseSystemPasswordChar = true;
             // 
+            // usernameTextbox
+            // 
+            usernameTextbox.Location = new Point(190, 282);
+            usernameTextbox.Name = "usernameTextbox";
+            usernameTextbox.Size = new Size(232, 27);
+            usernameTextbox.TabIndex = 8;
+            // 
             // LoginMentee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
