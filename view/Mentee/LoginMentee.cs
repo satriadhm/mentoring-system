@@ -1,7 +1,6 @@
 using mentoring_system.implementation;
 using mentoring_system.model;
 using mentoring_system.view;
-using System.Diagnostics;
 using System.Net.Http.Json;
 
 namespace mentoring_system
@@ -15,7 +14,7 @@ namespace mentoring_system
         public LoginMentee()
         {
             InitializeComponent();
-           
+
             registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
@@ -84,6 +83,11 @@ namespace mentoring_system
         }
 
         private void copyWritingLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
         {
 
         }
