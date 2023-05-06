@@ -16,39 +16,42 @@ namespace mentoring_system
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
-            HttpClient client = new HttpClient();
             try
             {
-                if (usernameTextbox.TextLength == 0 || passwordTextBox.TextLength == 0)
-                {
-                    MessageBox.Show("Username atau password tidak boleh kosong", "Login Page");
-                }
-                else
-                {
-                    string usernameMentor = usernameTextbox.Text;
-                    string passwordMentor = passwordTextBox.Text;
+                if (string.IsNullOrEmpty(usernameTextbox.Text))
+                    throw new ArgumentException("Username textbox should not be empty.");
+                if (string.IsNullOrEmpty(passwordTextBox.Text))
+                    throw new ArgumentException("Password textbox should not be empty.");
 
-                    string url = $"http://128.199.77.50:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
-                    HttpResponseMessage response = await client.GetAsync(url);
-                    response.EnsureSuccessStatusCode();
-                    var mentorLogins = await response.Content.ReadAsAsync<List<mentor>>();
+                HttpClient client = new HttpClient();
+                string usernameMentor = usernameTextbox.Text;
+                string passwordMentor = passwordTextBox.Text;
 
-                    for (int i=0; i<mentorLogins.Count; i++)
+                string url = $"http://128.199.77.50:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
+                HttpResponseMessage response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var mentorLogins = await response.Content.ReadAsAsync<List<mentor>>();
+
+                for (int i = 0; i < mentorLogins.Count; i++)
+                {
+                    if (mentorLogins[i].userName == usernameMentor && mentorLogins[i].password == passwordMentor)
                     {
-                        if (mentorLogins[i].userName == usernameMentor && mentorLogins[i].password == passwordMentor)
-                        {
-                            this.Hide();
-                            DashboardMentor home = new DashboardMentor(mentorLogins[i]);
-                            home.Show();
-                        }
+                        this.Hide();
+                        DashboardMentor home = new DashboardMentor(mentorLogins[i]);
+                        home.Show();
                     }
-
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                MessageBox.Show(ex.Message, Text);
+                MessageBox.Show(ex.Message, "Login Page");
             }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show(ex.Message, "Login Page");
+            }
+
         }
 
         private void usernameTextbox_TextChanged(object sender, EventArgs e)
