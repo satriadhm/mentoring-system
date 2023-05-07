@@ -28,7 +28,7 @@ namespace mentoring_system
                 {
                     this.Hide();
                     registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
-                    DashboardMentee dashboard = new DashboardMentee();
+                    DashboardMentee dashboard = new DashboardMentee(menteeData);
                     dashboard.ShowDialog();
 
                 }
@@ -55,7 +55,7 @@ namespace mentoring_system
                                     string urlLocal = "http://localhost:5132/api/mentee/";
                                     menteeData = await client.GetFromJsonAsync<mentee>(urlCloud + stringId);
                                     this.Hide();
-                                    DashboardMentee dashboard = new DashboardMentee();
+                                    DashboardMentee dashboard = new DashboardMentee(menteeData);
                                     dashboard.ShowDialog();
                                 }
                             }
@@ -91,6 +91,7 @@ namespace mentoring_system
         {
 
         }
+
     }
 
 }

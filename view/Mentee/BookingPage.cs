@@ -80,7 +80,6 @@ namespace mentoring_system.view.Mentee
             string selectedMentorName = selectedMentor.NamaLengkap;
 
             model.mentee menteeData;
-            Console.WriteLine(signUpMentee.isSignup);
             if (signUpMentee.isSignup) 
             {
                 menteeData = signUpMentee.menteeData;

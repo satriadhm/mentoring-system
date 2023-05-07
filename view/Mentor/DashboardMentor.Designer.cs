@@ -55,6 +55,7 @@
             userName = new Label();
             mentorProfile = new Mentor.MentorProfile();
             panel4 = new Panel();
+            labelRoleMentor = new Label();
             SubjekText = new Label();
             requests1 = new Mentor.Requests();
             NavBar.SuspendLayout();
@@ -405,6 +406,7 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(labelRoleMentor);
             panel4.Controls.Add(SubjekText);
             panel4.Controls.Add(tableLayoutPanel1);
             panel4.Controls.Add(label1);
@@ -417,11 +419,22 @@
             panel4.Size = new Size(701, 653);
             panel4.TabIndex = 12;
             // 
+            // labelRoleMentor
+            // 
+            labelRoleMentor.AutoSize = true;
+            labelRoleMentor.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            labelRoleMentor.Location = new Point(14, 100);
+            labelRoleMentor.Name = "labelRoleMentor";
+            labelRoleMentor.Size = new Size(75, 31);
+            labelRoleMentor.TabIndex = 11;
+            labelRoleMentor.Text = "{Role}";
+            labelRoleMentor.Click += labelRoleMentor_Click;
+            // 
             // SubjekText
             // 
             SubjekText.AutoSize = true;
             SubjekText.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            SubjekText.Location = new Point(17, 109);
+            SubjekText.Location = new Point(15, 148);
             SubjekText.Name = "SubjekText";
             SubjekText.Size = new Size(88, 28);
             SubjekText.TabIndex = 10;
@@ -499,5 +512,6 @@
         private Button ScheduleBtn;
         private Mentor.Requests requests1;
         private Label SubjekText;
+        private Label labelRoleMentor;
     }
 }
