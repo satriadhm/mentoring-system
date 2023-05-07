@@ -61,6 +61,7 @@ namespace mentoring_system.view
             bookingPage = new BookingPage();
             mySchedulePage = new MySchedulePage();
             panel5 = new Panel();
+            labelRole = new Label();
             label1 = new Label();
             panelNavbar.SuspendLayout();
             panelHeader.SuspendLayout();
@@ -405,11 +406,23 @@ namespace mentoring_system.view
             // 
             // panel5
             // 
+            panel5.Controls.Add(labelRole);
             panel5.Controls.Add(label1);
             panel5.Location = new Point(219, 52);
             panel5.Name = "panel5";
             panel5.Size = new Size(701, 578);
             panel5.TabIndex = 9;
+            // 
+            // labelRole
+            // 
+            labelRole.AutoSize = true;
+            labelRole.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelRole.Location = new Point(348, 70);
+            labelRole.Name = "labelRole";
+            labelRole.Size = new Size(65, 28);
+            labelRole.TabIndex = 12;
+            labelRole.Text = "{Role}";
+            labelRole.Click += labelRole_Click;
             // 
             // label1
             // 
@@ -488,5 +501,6 @@ namespace mentoring_system.view
         private MySchedulePage mySchedulePage;
         private Panel panel5;
         private Label label1;
+        private Label labelRole;
     }
 }

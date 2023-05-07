@@ -51,7 +51,7 @@ public partial class signUpMentee : Form
         isSignup = true;
 
         this.Hide();
-        DashboardMentee dashboard = new DashboardMentee();
+        DashboardMentee dashboard = new DashboardMentee(menteeData);
         dashboard.Show();
     }
 

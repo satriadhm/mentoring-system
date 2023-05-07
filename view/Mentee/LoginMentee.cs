@@ -15,7 +15,7 @@ namespace mentoring_system
         public LoginMentee()
         {
             InitializeComponent();
-           
+
             registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
@@ -29,7 +29,7 @@ namespace mentoring_system
                 {
                     this.Hide();
                     registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
-                    DashboardMentee dashboard = new DashboardMentee();
+                    DashboardMentee dashboard = new DashboardMentee(menteeData);
                     dashboard.ShowDialog();
 
                 }
@@ -56,7 +56,7 @@ namespace mentoring_system
                                     string urlLocal = "http://localhost:5132/api/mentee/";
                                     menteeData = await client.GetFromJsonAsync<mentee>(urlCloud + stringId);
                                     this.Hide();
-                                    DashboardMentee dashboard = new DashboardMentee();
+                                    DashboardMentee dashboard = new DashboardMentee(menteeData);
                                     dashboard.ShowDialog();
                                 }
                             }
@@ -84,6 +84,16 @@ namespace mentoring_system
         }
 
         private void copyWritingLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginAsset_Click(object sender, EventArgs e)
         {
 
         }

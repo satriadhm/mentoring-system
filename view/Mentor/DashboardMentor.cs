@@ -10,11 +10,13 @@ namespace mentoring_system.view
         {
             InitializeComponent();
             this.Mentor = Mentor;
-            string[] textSubjek = { "UI/UX Design", "Programming Algorithm", "Data Structure" };
+            string[] textSubjek = { "Interaction Design", "Programming Algorithm", "Data Structure" };
+            string[] role = { "Mentor", "Mente" };
 
             Dropdown.Visible = false;
             mentorProfile.SendToBack();
             userName.Text = $"Welcome, {Mentor.NamaLengkap}";
+            labelRoleMentor.Text = $"Your Role: {role[(int)Mentor.role]}";
             SubjekText.Text = $"Your Mentoring Subject: {textSubjek[(int)Mentor.Subjek]}";
         }
 
@@ -129,6 +131,11 @@ namespace mentoring_system.view
         }
 
         private void SubjekText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelRoleMentor_Click(object sender, EventArgs e)
         {
 
         }

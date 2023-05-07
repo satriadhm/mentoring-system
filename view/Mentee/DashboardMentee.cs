@@ -1,4 +1,5 @@
-﻿using mentoring_system.view.Mentee;
+﻿using mentoring_system.model;
+using mentoring_system.view.Mentee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,18 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentee : Form
     {
-        public DashboardMentee()
+        public DashboardMentee(mentee Mentee)
         {
+
             InitializeComponent();
+            string[] role = { "Mentor", "Mente" };
+
             coursePage.SendToBack();
             bookingPage.SendToBack();
             mySchedulePage.SendToBack();
+
+            labelRole.Text = $"Your Role: {role[(int)Mentee.role]}";
+
 
         }
 
@@ -56,6 +63,16 @@ namespace mentoring_system.view
             this.Hide();
             ProfilePageMentee profilepage = new ProfilePageMentee();
             profilepage.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelRole_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
