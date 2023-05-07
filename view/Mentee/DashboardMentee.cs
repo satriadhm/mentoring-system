@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace mentoring_system.view
     {
         public DashboardMentee(mentee Mentee)
         {
+            // Precondition: parameter Mentee tidak boleh null
+            Debug.Assert(Mentee != null, "Mentee should not be null");
 
             InitializeComponent();
             string[] role = { "Mentor", "Mente" };
@@ -26,8 +29,10 @@ namespace mentoring_system.view
 
             labelRole.Text = $"Your Role: {role[(int)Mentee.role]}";
 
-
+            // Postcondition: labelRole harus berisi teks "Your Role: Mentor" atau "Your Role: Mente"
+            Debug.Assert(labelRole.Text == $"Your Role: {role[(int)Mentee.role]}", "Invalid labelRole value");
         }
+
 
         private void bookButton_Click(object sender, EventArgs e)
         {
