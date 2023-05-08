@@ -1,5 +1,7 @@
 ﻿using mentoring_system.model;
 using mentoring_system.implementation;
+using System.Diagnostics.Contracts;
+using System.Diagnostics;
 
 namespace mentoring_system.view.Mentor
 {
@@ -17,6 +19,12 @@ namespace mentoring_system.view.Mentor
 
         private async void registerButton_Click(object sender, EventArgs e)
         {
+            // Pre Condition: Semua TextBox harus terisi
+            Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
+
             string namaLengkapMentor = namaLengkapTextBox.Text;
             string usernameMentor = usernameTextBox.Text;
             string passwordMentor = passwordTextBox.Text;
@@ -46,23 +54,19 @@ namespace mentoring_system.view.Mentor
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
 
             string urlLocal = "http://localhost:5132/api/mentor";
-            string urlCloud = "http://128.199.77.50:5132/api/mentor";
+            string urlCloud = "http://128.1299.77.50:5132/api/mentor";
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, mentorData);
                 response.EnsureSuccessStatusCode();
+                this.Hide();
+                DashboardMentor dashboard = new DashboardMentor(mentorData);
+                dashboard.Show();
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-                System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
+                MessageBox.Show(ex.Message, "Sign Up Mentor");
             }
-
-
-            this.Hide();
-            //registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
-            DashboardMentor dashboard = new DashboardMentor(mentorData);
-            dashboard.Show();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
