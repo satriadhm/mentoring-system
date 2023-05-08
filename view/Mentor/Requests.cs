@@ -3,13 +3,15 @@ using Newtonsoft.Json;
 
 namespace mentoring_system.view.Mentor
 {
-    public partial class Requests : UserControl
+    public partial class Requests : UserControl 
     {
         static HttpClient client = new HttpClient();
-        public Requests()
+        private mentor Mentor;
+        public Requests(mentor Mentor)
         {
             InitializeComponent();
             GetMenteeRequestAsync();
+            this.Mentor = Mentor;
         }
 
         public async void GetMenteeRequestAsync()
@@ -18,7 +20,11 @@ namespace mentoring_system.view.Mentor
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
             for (int i = 0; i < requestsList.Count; i++)
             {
-                MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);
+
+                if (requestsList[i].name == Mentor.NamaLengkap)
+                {
+                    MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);
+                }
             }
         }
 

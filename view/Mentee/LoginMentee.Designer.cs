@@ -79,16 +79,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // loginAsset
-            // 
-            loginAsset.Image = (Image)resources.GetObject("loginAsset.Image");
-            loginAsset.Location = new Point(320, 69);
-            loginAsset.Name = "loginAsset";
-            loginAsset.Size = new Size(102, 97);
-            loginAsset.TabIndex = 7;
-            loginAsset.TabStop = false;
-            loginAsset.Click += loginAsset_Click;
-            // 
             // copyWritingLabel
             // 
             copyWritingLabel.AutoSize = true;
