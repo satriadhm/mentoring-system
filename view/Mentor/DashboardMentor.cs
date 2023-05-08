@@ -1,4 +1,5 @@
-﻿using mentoring_system.model;
+﻿using mentoring_system.view.Mentor;
+using mentoring_system.model;
 
 namespace mentoring_system.view
 {

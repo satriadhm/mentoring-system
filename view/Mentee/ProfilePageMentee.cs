@@ -18,6 +18,7 @@ namespace mentoring_system.view
         public ProfilePageMentee()
         {
             InitializeComponent();
+            this.Load += new EventHandler(ProfilePageMentee_Load);
             LoadDataMentee();
         }
 
@@ -32,15 +33,6 @@ namespace mentoring_system.view
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxNamaLengkap_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void UpdateButtton_Click(object sender, EventArgs e)
         {
@@ -59,6 +51,13 @@ namespace mentoring_system.view
             this.Hide();
             DashboardMentee dashboard = new DashboardMentee(signUpMentee.menteeData);
             dashboard.ShowDialog();
+        }
+
+        private void ProfilePageMentee_Load(object sender, EventArgs e)
+        {
+            //Membuat object konfigurasi
+            UIConfig uIConfig = new UIConfig(); 
+
         }
     }
 }

@@ -99,7 +99,6 @@
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(335, 27);
             usernameTextBox.TabIndex = 16;
-            usernameTextBox.TextChanged += usernameTextBox_TextChanged;
             // 
             // namaLengkapTextBox
             // 

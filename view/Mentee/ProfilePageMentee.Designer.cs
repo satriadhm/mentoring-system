@@ -75,7 +75,6 @@
             textBoxNamaLengkap.Name = "textBoxNamaLengkap";
             textBoxNamaLengkap.Size = new Size(194, 27);
             textBoxNamaLengkap.TabIndex = 6;
-            textBoxNamaLengkap.TextChanged += textBoxNamaLengkap_TextChanged;
             // 
             // textBoxUmur
             // 
@@ -131,7 +130,6 @@
             labelUmur.Size = new Size(61, 28);
             labelUmur.TabIndex = 14;
             labelUmur.Text = "Umur";
-            labelUmur.Click += label3_Click;
             // 
             // labelUsername
             // 
@@ -251,6 +249,7 @@
             Controls.Add(pictureBox2);
             Name = "ProfilePageMentee";
             Text = "ProfilePage";
+            Load += ProfilePageMentee_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUser).EndInit();

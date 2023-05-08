@@ -41,7 +41,7 @@ namespace mentoring_system.view.Mentor
                 subjek = 0;
             }
 
-
+            
             mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
 
@@ -83,11 +83,6 @@ namespace mentoring_system.view.Mentor
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

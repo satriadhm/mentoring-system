@@ -417,7 +417,7 @@ namespace mentoring_system.view
             // 
             labelRole.AutoSize = true;
             labelRole.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelRole.Location = new Point(348, 70);
+            labelRole.Location = new Point(17, 37);
             labelRole.Name = "labelRole";
             labelRole.Size = new Size(65, 28);
             labelRole.TabIndex = 12;

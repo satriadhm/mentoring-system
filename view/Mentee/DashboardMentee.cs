@@ -1,4 +1,5 @@
-﻿using mentoring_system.model;
+﻿using mentoring_system.implementation;
+using mentoring_system.model;
 using mentoring_system.view.Mentee;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,7 @@ namespace mentoring_system.view
         private void profileButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
+           // UIConfig uIConfig = new UIConfig();
             ProfilePageMentee profilepage = new ProfilePageMentee();
             profilepage.ShowDialog();
         }

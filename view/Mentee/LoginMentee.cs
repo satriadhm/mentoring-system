@@ -1,6 +1,7 @@
 using mentoring_system.implementation;
 using mentoring_system.model;
 using mentoring_system.view;
+using System.Diagnostics;
 using System.Net.Http.Json;
 
 namespace mentoring_system
@@ -86,12 +87,6 @@ namespace mentoring_system
         {
 
         }
-
-        private void usernameTextbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 
 }

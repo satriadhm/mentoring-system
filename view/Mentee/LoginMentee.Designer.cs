@@ -87,7 +87,6 @@
             loginAsset.Size = new Size(102, 97);
             loginAsset.TabIndex = 7;
             loginAsset.TabStop = false;
-            loginAsset.Click += loginAsset_Click;
             // 
             // copyWritingLabel
             // 
@@ -143,12 +142,10 @@
             // 
             // usernameTextbox
             // 
-
-            usernameTextbox.Location = new Point(190, 293);
+            usernameTextbox.Location = new Point(190, 282);
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 27);
             usernameTextbox.TabIndex = 8;
-            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             // 
             // LoginMentee
             // 
