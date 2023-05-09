@@ -12,12 +12,15 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view.Mentor
 {
-    public partial class Requests : UserControl
+    public partial class MentorRequests : UserControl
     {
         static HttpClient client = new HttpClient();
         mentor MentorName;
+        public static string menteeName;
+        public static string schedule;
 
-        public Requests(mentor MentorName)
+
+        public MentorRequests(mentor MentorName)
         {
             this.MentorName = MentorName;
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace mentoring_system.view.Mentor
         {
             string request = await client.GetStringAsync("http://128.199.77.50:5132/api/mentorshipRequest");
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
-            for (int i=0; i<requestsList.Count; i++)
+            for (int i = 0; i < requestsList.Count; i++)
             {
                 if (requestsList[i].name == MentorName.NamaLengkap)
                 {
@@ -37,9 +40,18 @@ namespace mentoring_system.view.Mentor
             }
         }
 
-        private void MenteeRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void MenteeRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Ambil nilai sel tertentu
+                menteeName = MenteeRequests.Rows[e.RowIndex].Cells[0].Value.ToString();
+                schedule = MenteeRequests.Rows[e.RowIndex].Cells[1].Value.ToString();
+                acceptanceMentorship acceptance = new acceptanceMentorship();
+                acceptance.ShowDialog();
+
+
+            }
         }
     }
 }

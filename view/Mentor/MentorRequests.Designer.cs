@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system.view.Mentor
 {
-    partial class Requests
+    partial class MentorRequests
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,8 +33,6 @@
             MenteeRequests = new DataGridView();
             nameColumn = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).BeginInit();
             SuspendLayout();
             // 
@@ -97,44 +95,14 @@
             dateColumn.Name = "dateColumn";
             dateColumn.ReadOnly = true;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.MediumSeaGreen;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonFace;
-            button1.Location = new Point(534, 504);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 44);
-            button1.TabIndex = 16;
-            button1.Text = "Accept";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Firebrick;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(396, 504);
-            button2.Name = "button2";
-            button2.Size = new Size(121, 44);
-            button2.TabIndex = 17;
-            button2.Text = "Decline";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // Requests
+            // MentorRequests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
-            Name = "Requests";
+            Name = "MentorRequests";
             Size = new Size(703, 598);
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).EndInit();
             ResumeLayout(false);
@@ -148,7 +116,5 @@
         private DataGridView MenteeRequests;
         private DataGridViewTextBoxColumn nameColumn;
         private DataGridViewTextBoxColumn dateColumn;
-        private Button button1;
-        private Button button2;
     }
 }

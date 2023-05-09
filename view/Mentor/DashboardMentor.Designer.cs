@@ -55,7 +55,7 @@
             userName = new Label();
             mentorSchedule2 = new Mentor.MentorSchedule();
             panel4 = new Panel();
-            requests1 = new Mentor.Requests(Mentor);
+            requests1 = new Mentor.MentorRequests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -479,6 +479,6 @@
         private Panel panel2;
         private Mentor.MentorSchedule mentorSchedule2;
         private Panel panel4;
-        private Mentor.Requests requests1;
+        private Mentor.MentorRequests requests1;
     }
 }
