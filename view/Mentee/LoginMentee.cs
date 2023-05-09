@@ -1,3 +1,4 @@
+using mentoring_system.controller;
 using mentoring_system.implementation;
 using mentoring_system.model;
 using mentoring_system.view;
@@ -68,6 +69,7 @@ namespace mentoring_system
                                 else
                                 {
                                     menteeData = await client.GetFromJsonAsync<mentee>($"http://128.199.77.50:5132/api/mentee/{loggedInUser.Id}");
+                                    LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
                                     this.Hide();
                                     DashboardMentee dashboard = new DashboardMentee(menteeData);
                                     dashboard.ShowDialog();

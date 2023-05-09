@@ -72,7 +72,7 @@ namespace mentoring_system.view.Mentee
 
         private async void submitButton_Click(object sender, EventArgs e)
         {
-            signUpMentee.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
+            LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
             subjekMentoring selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
@@ -124,11 +124,6 @@ namespace mentoring_system.view.Mentee
                     comboBoxCourseName.Items.Add(subjekMentoring);
                 }
             }
-        }
-
-        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
