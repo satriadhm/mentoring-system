@@ -11,7 +11,6 @@ public partial class signUpMentee : Form
     public static HttpClient client = new HttpClient();
     public static bool isSignup { get; set; }
     public static model.mentee menteeData { get; set; }
-    public static controller.bookingState state = new controller.bookingState();
 
     public signUpMentee()
     {
@@ -51,7 +50,7 @@ public partial class signUpMentee : Form
         isSignup = true;
 
         this.Hide();
-        state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
+        LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
         DashboardMentee dashboard = new DashboardMentee();
         dashboard.Show();
     }
