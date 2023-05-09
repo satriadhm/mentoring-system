@@ -51,7 +51,7 @@ public partial class signUpMentee : Form
 
         this.Hide();
         LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
-        DashboardMentee dashboard = new DashboardMentee();
+        DashboardMentee dashboard = new DashboardMentee(menteeData);
         dashboard.Show();
     }
 
