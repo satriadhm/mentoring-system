@@ -58,5 +58,18 @@ namespace mentoring_system
         {
 
         }
+
+        public bool isValidSubject(string matkul)
+        {
+            string[] textSubjek = { "UI/UX Design", "Programming Algorithm", "Data Structure"};
+            return textSubjek.Contains(matkul);
+        }
+
+        public bool isMentor(string mentor)
+        {
+            string[] namaMentor = { "Rafidhia Haikal", "Farhan Mulya", "Putu Vidya", "Glorious Satria", "Kevin" };
+            return namaMentor.Contains(mentor);
+        }
+
     }
 }

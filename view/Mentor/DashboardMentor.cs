@@ -8,8 +8,8 @@ namespace mentoring_system.view
         private mentor Mentor;
         public DashboardMentor(mentor Mentor)
         {
-            InitializeComponent();
             this.Mentor = Mentor;
+            InitializeComponent();
             string[] textSubjek = { "Interaction Design", "Programming Algorithm", "Data Structure" };
             string[] role = { "Mentor", "Mente" };
 

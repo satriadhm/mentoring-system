@@ -15,16 +15,17 @@ namespace mentoring_system.view
 {
     public partial class ProfilePageMentee : Form
     {
-        public ProfilePageMentee()
+        mentee Mentee;
+        public ProfilePageMentee(mentee Mentee)
         {
             InitializeComponent();
-            this.Load += new EventHandler(ProfilePageMentee_Load);
+            this.Mentee = Mentee;
             LoadDataMentee();
         }
 
         public void LoadDataMentee()
         {
-            ProfileSet<string> profile = new ProfileSet<string>(signUpMentee.menteeData.NamaLengkap, signUpMentee.menteeData.umur, signUpMentee.menteeData.userName, signUpMentee.menteeData.password);
+            ProfileSet<string> profile = new ProfileSet<string>(Mentee.NamaLengkap,Mentee.umur,Mentee.userName,Mentee.password);
             textBoxNamaLengkap.Text = profile.Getnama().ToString();
             textBoxUmur.Text = profile.Getumur().ToString();
             textBoxUserName.Text = profile.GetuserName().ToString();
@@ -33,23 +34,37 @@ namespace mentoring_system.view
 
         }
 
+        public bool IsUsernameValid(string username)
+        {
+            if (username.Any(char.IsUpper))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void UpdateButtton_Click(object sender, EventArgs e)
         {
-            signUpMentee.menteeData.NamaLengkap = textBoxNamaLengkap.Text;
-            signUpMentee.menteeData.umur = textBoxUmur.Text;
-            signUpMentee.menteeData.userName = textBoxUserName.Text;
-            signUpMentee.menteeData.password = textBoxPassword.Text;
+            Mentee.NamaLengkap = textBoxNamaLengkap.Text;
+            Mentee.umur = textBoxUmur.Text;
+            Mentee.userName = textBoxUserName.Text;
+            Mentee.password = textBoxPassword.Text;
 
             this.Hide();
-            DashboardMentee dashboard = new DashboardMentee(signUpMentee.menteeData);
+            DashboardMentee dashboard = new DashboardMentee(Mentee);
             dashboard.ShowDialog();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DashboardMentee dashboard = new DashboardMentee(signUpMentee.menteeData);
+            DashboardMentee dashboard = new DashboardMentee(Mentee);
             dashboard.ShowDialog();
         }
 

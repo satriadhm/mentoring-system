@@ -61,8 +61,8 @@ namespace mentoring_system.view
             bookingPage = new BookingPage();
             mySchedulePage = new MySchedulePage();
             panel5 = new Panel();
-            labelRole = new Label();
             label1 = new Label();
+            label2 = new Label();
             panelNavbar.SuspendLayout();
             panelHeader.SuspendLayout();
             LessonLearnedPanel.SuspendLayout();
@@ -302,6 +302,7 @@ namespace mentoring_system.view
             // panel3
             // 
             panel3.BackColor = Color.LightCoral;
+            panel3.Controls.Add(label2);
             panel3.Controls.Add(newAppointmentBookedLabel);
             panel3.Controls.Add(AppointmentBookedQuantitativeLabel);
             panel3.Controls.Add(appointmentBookedLabel);
@@ -406,23 +407,12 @@ namespace mentoring_system.view
             // 
             // panel5
             // 
-            panel5.Controls.Add(labelRole);
+            panel5.Controls.Add(label2);
             panel5.Controls.Add(label1);
             panel5.Location = new Point(219, 52);
             panel5.Name = "panel5";
             panel5.Size = new Size(701, 578);
             panel5.TabIndex = 9;
-            // 
-            // labelRole
-            // 
-            labelRole.AutoSize = true;
-            labelRole.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelRole.Location = new Point(17, 37);
-            labelRole.Name = "labelRole";
-            labelRole.Size = new Size(65, 28);
-            labelRole.TabIndex = 12;
-            labelRole.Text = "{Role}";
-            labelRole.Click += labelRole_Click;
             // 
             // label1
             // 
@@ -434,6 +424,17 @@ namespace mentoring_system.view
             label1.Size = new Size(274, 46);
             label1.TabIndex = 11;
             label1.Text = "Lesson's History";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(16, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(117, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Lesson Learned";
             // 
             // DashboardMentee
             // 
@@ -501,6 +502,6 @@ namespace mentoring_system.view
         private MySchedulePage mySchedulePage;
         private Panel panel5;
         private Label label1;
-        private Label labelRole;
+        private Label label2;
     }
 }

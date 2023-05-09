@@ -7,8 +7,7 @@ namespace mentoring_system.view.Mentee;
 
 public partial class signUpMentee : Form
 {
-    registerstate registerState = new registerstate();
-
+    public static registerstate registerState = new registerstate();
     public static HttpClient client = new HttpClient();
     public static bool isSignup { get; set; }
     public static model.mentee menteeData { get; set; }
@@ -51,6 +50,7 @@ public partial class signUpMentee : Form
         isSignup = true;
 
         this.Hide();
+        LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
         DashboardMentee dashboard = new DashboardMentee(menteeData);
         dashboard.Show();
     }
@@ -63,8 +63,4 @@ public partial class signUpMentee : Form
         login.Show();
     }
 
-    private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
-    {
-
-    }
 }
