@@ -99,7 +99,6 @@
             copyWritingLabel.TabIndex = 6;
             copyWritingLabel.Text = "\"Unlock your potential with our mentorship program - register now!\"";
             copyWritingLabel.TextAlign = ContentAlignment.TopRight;
-            copyWritingLabel.Click += copyWritingLabel_Click;
             // 
             // passwordLabel
             // 
@@ -142,12 +141,10 @@
             // 
             // usernameTextbox
             // 
-
-            usernameTextbox.Location = new Point(190, 293);
+            usernameTextbox.Location = new Point(190, 282);
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 27);
             usernameTextbox.TabIndex = 8;
-            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             // 
             // LoginMentee
             // 

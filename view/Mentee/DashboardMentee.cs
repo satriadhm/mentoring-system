@@ -15,22 +15,23 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentee : Form
     {
+        mentee Mentee;
         public DashboardMentee(mentee Mentee)
         {
             // Precondition: parameter Mentee tidak boleh null
             Debug.Assert(Mentee != null, "Mentee should not be null");
-
             InitializeComponent();
+            this.Mentee = Mentee;
             string[] role = { "Mentor", "Mente" };
 
             coursePage.SendToBack();
             bookingPage.SendToBack();
             mySchedulePage.SendToBack();
 
-            labelRole.Text = $"Your Role: {role[(int)Mentee.role]}";
+            label2.Text = $"Your Role: {role[(int)Mentee.role]}";
 
             // Postcondition: labelRole harus berisi teks "Your Role: Mentor" atau "Your Role: Mente"
-            Debug.Assert(labelRole.Text == $"Your Role: {role[(int)Mentee.role]}", "Invalid labelRole value");
+            Debug.Assert(label2.Text == $"Your Role: {role[(int)Mentee.role]}", "Invalid labelRole value");
         }
 
 
@@ -66,7 +67,7 @@ namespace mentoring_system.view
         private void profileButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            ProfilePageMentee profilepage = new ProfilePageMentee();
+            ProfilePageMentee profilepage = new ProfilePageMentee(Mentee);
             profilepage.ShowDialog();
         }
 

@@ -18,7 +18,8 @@ namespace mentoring_system.controller
             PAYMENT,
             REGISTER,
             CHOOSEDATE,
-            CANCELDATE
+            CANCELDATE,
+            PROCEED
         }
         bookState currentState = bookState.NONE;
         public class Transition
@@ -37,7 +38,8 @@ namespace mentoring_system.controller
             new Transition(bookState.NONE,bookState.READY, bookTrigger.REGISTER),
             new Transition (bookState.READY,bookState.PENDING, bookTrigger.CHOOSEDATE),
             new Transition(bookState.PENDING,bookState.COMPLETED, bookTrigger.PAYMENT),
-            new Transition(bookState.PENDING, bookState.CANCELLED, bookTrigger.CANCELDATE)
+            new Transition(bookState.PENDING, bookState.CANCELLED, bookTrigger.CANCELDATE),
+            new Transition(bookState.PENDING, bookState.COMPLETED, bookTrigger.PROCEED)
         };
 
         // Precondition: trigger harus merupakan nilai yang didefinisikan di dalam bookTrigger.

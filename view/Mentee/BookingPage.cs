@@ -23,6 +23,7 @@ namespace mentoring_system.view.Mentee
 
         DataTable table = new DataTable("Mentorship Request");
 
+
         public BookingPage()
         {
             InitializeComponent();
@@ -71,23 +72,20 @@ namespace mentoring_system.view.Mentee
 
         private async void submitButton_Click(object sender, EventArgs e)
         {
-            controller.bookingState state = new controller.bookingState();
-            state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
-
+            LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
             subjekMentoring selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
-
             mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
             string selectedMentorName = selectedMentor.NamaLengkap;
-
             model.mentee menteeData;
-            if (signUpMentee.isSignup) 
+            if (signUpMentee.isSignup)
             {
                 menteeData = signUpMentee.menteeData;
-               
-            }else 
+
+            }
+            else
             {
                 menteeData = LoginMentee.menteeData;
-                
+
             }
             MentorshipRequest menteeRequest = new MentorshipRequest(menteeData, selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
 
@@ -103,7 +101,6 @@ namespace mentoring_system.view.Mentee
 
 
         }
-
         private void proceedButton_Click(object sender, EventArgs e)
         {
             // tambahkan user control baru
@@ -127,11 +124,6 @@ namespace mentoring_system.view.Mentee
                     comboBoxCourseName.Items.Add(subjekMentoring);
                 }
             }
-        }
-
-        private void comboBoxCourseName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
