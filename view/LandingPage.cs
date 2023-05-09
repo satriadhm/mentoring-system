@@ -14,6 +14,7 @@ namespace mentoring_system.view
 {
     public partial class LandingPage : Form
     {
+        public static controller.bookingState state = new controller.bookingState();
 
         public LandingPage()
         {

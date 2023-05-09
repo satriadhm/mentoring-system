@@ -33,6 +33,7 @@
             ewalletRadioButton = new RadioButton();
             paymentMethodLabel = new Label();
             proceedButton = new Button();
+            cancelPaymentButton = new Button();
             SuspendLayout();
             // 
             // cashRadioButton
@@ -87,7 +88,7 @@
             proceedButton.FlatStyle = FlatStyle.Flat;
             proceedButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             proceedButton.ForeColor = Color.SaddleBrown;
-            proceedButton.Location = new Point(195, 168);
+            proceedButton.Location = new Point(106, 164);
             proceedButton.Name = "proceedButton";
             proceedButton.Size = new Size(132, 41);
             proceedButton.TabIndex = 22;
@@ -95,11 +96,27 @@
             proceedButton.UseVisualStyleBackColor = false;
             proceedButton.Click += proceedButton_Click;
             // 
+            // cancelPaymentButton
+            // 
+            cancelPaymentButton.BackColor = Color.LightCoral;
+            cancelPaymentButton.FlatAppearance.BorderSize = 0;
+            cancelPaymentButton.FlatStyle = FlatStyle.Flat;
+            cancelPaymentButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cancelPaymentButton.ForeColor = Color.Snow;
+            cancelPaymentButton.Location = new Point(264, 164);
+            cancelPaymentButton.Name = "cancelPaymentButton";
+            cancelPaymentButton.Size = new Size(132, 41);
+            cancelPaymentButton.TabIndex = 27;
+            cancelPaymentButton.Text = "Cancel";
+            cancelPaymentButton.UseVisualStyleBackColor = false;
+            cancelPaymentButton.Click += cancelButton_Click;
+            // 
             // PaymentPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(534, 239);
+            Controls.Add(cancelPaymentButton);
             Controls.Add(cashRadioButton);
             Controls.Add(mobileBankingRadioButton);
             Controls.Add(ewalletRadioButton);
@@ -119,5 +136,6 @@
         private RadioButton ewalletRadioButton;
         private Label paymentMethodLabel;
         private Button proceedButton;
+        private Button cancelPaymentButton;
     }
 }
