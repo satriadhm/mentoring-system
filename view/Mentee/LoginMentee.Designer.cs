@@ -142,7 +142,8 @@
             // 
             // usernameTextbox
             // 
-            usernameTextbox.Location = new Point(190, 282);
+
+            usernameTextbox.Location = new Point(190, 293);
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 27);
             usernameTextbox.TabIndex = 8;
