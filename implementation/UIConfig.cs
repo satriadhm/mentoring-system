@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.implementation
 {
-    internal class UIConfig
+    public class UIConfig
     {
             public Config config { get; set; }
             public const String filePath = @"C:\projects\JSON\config.json";
