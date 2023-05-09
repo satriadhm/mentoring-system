@@ -414,6 +414,10 @@ namespace mentoring_system.view
             panel5.Size = new Size(701, 578);
             panel5.TabIndex = 9;
             // 
+            // labelRole
+            // 
+            
+            // 
             // label1
             // 
             label1.AutoSize = true;

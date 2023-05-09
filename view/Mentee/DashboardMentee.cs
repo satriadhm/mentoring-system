@@ -20,7 +20,6 @@ namespace mentoring_system.view
         {
             // Precondition: parameter Mentee tidak boleh null
             Debug.Assert(Mentee != null, "Mentee should not be null");
-
             InitializeComponent();
             this.Mentee = Mentee;
             string[] role = { "Mentor", "Mente" };
