@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test-mentoring-system", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test-mentoring-system", "..\test-mentoring-system\test-mentoring-system.csproj", "{7D407A89-4F6E-4285-B580-F0AE6C58F351}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLibraries", "..\library-mentoring-system\Mentorship\ModelLibraries.csproj", "{57D7EFAD-B5B3-4D56-B3C9-0569441E303D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{7D407A89-4F6E-4285-B580-F0AE6C58F351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D407A89-4F6E-4285-B580-F0AE6C58F351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D407A89-4F6E-4285-B580-F0AE6C58F351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D7EFAD-B5B3-4D56-B3C9-0569441E303D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D7EFAD-B5B3-4D56-B3C9-0569441E303D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D7EFAD-B5B3-4D56-B3C9-0569441E303D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D7EFAD-B5B3-4D56-B3C9-0569441E303D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
