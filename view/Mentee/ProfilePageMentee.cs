@@ -15,15 +15,17 @@ namespace mentoring_system.view
 {
     public partial class ProfilePageMentee : Form
     {
-        public ProfilePageMentee()
+        mentee Mentee;
+        public ProfilePageMentee(mentee Mentee)
         {
             InitializeComponent();
+            this.Mentee = Mentee;
             LoadDataMentee();
         }
 
         public void LoadDataMentee()
         {
-            ProfileSet<string> profile = new ProfileSet<string>(signUpMentee.menteeData.NamaLengkap, signUpMentee.menteeData.umur, signUpMentee.menteeData.userName, signUpMentee.menteeData.password);
+            ProfileSet<string> profile = new ProfileSet<string>(Mentee.NamaLengkap, Mentee.umur, Mentee.userName, Mentee.password);
             textBoxNamaLengkap.Text = profile.Getnama().ToString();
             textBoxUmur.Text = profile.Getumur().ToString();
             textBoxUserName.Text = profile.GetuserName().ToString();
