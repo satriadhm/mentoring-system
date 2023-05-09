@@ -32,6 +32,16 @@ namespace mentoring_system.view
 
         }
 
+        public bool IsUsernameValid(string username)
+        {
+            if (username.Any(char.IsUpper))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         private void label3_Click(object sender, EventArgs e)
         {
 

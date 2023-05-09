@@ -87,7 +87,6 @@
             loginAsset.Size = new Size(102, 97);
             loginAsset.TabIndex = 7;
             loginAsset.TabStop = false;
-            loginAsset.Click += loginAsset_Click;
             // 
             // copyWritingLabel
             // 

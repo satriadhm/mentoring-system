@@ -69,7 +69,7 @@ namespace mentoring_system
                 MessageBox.Show(Text, ex.Message);
             }
         }
-        private bool isAdmin(string username, string password)
+        public bool isAdmin(string username, string password)
         {
             if (username.Equals("admin") && password.Equals("admin"))
             {
