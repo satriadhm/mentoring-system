@@ -20,7 +20,13 @@ namespace mentoring_system.view.Mentee
 
         private void proceedButton_Click(object sender, EventArgs e)
         {
-            signUpMentee.state.ActivateTrigger(bookingState.bookTrigger.PAYMENT);
+            LandingPage.state.ActivateTrigger(bookingState.bookTrigger.PAYMENT);
+            this.Hide();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CANCELDATE);
             this.Hide();
         }
     }

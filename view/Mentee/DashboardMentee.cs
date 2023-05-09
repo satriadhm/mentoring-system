@@ -15,12 +15,13 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentee : Form
     {
+        mentee Mentee;
         public DashboardMentee(mentee Mentee)
         {
             // Precondition: parameter Mentee tidak boleh null
             Debug.Assert(Mentee != null, "Mentee should not be null");
-
             InitializeComponent();
+            this.Mentee = Mentee;
             string[] role = { "Mentor", "Mente" };
 
             coursePage.SendToBack();
@@ -66,7 +67,7 @@ namespace mentoring_system.view
         private void profileButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            ProfilePageMentee profilepage = new ProfilePageMentee();
+            ProfilePageMentee profilepage = new ProfilePageMentee(Mentee);
             profilepage.ShowDialog();
         }
 
