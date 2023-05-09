@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mentoring_system.controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace mentoring_system.view.Mentee
 
         private void proceedButton_Click(object sender, EventArgs e)
         {
+            signUpMentee.state.ActivateTrigger(bookingState.bookTrigger.PAYMENT);
             this.Hide();
         }
     }

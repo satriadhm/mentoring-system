@@ -83,7 +83,6 @@
             comboBoxCourseName.Name = "comboBoxCourseName";
             comboBoxCourseName.Size = new Size(161, 28);
             comboBoxCourseName.TabIndex = 18;
-            comboBoxCourseName.SelectedIndexChanged += comboBoxCourseName_SelectedIndexChanged;
             // 
             // proceedButton
             // 

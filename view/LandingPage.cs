@@ -14,6 +14,7 @@ namespace mentoring_system.view
 {
     public partial class LandingPage : Form
     {
+
         public LandingPage()
         {
             InitializeComponent();
@@ -29,8 +30,8 @@ namespace mentoring_system.view
         private void buttonMentor_Click(object sender, EventArgs e)
         {
             this.Hide();
-            signUpMentor mentee = new signUpMentor();
-            mentee.Show();
+            signUpMentor mentor = new signUpMentor();
+            mentor.Show();
         }
     }
 }
