@@ -79,16 +79,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // loginAsset
-            // 
-            loginAsset.Image = (Image)resources.GetObject("loginAsset.Image");
-            loginAsset.Location = new Point(320, 69);
-            loginAsset.Name = "loginAsset";
-            loginAsset.Size = new Size(102, 97);
-            loginAsset.TabIndex = 7;
-            loginAsset.TabStop = false;
-            loginAsset.Click += loginAsset_Click;
-            // 
             // copyWritingLabel
             // 
             copyWritingLabel.AutoSize = true;
@@ -100,7 +90,6 @@
             copyWritingLabel.TabIndex = 6;
             copyWritingLabel.Text = "\"Unlock your potential with our mentorship program - register now!\"";
             copyWritingLabel.TextAlign = ContentAlignment.TopRight;
-            copyWritingLabel.Click += copyWritingLabel_Click;
             // 
             // passwordLabel
             // 
@@ -143,12 +132,10 @@
             // 
             // usernameTextbox
             // 
-
-            usernameTextbox.Location = new Point(190, 293);
+            usernameTextbox.Location = new Point(190, 282);
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.Size = new Size(232, 27);
             usernameTextbox.TabIndex = 8;
-            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             // 
             // LoginMentee
             // 

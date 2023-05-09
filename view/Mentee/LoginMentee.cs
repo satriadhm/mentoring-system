@@ -1,6 +1,8 @@
 using mentoring_system.implementation;
 using mentoring_system.model;
 using mentoring_system.view;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Net.Http.Json;
 
 namespace mentoring_system
@@ -14,7 +16,6 @@ namespace mentoring_system
         public LoginMentee()
         {
             InitializeComponent();
-
             registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
@@ -43,22 +44,35 @@ namespace mentoring_system
                             MessageBox.Show("password empty", "login page");
                             break;
                         default:
-                            var response = await client.GetAsync($"http://128.199.77.50:5132/api/mentee?username={usernameTextbox.Text}&password={passwordTextBox.Text}");
+                            var response = await client.GetAsync("http://128.199.77.50:5132/api/mentee");
                             if (response != null && response.IsSuccessStatusCode)
                             {
+                                var loggedInUser = default(mentee);
                                 var result = await response.Content.ReadFromJsonAsync<mentee[]>();
-                                if (result.Length == 1)
+                                foreach (var mentee in result)
                                 {
-                                    int id = result[0].Id;
-                                    string stringId = id.ToString();
-                                    string urlCloud = "http://128.199.77.50:5132/api/mentee/";
-                                    string urlLocal = "http://localhost:5132/api/mentee/";
-                                    menteeData = await client.GetFromJsonAsync<mentee>(urlCloud + stringId);
+                                    if (mentee.userName == usernameTextbox.Text && mentee.password == passwordTextBox.Text)
+                                    {
+                                        if (loggedInUser != null)
+                                        {
+                                            MessageBox.Show("Multiple users found with same credentials", "Login failed");
+                                            return;
+                                        }
+                                        loggedInUser = mentee;
+                                    }
+                                }
+                                if (loggedInUser == null)
+                                {
+                                    MessageBox.Show("Invalid login credentials", "Login failed");
+                                }
+                                else
+                                {
+                                    menteeData = await client.GetFromJsonAsync<mentee>($"http://128.199.77.50:5132/api/mentee/{loggedInUser.Id}");
                                     this.Hide();
                                     DashboardMentee dashboard = new DashboardMentee(menteeData);
                                     dashboard.ShowDialog();
                                 }
-                            }
+                            }                                    
                             break;
                     }
                 }
@@ -68,7 +82,7 @@ namespace mentoring_system
                 MessageBox.Show(Text, ex.Message);
             }
         }
-        private bool isAdmin(string username, string password)
+        public bool isAdmin(string username, string password)
         {
             if (username.Equals("admin") && password.Equals("admin"))
             {
@@ -76,22 +90,6 @@ namespace mentoring_system
             }
             return false;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void copyWritingLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernameTextbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 
 }
