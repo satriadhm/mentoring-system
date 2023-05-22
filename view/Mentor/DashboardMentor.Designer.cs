@@ -57,7 +57,7 @@
             panel4 = new Panel();
             labelRoleMentor = new Label();
             SubjekText = new Label();
-            requests1 = new Mentor.Requests(Mentor);
+            requests1 = new Mentor.MentorRequests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -510,7 +510,7 @@
         private Mentor.MentorProfile mentorProfile;
         private Panel panel4;
         private Button ScheduleBtn;
-        private Mentor.Requests requests1;
+        private Mentor.MentorRequests requests1;
         private Label SubjekText;
         private Label labelRoleMentor;
     }

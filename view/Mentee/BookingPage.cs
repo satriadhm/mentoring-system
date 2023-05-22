@@ -25,10 +25,10 @@ namespace mentoring_system.view.Mentee
 
         public static subjekMentoring selectedSubject { get; set; }
 
-        public static mentor selectedMentor { get; set; }
+        public static mentor? selectedMentor { get; set; }
         
-        public static string selectedMentorName { get; set; }
-        public static model.mentee menteeData { get; set; }
+        public static string? selectedMentorName { get; set; }
+        public static model.mentee? menteeData { get; set; }
         
         public static string urlCloud = "http://128.199.77.50:5132/api/mentor";
         
@@ -82,7 +82,7 @@ namespace mentoring_system.view.Mentee
             mentorshipRequestData.DataSource = table;
         }
 
-        private async void submitButton_Click(object sender, EventArgs e)
+        private void submitButton_Click(object sender, EventArgs e)
         {
             LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
             selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
@@ -100,8 +100,8 @@ namespace mentoring_system.view.Mentee
                 Console.WriteLine(menteeData.NamaLengkap);
 
             }
-           
-            table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);          
+
+            table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
 
         }
         private void proceedButton_Click(object sender, EventArgs e)

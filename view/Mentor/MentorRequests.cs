@@ -8,31 +8,27 @@ namespace mentoring_system.view.Mentor
     public partial class MentorRequests : UserControl
     {
         static HttpClient client = new HttpClient();
-        mentor MentorName;
-        public static string menteeName;
-        public static string schedule;
+        //mentor MentorName = ;
+        public static string? menteeName;
+        public static string? schedule;
 
 
         public MentorRequests(mentor MentorName)
         {
             InitializeComponent();
             GetMenteeRequestAsync();
-            loadRequestMenteeName();
-            this.Mentor = Mentor;
         }
 
         public async void GetMenteeRequestAsync()
         {
-            Contract.Requires(Mentor != null, "The Mentor object should not be null.");
+           // Contract.Requires(Mentor != null, "The Mentor object should not be null.");
 
             string request = await client.GetStringAsync("http://128.199.77.50:5132/api/mentorshipRequest");
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
             for (int i = 0; i < requestsList.Count; i++)
             {
-                if (requestsList[i].name == MentorName.NamaLengkap)
-                {
-                    MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);
-                }
+
+                    MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);    
             }
         }
 
@@ -43,7 +39,7 @@ namespace mentoring_system.view.Mentor
                 // Ambil nilai sel tertentu
                 menteeName = MenteeRequests.Rows[e.RowIndex].Cells[0].Value.ToString();
                 schedule = MenteeRequests.Rows[e.RowIndex].Cells[1].Value.ToString();
-                acceptanceMentorship acceptance = new acceptanceMentorship();
+                acceptancePage acceptance = new acceptancePage();
                 acceptance.ShowDialog();
 
 

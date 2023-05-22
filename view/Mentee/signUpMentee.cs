@@ -11,7 +11,7 @@ public partial class signUpMentee : Form
 
     public static HttpClient client = new HttpClient();
     public static bool isSignup { get; set; }
-    public static model.mentee menteeData { get; set; }
+    public static model.mentee? menteeData { get; set; }
 
     public signUpMentee()
     {
@@ -31,7 +31,6 @@ public partial class signUpMentee : Form
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
         string urlCloud = "http://128.199.77.50:5132/api/mentee";
-        string urlLocal = "http://localhost:5132/api/mentee";
 
         menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
         try
