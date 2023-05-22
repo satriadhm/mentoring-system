@@ -31,21 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MySchedulePage));
             yourschedulelabel = new Label();
             MyScheduleLabel = new Label();
-            comboBox1 = new ComboBox();
-            label1 = new Label();
-            label2 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            pictureBox2 = new PictureBox();
-            listBox2 = new ListBox();
-            label3 = new Label();
-            label6 = new Label();
-            pictureBox1 = new PictureBox();
-            listBox1 = new ListBox();
-            dateTimePicker1 = new DateTimePicker();
-            button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            lessonComboBox = new ComboBox();
+            upcomingScheduleLabel = new Label();
+            mentorNameLabel = new Label();
+            lessonNameLabel = new Label();
+            lessonPictureBox = new PictureBox();
+            scheduleListBox = new ListBox();
+            scheduleDateTimePicker = new DateTimePicker();
+            searchButton = new Button();
+            lessonLabel = new Label();
+            dateLabel = new Label();
+            ((System.ComponentModel.ISupportInitialize)lessonPictureBox).BeginInit();
             SuspendLayout();
             // 
             // yourschedulelabel
@@ -54,12 +50,11 @@
             yourschedulelabel.BackColor = Color.Transparent;
             yourschedulelabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             yourschedulelabel.ForeColor = Color.SaddleBrown;
-            yourschedulelabel.Location = new Point(544, 90);
+            yourschedulelabel.Location = new Point(542, 77);
             yourschedulelabel.Name = "yourschedulelabel";
             yourschedulelabel.Size = new Size(103, 20);
             yourschedulelabel.TabIndex = 22;
             yourschedulelabel.Text = "Your Schedule";
-            yourschedulelabel.Click += label2_Click;
             // 
             // MyScheduleLabel
             // 
@@ -73,169 +68,138 @@
             MyScheduleLabel.TabIndex = 21;
             MyScheduleLabel.Text = "My Schedule";
             // 
-            // comboBox1
+            // lessonComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Lates Schedule ", "Upcoming Schedule" });
-            comboBox1.Location = new Point(61, 145);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(228, 28);
-            comboBox1.TabIndex = 23;
+            lessonComboBox.FormattingEnabled = true;
+            lessonComboBox.Items.AddRange(new object[] { "Lates Schedule ", "Upcoming Schedule" });
+            lessonComboBox.Location = new Point(61, 145);
+            lessonComboBox.Name = "lessonComboBox";
+            lessonComboBox.Size = new Size(228, 28);
+            lessonComboBox.TabIndex = 23;
             // 
-            // label1
+            // upcomingScheduleLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.SaddleBrown;
-            label1.Location = new Point(61, 388);
-            label1.Name = "label1";
-            label1.Size = new Size(127, 20);
-            label1.TabIndex = 24;
-            label1.Text = "Latest Schedule";
+            upcomingScheduleLabel.AutoSize = true;
+            upcomingScheduleLabel.BackColor = Color.Transparent;
+            upcomingScheduleLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            upcomingScheduleLabel.ForeColor = Color.SaddleBrown;
+            upcomingScheduleLabel.Location = new Point(130, 225);
+            upcomingScheduleLabel.Name = "upcomingScheduleLabel";
+            upcomingScheduleLabel.Size = new Size(159, 20);
+            upcomingScheduleLabel.TabIndex = 25;
+            upcomingScheduleLabel.Tag = "upcomingScheduleLessonBox";
+            upcomingScheduleLabel.Text = "Upcoming Schedule";
             // 
-            // label2
+            // mentorNameLabel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.SaddleBrown;
-            label2.Location = new Point(61, 213);
-            label2.Name = "label2";
-            label2.Size = new Size(159, 20);
-            label2.TabIndex = 25;
-            label2.Text = "Upcoming Schedule";
+            mentorNameLabel.AutoSize = true;
+            mentorNameLabel.BackColor = Color.NavajoWhite;
+            mentorNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            mentorNameLabel.Location = new Point(217, 313);
+            mentorNameLabel.Name = "mentorNameLabel";
+            mentorNameLabel.Size = new Size(90, 20);
+            mentorNameLabel.TabIndex = 29;
+            mentorNameLabel.Tag = "upcomingScheduleLessonBox";
+            mentorNameLabel.Text = "Mentor: Zira";
             // 
-            // label4
+            // lessonNameLabel
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.NavajoWhite;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(148, 477);
-            label4.Name = "label4";
-            label4.Size = new Size(104, 20);
-            label4.TabIndex = 33;
-            label4.Text = "Mentor: Aaron";
+            lessonNameLabel.AutoSize = true;
+            lessonNameLabel.BackColor = Color.NavajoWhite;
+            lessonNameLabel.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lessonNameLabel.Location = new Point(216, 285);
+            lessonNameLabel.Name = "lessonNameLabel";
+            lessonNameLabel.Size = new Size(216, 25);
+            lessonNameLabel.TabIndex = 28;
+            lessonNameLabel.Tag = "upcomingScheduleLessonBox";
+            lessonNameLabel.Text = "Programming Algorithm";
             // 
-            // label5
+            // lessonPictureBox
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.NavajoWhite;
-            label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(147, 449);
-            label5.Name = "label5";
-            label5.Size = new Size(124, 25);
-            label5.TabIndex = 32;
-            label5.Text = "UI/UX Design";
+            lessonPictureBox.BackColor = Color.NavajoWhite;
+            lessonPictureBox.Image = (Image)resources.GetObject("lessonPictureBox.Image");
+            lessonPictureBox.Location = new Point(130, 270);
+            lessonPictureBox.Name = "lessonPictureBox";
+            lessonPictureBox.Size = new Size(80, 80);
+            lessonPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            lessonPictureBox.TabIndex = 27;
+            lessonPictureBox.TabStop = false;
+            lessonPictureBox.Tag = "upcomingScheduleLessonBox";
             // 
-            // pictureBox2
+            // scheduleListBox
             // 
-            pictureBox2.BackColor = Color.NavajoWhite;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(61, 434);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(80, 80);
-            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox2.TabIndex = 31;
-            pictureBox2.TabStop = false;
+            scheduleListBox.BackColor = Color.NavajoWhite;
+            scheduleListBox.BorderStyle = BorderStyle.None;
+            scheduleListBox.ForeColor = Color.White;
+            scheduleListBox.FormattingEnabled = true;
+            scheduleListBox.ItemHeight = 20;
+            scheduleListBox.Location = new Point(130, 270);
+            scheduleListBox.Name = "scheduleListBox";
+            scheduleListBox.Size = new Size(347, 80);
+            scheduleListBox.TabIndex = 26;
+            scheduleListBox.Tag = "upcomingScheduleLessonBox";
             // 
-            // listBox2
+            // scheduleDateTimePicker
             // 
-            listBox2.BackColor = Color.NavajoWhite;
-            listBox2.BorderStyle = BorderStyle.None;
-            listBox2.ForeColor = Color.White;
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 20;
-            listBox2.Location = new Point(61, 434);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(347, 80);
-            listBox2.TabIndex = 30;
+            scheduleDateTimePicker.Location = new Point(295, 146);
+            scheduleDateTimePicker.Name = "scheduleDateTimePicker";
+            scheduleDateTimePicker.Size = new Size(182, 27);
+            scheduleDateTimePicker.TabIndex = 34;
             // 
-            // label3
+            // searchButton
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.NavajoWhite;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(148, 301);
-            label3.Name = "label3";
-            label3.Size = new Size(90, 20);
-            label3.TabIndex = 29;
-            label3.Text = "Mentor: Zira";
+            searchButton.Location = new Point(491, 144);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(154, 29);
+            searchButton.TabIndex = 35;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += button1_Click;
             // 
-            // label6
+            // lessonLabel
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.NavajoWhite;
-            label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(147, 273);
-            label6.Name = "label6";
-            label6.Size = new Size(216, 25);
-            label6.TabIndex = 28;
-            label6.Text = "Programming Algorithm";
+            lessonLabel.AutoSize = true;
+            lessonLabel.BackColor = Color.Transparent;
+            lessonLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lessonLabel.ForeColor = Color.SaddleBrown;
+            lessonLabel.Location = new Point(61, 110);
+            lessonLabel.Name = "lessonLabel";
+            lessonLabel.Size = new Size(59, 20);
+            lessonLabel.TabIndex = 36;
+            lessonLabel.Text = "Lesson";
             // 
-            // pictureBox1
+            // dateLabel
             // 
-            pictureBox1.BackColor = Color.NavajoWhite;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(61, 258);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 80);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 27;
-            pictureBox1.TabStop = false;
-            // 
-            // listBox1
-            // 
-            listBox1.BackColor = Color.NavajoWhite;
-            listBox1.BorderStyle = BorderStyle.None;
-            listBox1.ForeColor = Color.White;
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(61, 258);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(347, 80);
-            listBox1.TabIndex = 26;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(295, 146);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 34;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(551, 144);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 35;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            dateLabel.AutoSize = true;
+            dateLabel.BackColor = Color.Transparent;
+            dateLabel.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dateLabel.ForeColor = Color.SaddleBrown;
+            dateLabel.Location = new Point(295, 110);
+            dateLabel.Name = "dateLabel";
+            dateLabel.Size = new Size(45, 20);
+            dateLabel.TabIndex = 37;
+            dateLabel.Text = "Date";
             // 
             // MySchedulePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(label4);
-            Controls.Add(label5);
-            Controls.Add(pictureBox2);
-            Controls.Add(listBox2);
-            Controls.Add(label3);
-            Controls.Add(label6);
-            Controls.Add(pictureBox1);
-            Controls.Add(listBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(comboBox1);
+            Controls.Add(dateLabel);
+            Controls.Add(lessonLabel);
+            Controls.Add(searchButton);
+            Controls.Add(scheduleDateTimePicker);
+            Controls.Add(mentorNameLabel);
+            Controls.Add(lessonNameLabel);
+            Controls.Add(lessonPictureBox);
+            Controls.Add(scheduleListBox);
+            Controls.Add(upcomingScheduleLabel);
+            Controls.Add(lessonComboBox);
             Controls.Add(yourschedulelabel);
             Controls.Add(MyScheduleLabel);
             Name = "MySchedulePage";
             Size = new Size(705, 578);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += MySchedulePage_Load;
+            ((System.ComponentModel.ISupportInitialize)lessonPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,18 +208,20 @@
 
         private Label yourschedulelabel;
         private Label MyScheduleLabel;
-        private ComboBox comboBox1;
-        private Label label1;
-        private Label label2;
+        private ComboBox lessonComboBox;
+        private Label latestScheduleLabel;
+        private Label upcomingScheduleLabel;
         private Label label4;
         private Label label5;
         private PictureBox pictureBox2;
         private ListBox listBox2;
-        private Label label3;
-        private Label label6;
-        private PictureBox pictureBox1;
-        private ListBox listBox1;
-        private DateTimePicker dateTimePicker1;
-        private Button button1;
+        private Label mentorNameLabel;
+        private Label lessonNameLabel;
+        private PictureBox lessonPictureBox;
+        private ListBox scheduleListBox;
+        private DateTimePicker scheduleDateTimePicker;
+        private Button searchButton;
+        private Label lessonLabel;
+        private Label dateLabel;
     }
 }

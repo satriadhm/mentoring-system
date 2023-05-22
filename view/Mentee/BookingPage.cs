@@ -19,9 +19,22 @@ namespace mentoring_system.view.Mentee
 {
     public partial class BookingPage : UserControl
     {
-        static HttpClient client = new HttpClient();
+        public static HttpClient client = new HttpClient();
 
         DataTable table = new DataTable("Mentorship Request");
+
+        public static subjekMentoring selectedSubject { get; set; }
+
+        public static mentor selectedMentor { get; set; }
+        
+        public static string selectedMentorName { get; set; }
+        public static model.mentee menteeData { get; set; }
+        
+        public static string urlCloud = "http://128.199.77.50:5132/api/mentor";
+        
+        public static string urlLocal = "http://localhost:5132/api/mentor";
+
+        public static DateTime bookingDate { get; set; }
 
 
         public BookingPage()
@@ -33,8 +46,7 @@ namespace mentoring_system.view.Mentee
         {
             try
             {
-                string urlCloud = "http://128.199.77.50:5132/api/mentor";
-                string urlLocal = "http://localhost:5132/api/mentor";
+               
                 var response = await client.GetAsync(urlCloud);
                 response.EnsureSuccessStatusCode();
                 var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
@@ -73,10 +85,10 @@ namespace mentoring_system.view.Mentee
         private async void submitButton_Click(object sender, EventArgs e)
         {
             LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
-            subjekMentoring selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
-            mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
-            string selectedMentorName = selectedMentor.NamaLengkap;
-            model.mentee menteeData;
+            selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
+            selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
+            selectedMentorName = selectedMentor.NamaLengkap;
+            bookingDate = bookMentorDateTimePicker.Value;
             if (signUpMentee.isSignup)
             {
                 menteeData = signUpMentee.menteeData;
@@ -85,20 +97,11 @@ namespace mentoring_system.view.Mentee
             else
             {
                 menteeData = LoginMentee.menteeData;
+                Console.WriteLine(menteeData.NamaLengkap);
 
             }
-            MentorshipRequest menteeRequest = new MentorshipRequest(menteeData, selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
-
-            string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
-            string urlLocal = "http://localhost:5132/api/MentorshipRequest";
-
-            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeRequest);
-
-            response.EnsureSuccessStatusCode();
-            Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
-
-            table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
-
+           
+            table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);          
 
         }
         private void proceedButton_Click(object sender, EventArgs e)

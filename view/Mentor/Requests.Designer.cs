@@ -28,29 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button2 = new Button();
             label2 = new Label();
             label1 = new Label();
             MenteeRequests = new DataGridView();
             nameColumn = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            requestcomboBox = new ComboBox();
+            searchButton = new Button();
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).BeginInit();
             SuspendLayout();
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Firebrick;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(410, 520);
-            button2.Name = "button2";
-            button2.Size = new Size(121, 44);
-            button2.TabIndex = 22;
-            button2.Text = "Decline";
-            button2.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -62,7 +48,6 @@
             label2.Size = new Size(526, 31);
             label2.TabIndex = 19;
             label2.Text = "View and manage incoming mentorship requests.";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -74,7 +59,6 @@
             label1.Size = new Size(329, 45);
             label1.TabIndex = 18;
             label1.Text = "Mentorship Requests";
-            label1.Click += label1_Click;
             // 
             // MenteeRequests
             // 
@@ -89,15 +73,14 @@
             MenteeRequests.ColumnHeadersHeight = 30;
             MenteeRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             MenteeRequests.Columns.AddRange(new DataGridViewColumn[] { nameColumn, dateColumn });
-            MenteeRequests.Location = new Point(35, 154);
+            MenteeRequests.Location = new Point(35, 226);
             MenteeRequests.Margin = new Padding(3, 4, 3, 4);
             MenteeRequests.Name = "MenteeRequests";
             MenteeRequests.RowHeadersVisible = false;
             MenteeRequests.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             MenteeRequests.RowTemplate.Height = 25;
-            MenteeRequests.Size = new Size(634, 333);
+            MenteeRequests.Size = new Size(634, 342);
             MenteeRequests.TabIndex = 20;
-            MenteeRequests.CellContentClick += MenteeRequests_CellContentClick;
             // 
             // nameColumn
             // 
@@ -113,29 +96,33 @@
             dateColumn.Name = "dateColumn";
             dateColumn.ReadOnly = true;
             // 
-            // button1
+            // requestcomboBox
             // 
-            button1.BackColor = Color.MediumSeaGreen;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonFace;
-            button1.Location = new Point(548, 520);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 44);
-            button1.TabIndex = 21;
-            button1.Text = "Accept";
-            button1.UseVisualStyleBackColor = false;
+            requestcomboBox.FormattingEnabled = true;
+            requestcomboBox.Location = new Point(35, 170);
+            requestcomboBox.Name = "requestcomboBox";
+            requestcomboBox.Size = new Size(378, 28);
+            requestcomboBox.TabIndex = 23;
+            // 
+            // searchButton
+            // 
+            searchButton.Location = new Point(496, 170);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(173, 34);
+            searchButton.TabIndex = 24;
+            searchButton.Text = "Search !";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
             // 
             // Requests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
+            Controls.Add(searchButton);
+            Controls.Add(requestcomboBox);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
-            Controls.Add(button1);
             Name = "Requests";
             Size = new Size(700, 600);
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).EndInit();
@@ -144,13 +131,12 @@
         }
 
         #endregion
-
-        private Button button2;
         private Label label2;
         private Label label1;
         private DataGridView MenteeRequests;
         private DataGridViewTextBoxColumn nameColumn;
         private DataGridViewTextBoxColumn dateColumn;
-        private Button button1;
+        private ComboBox requestcomboBox;
+        private Button searchButton;
     }
 }
