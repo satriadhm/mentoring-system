@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system.view.Mentor
 {
-    partial class Requests
+    partial class MentorRequests
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,8 +33,6 @@
             MenteeRequests = new DataGridView();
             nameColumn = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
-            requestcomboBox = new ComboBox();
-            searchButton = new Button();
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).BeginInit();
             SuspendLayout();
             // 
@@ -96,35 +94,15 @@
             dateColumn.Name = "dateColumn";
             dateColumn.ReadOnly = true;
             // 
-            // requestcomboBox
-            // 
-            requestcomboBox.FormattingEnabled = true;
-            requestcomboBox.Location = new Point(35, 170);
-            requestcomboBox.Name = "requestcomboBox";
-            requestcomboBox.Size = new Size(378, 28);
-            requestcomboBox.TabIndex = 23;
-            // 
-            // searchButton
-            // 
-            searchButton.Location = new Point(496, 170);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(173, 34);
-            searchButton.TabIndex = 24;
-            searchButton.Text = "Search !";
-            searchButton.UseVisualStyleBackColor = true;
-            searchButton.Click += searchButton_Click;
-            // 
-            // Requests
+            // MentorRequests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(searchButton);
-            Controls.Add(requestcomboBox);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
-            Name = "Requests";
-            Size = new Size(700, 600);
+            Name = "MentorRequests";
+            Size = new Size(703, 598);
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -136,7 +114,5 @@
         private DataGridView MenteeRequests;
         private DataGridViewTextBoxColumn nameColumn;
         private DataGridViewTextBoxColumn dateColumn;
-        private ComboBox requestcomboBox;
-        private Button searchButton;
     }
 }
