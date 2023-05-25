@@ -1,4 +1,4 @@
-using mentoring_system.implementation;
+using mentoring_system.Implementation;
 using mentoring_system.model;
 using mentoring_system.view;
 
@@ -6,12 +6,12 @@ namespace mentoring_system
 {
     public partial class LoginMentor : Form
     {
-        registerstate registerState = new registerstate();
+        RegisterState registerState = new RegisterState();
 
         public LoginMentor()
         {
             InitializeComponent();
-            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
+            registerState.ActivateTrigger(RegisterState.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace mentoring_system
                 HttpResponseMessage response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
-                var mentorLogins = await response.Content.ReadAsAsync<List<mentor>>();
+                var mentorLogins = await response.Content.ReadAsAsync<List<Mentor>>();
 
                 for (int i = 0; i < mentorLogins.Count; i++)
                 {

@@ -25,10 +25,10 @@ namespace mentoring_system.view.Mentee
 
         public static subjekMentoring selectedSubject { get; set; }
 
-        public static mentor? selectedMentor { get; set; }
+        public static model.Mentor? selectedMentor { get; set; }
         
         public static string? selectedMentorName { get; set; }
-        public static model.mentee? menteeData { get; set; }
+        public static model.Mentee? menteeData { get; set; }
         
         public static string urlCloud = "http://128.199.77.50:5132/api/mentor";
         
@@ -49,7 +49,7 @@ namespace mentoring_system.view.Mentee
                
                 var response = await client.GetAsync(urlCloud);
                 response.EnsureSuccessStatusCode();
-                var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
+                var data = await response.Content.ReadAsAsync<IEnumerable<model.Mentor>>();
                 foreach (var item in data)
                 {
                     comboBoxMentorName.Items.Add(item);
@@ -86,7 +86,7 @@ namespace mentoring_system.view.Mentee
         {
             LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
             selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
-            selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
+            selectedMentor = (model.Mentor)comboBoxMentorName.SelectedItem;
             selectedMentorName = selectedMentor.NamaLengkap;
             bookingDate = bookMentorDateTimePicker.Value;
             if (signUpMentee.isSignup)
@@ -117,7 +117,7 @@ namespace mentoring_system.view.Mentee
             comboBoxCourseName.Items.Clear();
 
             // get selected mentor
-            mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
+            model.Mentor selectedMentor = (model.Mentor)comboBoxMentorName.SelectedItem;
 
             // add courses for the selected mentor
             foreach (string subjekMentoring in Enum.GetNames(typeof(model.subjekMentoring)))

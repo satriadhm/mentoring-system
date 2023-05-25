@@ -13,7 +13,7 @@ namespace mentoring_system.view.Mentor
         public static string? schedule;
 
 
-        public MentorRequests(mentor MentorName)
+        public MentorRequests(model.Mentor MentorName)
         {
             InitializeComponent();
             GetMenteeRequestAsync();

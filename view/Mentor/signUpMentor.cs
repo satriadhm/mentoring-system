@@ -1,5 +1,5 @@
 ﻿using mentoring_system.model;
-using mentoring_system.implementation;
+using mentoring_system.Implementation;
 using System.Diagnostics.Contracts;
 using System.Diagnostics;
 
@@ -7,13 +7,13 @@ namespace mentoring_system.view.Mentor
 {
     public partial class signUpMentor : Form
     {
-        registerstate registerState = new registerstate();
+        RegisterState registerState = new RegisterState();
 
         static HttpClient client = new HttpClient();
         public signUpMentor()
         {
             InitializeComponent();
-            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_SIGNUP_PAGE);
+            registerState.ActivateTrigger(RegisterState.bookTrigger.OPEN_SIGNUP_PAGE);
 
         }
 
@@ -30,27 +30,9 @@ namespace mentoring_system.view.Mentor
             string passwordMentor = passwordTextBox.Text;
             string umurMentor = umurTextBox.Text;
 
-            subjekMentoring subjek;
+            subjekMentoring subjek = mentorSelectCourse();
 
-            if (dataStructureRadioButton.Checked)
-            {
-                subjek = subjekMentoring.dataStructure;
-            }
-            else if (algorithmProgrammingRadioButton.Checked)
-            {
-                subjek = subjekMentoring.Algorithm;
-            }
-            else if (interactionDesignRadioButton.Checked)
-            {
-                subjek = subjekMentoring.interactionDesign;
-            }
-            else
-            {
-                subjek = 0;
-            }
-
-
-            mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
+            model.Mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
 
             string urlCloud = "http://128.1299.77.50:5132/api/mentor";
@@ -75,24 +57,24 @@ namespace mentoring_system.view.Mentor
             login.Show();
         }
 
-        private void namaLengkapTextBox_TextChanged(object sender, EventArgs e)
+        private subjekMentoring mentorSelectCourse() 
         {
-
-        }
-
-        private void dataStructureRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            if (dataStructureRadioButton.Checked)
+            {
+                return subjekMentoring.dataStructure;
+            }
+            else if (algorithmProgrammingRadioButton.Checked)
+            {
+                return  subjekMentoring.Algorithm;
+            }
+            else if (interactionDesignRadioButton.Checked)
+            {
+                return subjekMentoring.interactionDesign;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

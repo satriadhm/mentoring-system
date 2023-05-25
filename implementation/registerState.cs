@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mentoring_system.implementation
+namespace mentoring_system.Implementation
 {
-    public class registerstate
+    public class RegisterState
     {
         public enum bookState
         {

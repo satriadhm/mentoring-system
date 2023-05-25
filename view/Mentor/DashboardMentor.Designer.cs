@@ -34,7 +34,6 @@
             YourClassBtn = new Button();
             Dropdown = new Panel();
             RequestsBtn = new Button();
-            ScheduleBtn = new Button();
             AppointmentBtn = new Button();
             HomeBtn = new Button();
             panel2 = new Panel();
@@ -57,7 +56,6 @@
             panel4 = new Panel();
             labelRoleMentor = new Label();
             SubjekText = new Label();
-            requests1 = new Mentor.MentorRequests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -110,7 +108,7 @@
             YourClassBtn.FlatStyle = FlatStyle.Flat;
             YourClassBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             YourClassBtn.ForeColor = SystemColors.Control;
-            YourClassBtn.Location = new Point(0, 289);
+            YourClassBtn.Location = new Point(0, 241);
             YourClassBtn.Name = "YourClassBtn";
             YourClassBtn.Padding = new Padding(15, 0, 0, 0);
             YourClassBtn.Size = new Size(273, 48);
@@ -123,11 +121,10 @@
             // 
             Dropdown.BackColor = SystemColors.ButtonHighlight;
             Dropdown.Controls.Add(RequestsBtn);
-            Dropdown.Controls.Add(ScheduleBtn);
             Dropdown.Dock = DockStyle.Top;
             Dropdown.Location = new Point(0, 196);
             Dropdown.Name = "Dropdown";
-            Dropdown.Size = new Size(273, 93);
+            Dropdown.Size = new Size(273, 45);
             Dropdown.TabIndex = 4;
             // 
             // RequestsBtn
@@ -137,7 +134,7 @@
             RequestsBtn.FlatStyle = FlatStyle.Flat;
             RequestsBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             RequestsBtn.ForeColor = SystemColors.Control;
-            RequestsBtn.Location = new Point(0, 45);
+            RequestsBtn.Location = new Point(0, 0);
             RequestsBtn.Name = "RequestsBtn";
             RequestsBtn.Padding = new Padding(35, 0, 0, 0);
             RequestsBtn.Size = new Size(273, 45);
@@ -146,23 +143,6 @@
             RequestsBtn.TextAlign = ContentAlignment.MiddleLeft;
             RequestsBtn.UseVisualStyleBackColor = true;
             RequestsBtn.Click += RequestsBtn_Click;
-            // 
-            // ScheduleBtn
-            // 
-            ScheduleBtn.Dock = DockStyle.Top;
-            ScheduleBtn.FlatAppearance.BorderSize = 0;
-            ScheduleBtn.FlatStyle = FlatStyle.Flat;
-            ScheduleBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            ScheduleBtn.ForeColor = SystemColors.Control;
-            ScheduleBtn.Location = new Point(0, 0);
-            ScheduleBtn.Name = "ScheduleBtn";
-            ScheduleBtn.Padding = new Padding(35, 0, 0, 0);
-            ScheduleBtn.Size = new Size(273, 45);
-            ScheduleBtn.TabIndex = 0;
-            ScheduleBtn.Text = "Mentor Profile";
-            ScheduleBtn.TextAlign = ContentAlignment.MiddleLeft;
-            ScheduleBtn.UseVisualStyleBackColor = true;
-            ScheduleBtn.Click += button1_Click;
             // 
             // AppointmentBtn
             // 
@@ -442,13 +422,6 @@
             SubjekText.TextAlign = ContentAlignment.MiddleLeft;
             SubjekText.Click += SubjekText_Click;
             // 
-            // requests1
-            // 
-            requests1.Location = new Point(279, 0);
-            requests1.Name = "requests1";
-            requests1.Size = new Size(702, 653);
-            requests1.TabIndex = 0;
-            // 
             // DashboardMentor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -459,7 +432,6 @@
             Controls.Add(NavBar);
             Controls.Add(panel4);
             Controls.Add(mentorProfile);
-            Controls.Add(requests1);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
             Text = "Homepage";
@@ -509,7 +481,6 @@
         private Panel panel2;
         private Mentor.MentorProfile mentorProfile;
         private Panel panel4;
-        private Button ScheduleBtn;
         private Mentor.MentorRequests requests1;
         private Label SubjekText;
         private Label labelRoleMentor;

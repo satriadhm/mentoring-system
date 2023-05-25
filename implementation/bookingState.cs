@@ -76,11 +76,5 @@ namespace mentoring_system.controller
             return finalState;
         }
 
-        // Invariant: currentState harus merupakan nilai yang didefinisikan di dalam bookState.
-        [ContractInvariantMethod]
-        private void ObjectInvariant()
-        {
-            Debug.Assert(Enum.IsDefined(typeof(bookState), currentState), "Invalid current state.");
-        }
     }
 }
