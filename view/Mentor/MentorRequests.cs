@@ -21,14 +21,13 @@ namespace mentoring_system.view.Mentor
 
         public async void GetMenteeRequestAsync()
         {
-           // Contract.Requires(Mentor != null, "The Mentor object should not be null.");
+            // Contract.Requires(Mentor != null, "The Mentor object should not be null.");
 
-            string request = await client.GetStringAsync("http://128.199.77.50:5132/api/mentorshipRequest");
+            string request = await client.GetStringAsync("http://178.128.215.35:5132/api/mentorshipRequest");
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
             for (int i = 0; i < requestsList.Count; i++)
             {
-
-                    MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);    
+                MenteeRequests.Rows.Add(requestsList[i].mentee.NamaLengkap, requestsList[i].schedule);
             }
         }
 

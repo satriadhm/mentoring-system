@@ -16,7 +16,7 @@ namespace mentoring_system.view.Mentee
 {
     public partial class PaymentPage : Form
     {
-        string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
+        string urlCloud = "http://178.128.215.35:5132/api/mentorshipRequest";
 
         public static HttpClient client = new HttpClient();
         public PaymentPage()

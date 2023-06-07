@@ -33,6 +33,7 @@
             MenteeRequests = new DataGridView();
             nameColumn = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).BeginInit();
             SuspendLayout();
             // 
@@ -94,10 +95,19 @@
             dateColumn.Name = "dateColumn";
             dateColumn.ReadOnly = true;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(35, 168);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(278, 28);
+            comboBox1.TabIndex = 21;
+            // 
             // MentorRequests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboBox1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
@@ -114,5 +124,6 @@
         private DataGridView MenteeRequests;
         private DataGridViewTextBoxColumn nameColumn;
         private DataGridViewTextBoxColumn dateColumn;
+        private ComboBox comboBox1;
     }
 }

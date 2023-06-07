@@ -19,11 +19,7 @@ namespace mentoring_system.view.Mentor
 
         private async void registerButton_Click(object sender, EventArgs e)
         {
-            // Pre Condition: Semua TextBox harus terisi
-            Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
-            Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
-            Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
-            Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
+            ValidateTextBoxes(); // Memvalidasi TextBox yang harus terisi
 
             string namaLengkapMentor = namaLengkapTextBox.Text;
             string usernameMentor = usernameTextBox.Text;
@@ -32,23 +28,40 @@ namespace mentoring_system.view.Mentor
 
             subjekMentoring subjek = mentorSelectCourse();
 
-            model.Mentor mentorData = new(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
-            Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
+            model.Mentor mentorData = CreateMentorData(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
 
             string urlCloud = "http://128.1299.77.50:5132/api/mentor";
             try
             {
-                HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, mentorData);
-                response.EnsureSuccessStatusCode();
-                this.Hide();
-                DashboardMentor dashboard = new DashboardMentor(mentorData);
-                dashboard.Show();
+                await MentorFunctionality.SendMentorData(urlCloud, mentorData);
+                OpenDashboardMentor(mentorData);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Sign Up Mentor");
             }
         }
+
+        private void ValidateTextBoxes()
+        {
+            Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
+        }
+
+        private model.Mentor CreateMentorData(string namaLengkap, string username, string password, string umur, subjekMentoring subjek)
+        {
+            return new model.Mentor(namaLengkap, username, password, umur, subjek);
+        }
+
+        private void OpenDashboardMentor(model.Mentor mentorData)
+        {
+            this.Hide();
+            DashboardMentor dashboard = new DashboardMentor(mentorData);
+            dashboard.Show();
+        }
+
 
         private void loginButton_Click(object sender, EventArgs e)
         {

@@ -27,7 +27,7 @@ namespace mentoring_system.Implementation
         public static async Task<Mentee> AuthenticateUser(string username, string password)
         {
             // Mengotentikasi pengguna dengan menggunakan username dan password
-            var response = await client.GetAsync("http://128.199.77.50:5132/api/mentee");
+            var response = await client.GetAsync("http://178.128.215.35:5132/api/mentee");
 
             if (response != null && response.IsSuccessStatusCode)
             {

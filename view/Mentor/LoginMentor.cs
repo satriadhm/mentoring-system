@@ -27,7 +27,7 @@ namespace mentoring_system
                 string usernameMentor = usernameTextbox.Text;
                 string passwordMentor = passwordTextBox.Text;
 
-                string url = $"http://128.199.77.50:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
+                string url = $"http://178.128.215.35:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
                 HttpResponseMessage response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 

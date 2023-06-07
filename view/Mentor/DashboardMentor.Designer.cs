@@ -56,6 +56,7 @@
             panel4 = new Panel();
             labelRoleMentor = new Label();
             SubjekText = new Label();
+            requests1 = new Mentor.MentorRequests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -421,6 +422,13 @@
             SubjekText.Text = "{Subjek}";
             SubjekText.TextAlign = ContentAlignment.MiddleLeft;
             SubjekText.Click += SubjekText_Click;
+            //
+            // requests1
+            // 
+            requests1.Location = new Point(279, 0);
+            requests1.Name = "requests1";
+            requests1.Size = new Size(702, 653);
+            requests1.TabIndex = 0;
             // 
             // DashboardMentor
             // 
@@ -431,6 +439,7 @@
             Controls.Add(userName);
             Controls.Add(NavBar);
             Controls.Add(panel4);
+            Controls.Add(requests1);
             Controls.Add(mentorProfile);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
