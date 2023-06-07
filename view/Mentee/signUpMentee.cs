@@ -29,7 +29,7 @@ public partial class signUpMentee : Form
         string usernameMentee = usernameTextBox.Text;
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
-        string urlCloud = "http://128.199.77.50:5132/api/mentee";
+        string urlCloud = "http://178.128.215.35:5132/api/mentee";
         string urlLocal = "http://localhost:5132/api/mentee";
 
         menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
@@ -63,4 +63,8 @@ public partial class signUpMentee : Form
         login.Show();
     }
 
+    private void umurTextBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

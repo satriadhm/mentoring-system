@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button2 = new Button();
+            DeclineBtn = new Button();
             label2 = new Label();
             label1 = new Label();
             MenteeRequests = new DataGridView();
             nameColumn = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            AcceptBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).BeginInit();
             SuspendLayout();
             // 
-            // button2
+            // DeclineBtn
             // 
-            button2.BackColor = Color.Firebrick;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(410, 520);
-            button2.Name = "button2";
-            button2.Size = new Size(121, 44);
-            button2.TabIndex = 22;
-            button2.Text = "Decline";
-            button2.UseVisualStyleBackColor = false;
+            DeclineBtn.BackColor = Color.Firebrick;
+            DeclineBtn.FlatAppearance.BorderSize = 0;
+            DeclineBtn.FlatStyle = FlatStyle.Flat;
+            DeclineBtn.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            DeclineBtn.ForeColor = SystemColors.Control;
+            DeclineBtn.Location = new Point(410, 520);
+            DeclineBtn.Name = "DeclineBtn";
+            DeclineBtn.Size = new Size(121, 44);
+            DeclineBtn.TabIndex = 22;
+            DeclineBtn.Text = "Decline";
+            DeclineBtn.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -95,6 +95,7 @@
             MenteeRequests.RowHeadersVisible = false;
             MenteeRequests.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             MenteeRequests.RowTemplate.Height = 25;
+            MenteeRequests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             MenteeRequests.Size = new Size(634, 333);
             MenteeRequests.TabIndex = 20;
             MenteeRequests.CellContentClick += MenteeRequests_CellContentClick;
@@ -113,29 +114,30 @@
             dateColumn.Name = "dateColumn";
             dateColumn.ReadOnly = true;
             // 
-            // button1
+            // AcceptBtn
             // 
-            button1.BackColor = Color.MediumSeaGreen;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonFace;
-            button1.Location = new Point(548, 520);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 44);
-            button1.TabIndex = 21;
-            button1.Text = "Accept";
-            button1.UseVisualStyleBackColor = false;
+            AcceptBtn.BackColor = Color.MediumSeaGreen;
+            AcceptBtn.FlatAppearance.BorderSize = 0;
+            AcceptBtn.FlatStyle = FlatStyle.Flat;
+            AcceptBtn.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            AcceptBtn.ForeColor = SystemColors.ButtonFace;
+            AcceptBtn.Location = new Point(548, 520);
+            AcceptBtn.Name = "AcceptBtn";
+            AcceptBtn.Size = new Size(121, 44);
+            AcceptBtn.TabIndex = 21;
+            AcceptBtn.Text = "Accept";
+            AcceptBtn.UseVisualStyleBackColor = false;
+            AcceptBtn.Click += button1_Click;
             // 
             // Requests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
+            Controls.Add(DeclineBtn);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
-            Controls.Add(button1);
+            Controls.Add(AcceptBtn);
             Name = "Requests";
             Size = new Size(700, 600);
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).EndInit();
@@ -145,12 +147,12 @@
 
         #endregion
 
-        private Button button2;
+        private Button DeclineBtn;
         private Label label2;
         private Label label1;
         private DataGridView MenteeRequests;
         private DataGridViewTextBoxColumn nameColumn;
         private DataGridViewTextBoxColumn dateColumn;
-        private Button button1;
+        private Button AcceptBtn;
     }
 }

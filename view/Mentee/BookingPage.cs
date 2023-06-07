@@ -33,7 +33,7 @@ namespace mentoring_system.view.Mentee
         {
             try
             {
-                string urlCloud = "http://128.199.77.50:5132/api/mentor";
+                string urlCloud = "http://178.128.215.35:5132/api/mentor";
                 string urlLocal = "http://localhost:5132/api/mentor";
                 var response = await client.GetAsync(urlCloud);
                 response.EnsureSuccessStatusCode();
@@ -89,7 +89,7 @@ namespace mentoring_system.view.Mentee
             }
             MentorshipRequest menteeRequest = new MentorshipRequest(menteeData, selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
 
-            string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
+            string urlCloud = "http://178.128.215.35:5132/api/mentorshipRequest";
             string urlLocal = "http://localhost:5132/api/MentorshipRequest";
 
             HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeRequest);

@@ -54,7 +54,7 @@ namespace mentoring_system.view.Mentor
             Console.WriteLine(mentorData.NamaLengkap, mentorData.umur, mentorData.userName);
 
             string urlLocal = "http://localhost:5132/api/mentor";
-            string urlCloud = "http://128.1299.77.50:5132/api/mentor";
+            string urlCloud = "http://178.128.215.35:5132/api/mentor";
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, mentorData);
@@ -92,6 +92,11 @@ namespace mentoring_system.view.Mentor
         }
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signUpMentor_Load(object sender, EventArgs e)
         {
 
         }

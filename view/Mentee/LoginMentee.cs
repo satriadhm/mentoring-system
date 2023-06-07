@@ -45,7 +45,7 @@ namespace mentoring_system
                             MessageBox.Show("password empty", "login page");
                             break;
                         default:
-                            var response = await client.GetAsync("http://128.199.77.50:5132/api/mentee");
+                            var response = await client.GetAsync("http://178.128.215.35:5132/api/mentee");
                             if (response != null && response.IsSuccessStatusCode)
                             {
                                 var loggedInUser = default(mentee);
