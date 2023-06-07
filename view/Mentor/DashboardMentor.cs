@@ -4,8 +4,8 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentor : Form
     {
-        private mentor Mentor;
-        public DashboardMentor(mentor Mentor)
+        private model.Mentor Mentor;
+        public DashboardMentor(model.Mentor Mentor)
         {
             this.Mentor = Mentor;
             InitializeComponent();
@@ -37,10 +37,6 @@ namespace mentoring_system.view
             else
                 submenu.Visible = false;
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            mentorProfile.BringToFront();
-        }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
         {
@@ -52,32 +48,12 @@ namespace mentoring_system.view
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -118,11 +94,6 @@ namespace mentoring_system.view
         private void label2_Click_1(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click_1(object sender, EventArgs e) //Profile Button
-        {
-            //profileMentor1.BringToFront();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

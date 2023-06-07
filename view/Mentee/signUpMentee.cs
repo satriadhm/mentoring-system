@@ -1,5 +1,5 @@
 ﻿using mentoring_system.controller;
-using mentoring_system.implementation;
+using mentoring_system.Implementation;
 using mentoring_system.model;
 using System.Diagnostics;
 
@@ -7,39 +7,37 @@ namespace mentoring_system.view.Mentee;
 
 public partial class signUpMentee : Form
 {
-    public static registerstate registerState = new registerstate();
-    public static HttpClient client = new HttpClient();
+    public static RegisterState registerState = new RegisterState();
     public static bool isSignup { get; set; }
-    public static model.mentee menteeData { get; set; }
+    public static model.Mentee? menteeData { get; set; }
 
     public signUpMentee()
     {
         InitializeComponent();
     }
-
-    public async void registerButton_Click(object sender, EventArgs e)
+    private void ValidateFields()
     {
-        // Pre Condition: Semua field harus terisi
+        // Memvalidasi bahwa semua field telah terisi
         Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
         Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
         Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
         Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
+    }
+    public async void registerButton_Click(object sender, EventArgs e)
+    {
+        // Pre Condition: Semua field harus terisi
+        ValidateFields();
 
         string namaLengkapMentee = namaLengkapTextBox.Text;
         string usernameMentee = usernameTextBox.Text;
         string passwordMentee = passwordTextBox.Text;
         string umurMentee = umurTextBox.Text;
-        string urlCloud = "http://128.199.77.50:5132/api/mentee";
-        string urlLocal = "http://localhost:5132/api/mentee";
+        string urlCloud = "http://178.128.215.35:5132/api/mentee";
 
         menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
         try
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeData);
-            response.EnsureSuccessStatusCode();
-
-            // Post Condition: Response dari API mengindikasikan data mentee baru berhasil ditambahkan
-            Debug.Assert(response.IsSuccessStatusCode, "Data mentee baru tidak berhasil ditambahkan");
+            await MenteeFunctionality.AddMenteeData(urlCloud, menteeData);
         }
         catch (Exception ex)
         {
@@ -49,8 +47,26 @@ public partial class signUpMentee : Form
         }
         isSignup = true;
 
+
+        HideForm(); 
+        ActivateBookingTrigger(); 
+        ShowDashboard(menteeData); 
+    }
+    private void HideForm()
+    {
+        // Menyembunyikan form saat ini
         this.Hide();
+    }
+
+    private void ActivateBookingTrigger()
+    {
+        // Mengaktifkan trigger untuk melakukan booking
         LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
+    }
+
+    private void ShowDashboard(model.Mentee menteeData)
+    {
+        // Menampilkan dashboard mentee dengan data mentee yang baru ditambahkan
         DashboardMentee dashboard = new DashboardMentee(menteeData);
         dashboard.Show();
     }

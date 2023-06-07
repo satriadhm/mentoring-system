@@ -19,9 +19,22 @@ namespace mentoring_system.view.Mentee
 {
     public partial class BookingPage : UserControl
     {
-        static HttpClient client = new HttpClient();
+        public static HttpClient client = new HttpClient();
 
         DataTable table = new DataTable("Mentorship Request");
+
+        public static subjekMentoring selectedSubject { get; set; }
+
+        public static model.Mentor? selectedMentor { get; set; }
+        
+        public static string? selectedMentorName { get; set; }
+        public static model.Mentee? menteeData { get; set; }
+        
+        public static string urlCloud = "http://128.199.77.50:5132/api/mentor";
+        
+        public static string urlLocal = "http://localhost:5132/api/mentor";
+
+        public static DateTime bookingDate { get; set; }
 
 
         public BookingPage()
@@ -33,11 +46,10 @@ namespace mentoring_system.view.Mentee
         {
             try
             {
-                string urlCloud = "http://128.199.77.50:5132/api/mentor";
-                string urlLocal = "http://localhost:5132/api/mentor";
+               
                 var response = await client.GetAsync(urlCloud);
                 response.EnsureSuccessStatusCode();
-                var data = await response.Content.ReadAsAsync<IEnumerable<mentor>>();
+                var data = await response.Content.ReadAsAsync<IEnumerable<model.Mentor>>();
                 foreach (var item in data)
                 {
                     comboBoxMentorName.Items.Add(item);
@@ -70,13 +82,13 @@ namespace mentoring_system.view.Mentee
             mentorshipRequestData.DataSource = table;
         }
 
-        private async void submitButton_Click(object sender, EventArgs e)
+        private void submitButton_Click(object sender, EventArgs e)
         {
             LandingPage.state.ActivateTrigger(bookingState.bookTrigger.CHOOSEDATE);
-            subjekMentoring selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
-            mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
-            string selectedMentorName = selectedMentor.NamaLengkap;
-            model.mentee menteeData;
+            selectedSubject = (subjekMentoring)Enum.Parse(typeof(subjekMentoring), comboBoxCourseName.SelectedItem.ToString());
+            selectedMentor = (model.Mentor)comboBoxMentorName.SelectedItem;
+            selectedMentorName = selectedMentor.NamaLengkap;
+            bookingDate = bookMentorDateTimePicker.Value;
             if (signUpMentee.isSignup)
             {
                 menteeData = signUpMentee.menteeData;
@@ -85,20 +97,11 @@ namespace mentoring_system.view.Mentee
             else
             {
                 menteeData = LoginMentee.menteeData;
+                Console.WriteLine(menteeData.NamaLengkap);
 
             }
-            MentorshipRequest menteeRequest = new MentorshipRequest(menteeData, selectedMentorName, bookMentorDateTimePicker.Value, selectedSubject);
-
-            string urlCloud = "http://128.199.77.50:5132/api/mentorshipRequest";
-            string urlLocal = "http://localhost:5132/api/MentorshipRequest";
-
-            HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, menteeRequest);
-
-            response.EnsureSuccessStatusCode();
-            Debug.Assert(response.IsSuccessStatusCode, "Data mentorship request baru tidak berhasil ditambahkan");
 
             table.Rows.Add(selectedMentorName, bookMentorDateTimePicker.Value, comboBoxCourseName.SelectedItem);
-
 
         }
         private void proceedButton_Click(object sender, EventArgs e)
@@ -114,7 +117,7 @@ namespace mentoring_system.view.Mentee
             comboBoxCourseName.Items.Clear();
 
             // get selected mentor
-            mentor selectedMentor = (mentor)comboBoxMentorName.SelectedItem;
+            model.Mentor selectedMentor = (model.Mentor)comboBoxMentorName.SelectedItem;
 
             // add courses for the selected mentor
             foreach (string subjekMentoring in Enum.GetNames(typeof(model.subjekMentoring)))

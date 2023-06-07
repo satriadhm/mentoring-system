@@ -15,14 +15,14 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentee : Form
     {
-        mentee Mentee;
-        public DashboardMentee(mentee Mentee)
+        model.Mentee Mentee;
+        public DashboardMentee(model.Mentee Mentee)
         {
             // Precondition: parameter Mentee tidak boleh null
             Debug.Assert(Mentee != null, "Mentee should not be null");
             InitializeComponent();
             this.Mentee = Mentee;
-            string[] role = { "Mentor", "Mente" };
+            string[] role = { "Mentor", "Mentee" };
 
             coursePage.SendToBack();
             bookingPage.SendToBack();

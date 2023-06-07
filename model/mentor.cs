@@ -10,11 +10,11 @@ namespace mentoring_system.model
         dataStructure
     }
 
-    public class mentor : User
+    public class Mentor : User
     {
         public subjekMentoring Subjek { get; set; }
 
-        public mentor(string namaLengkap, string username, string password, string umur, subjekMentoring subjek) : base(namaLengkap, username, password, umur)
+        public Mentor(string namaLengkap, string username, string password, string umur, subjekMentoring subjek) : base(namaLengkap, username, password, umur)
         {
             Contract.Requires(!string.IsNullOrEmpty(namaLengkap));
             Contract.Requires(!string.IsNullOrEmpty(username));

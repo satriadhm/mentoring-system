@@ -17,8 +17,9 @@ namespace mentoring_system.view.Mentee
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void MySchedulePage_Load(object sender, EventArgs e)
         {
+
 
         }
 

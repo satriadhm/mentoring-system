@@ -1,7 +1,7 @@
 ﻿using mentoring_system.model;
 using System.Text.Json;
 
-namespace mentoring_system.controller
+namespace mentoring_system.Implementation
 {
     public class JSONparserBase
     {
