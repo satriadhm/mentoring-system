@@ -80,13 +80,13 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            requests1.SendToBack();
-            //profileMentor1.SendToBack();
+            requests2.SendToBack();
+            mentorshipGranted1.SendToBack();
         }
 
         private void RequestsBtn_Click(object sender, EventArgs e)
         {
-            requests1.BringToFront();
+            requests2.BringToFront();
         }
 
         private void label2_Click_1(object sender, EventArgs e)
@@ -106,6 +106,11 @@ namespace mentoring_system.view
         private void labelRoleMentor_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void YourClassBtn_Click(object sender, EventArgs e)
+        {
+            mentorshipGranted1.BringToFront();
         }
     }
 }

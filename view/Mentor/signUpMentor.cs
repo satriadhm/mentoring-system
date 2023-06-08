@@ -30,7 +30,7 @@ namespace mentoring_system.view.Mentor
 
             model.Mentor mentorData = CreateMentorData(namaLengkapMentor, usernameMentor, passwordMentor, umurMentor, subjek);
 
-            string urlCloud = "http://128.1299.77.50:5132/api/mentor";
+            string urlCloud = "http://178.128.215.35:5132/api/mentor";
             try
             {
                 await MentorFunctionality.SendMentorData(urlCloud, mentorData);
