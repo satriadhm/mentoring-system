@@ -1,6 +1,6 @@
 ﻿namespace mentoring_system.view.Mentor
 {
-    partial class Requests
+    partial class MentorRequests
     {
         /// <summary> 
         /// Required designer variable.
@@ -62,7 +62,6 @@
             label2.Size = new Size(526, 31);
             label2.TabIndex = 19;
             label2.Text = "View and manage incoming mentorship requests.";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -74,7 +73,6 @@
             label1.Size = new Size(329, 45);
             label1.TabIndex = 18;
             label1.Text = "Mentorship Requests";
-            label1.Click += label1_Click;
             // 
             // MenteeRequests
             // 
@@ -89,7 +87,7 @@
             MenteeRequests.ColumnHeadersHeight = 30;
             MenteeRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             MenteeRequests.Columns.AddRange(new DataGridViewColumn[] { nameColumn, dateColumn });
-            MenteeRequests.Location = new Point(35, 154);
+            MenteeRequests.Location = new Point(35, 226);
             MenteeRequests.Margin = new Padding(3, 4, 3, 4);
             MenteeRequests.Name = "MenteeRequests";
             MenteeRequests.RowHeadersVisible = false;
@@ -98,7 +96,6 @@
             MenteeRequests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             MenteeRequests.Size = new Size(634, 333);
             MenteeRequests.TabIndex = 20;
-            MenteeRequests.CellContentClick += MenteeRequests_CellContentClick;
             // 
             // nameColumn
             // 
@@ -127,9 +124,8 @@
             AcceptBtn.TabIndex = 21;
             AcceptBtn.Text = "Accept";
             AcceptBtn.UseVisualStyleBackColor = false;
-            AcceptBtn.Click += button1_Click;
             // 
-            // Requests
+            // MentorRequests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;

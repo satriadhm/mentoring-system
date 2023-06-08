@@ -1,5 +1,5 @@
 using mentoring_system.controller;
-using mentoring_system.implementation;
+using mentoring_system.Implementation;
 using mentoring_system.model;
 using mentoring_system.view;
 using System.Diagnostics;
@@ -10,80 +10,104 @@ namespace mentoring_system
 {
     public partial class LoginMentee : Form
     {
-        registerstate registerState = new registerstate();
-        public static mentee menteeData { get; set; }
+        RegisterState registerState = new RegisterState();
+        public static Mentee menteeData { get; set; }
 
         HttpClient client = new HttpClient();
         public LoginMentee()
         {
             InitializeComponent();
-            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
+            registerState.ActivateTrigger(RegisterState.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
-
             try
             {
-                bool admin = isAdmin(usernameTextbox.Text, passwordTextBox.Text);
-                if (admin)
-                {
-                    this.Hide();
-                    registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_DASHBOARD);
-                    DashboardMentee dashboard = new DashboardMentee(menteeData);
-                    dashboard.ShowDialog();
+                bool isAdminUser = CheckAdminUser(usernameTextbox.Text, passwordTextBox.Text);
 
+                if (isAdminUser)
+                {
+                    OpenAdminDashboard();
                 }
                 else
                 {
-                    switch (string.Empty)
+                    string username = usernameTextbox.Text;
+                    string password = passwordTextBox.Text;
+
+                    if (string.IsNullOrEmpty(username))
                     {
-                        case string s when usernameTextbox.Text == s:
-                            MessageBox.Show("username empty", "login page");
-                            break;
-                        case string s when passwordTextBox.Text == s:
-                            MessageBox.Show("password empty", "login page");
-                            break;
-                        default:
-                            var response = await client.GetAsync("http://178.128.215.35:5132/api/mentee");
-                            if (response != null && response.IsSuccessStatusCode)
-                            {
-                                var loggedInUser = default(mentee);
-                                var result = await response.Content.ReadFromJsonAsync<mentee[]>();
-                                foreach (var mentee in result)
-                                {
-                                    if (mentee.userName == usernameTextbox.Text && mentee.password == passwordTextBox.Text)
-                                    {
-                                        if (loggedInUser != null)
-                                        {
-                                            MessageBox.Show("Multiple users found with same credentials", "Login failed");
-                                            return;
-                                        }
-                                        loggedInUser = mentee;
-                                    }
-                                }
-                                if (loggedInUser == null)
-                                {
-                                    MessageBox.Show("Invalid login credentials", "Login failed");
-                                }
-                                else
-                                {
-                                    menteeData = await client.GetFromJsonAsync<mentee>($"http://128.199.77.50:5132/api/mentee/{loggedInUser.Id}");
-                                    LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
-                                    this.Hide();
-                                    DashboardMentee dashboard = new DashboardMentee(menteeData);
-                                    dashboard.ShowDialog();
-                                }
-                            }                                    
-                            break;
+                        ShowMessageBox("Username empty", "Login page");
+                    }
+                    else if (string.IsNullOrEmpty(password))
+                    {
+                        ShowMessageBox("Password empty", "Login page");
+                    }
+                    else
+                    {
+                        menteeData = await MenteeFunctionality.AuthenticateUser(username, password);
+
+                        if (menteeData == null)
+                        {
+                            ShowMessageBox("Invalid login credentials", "Login failed");
+                        }
+                        else
+                        {
+                            ActivateBookingTrigger();
+                            HideForm();
+                            ShowDashboard(menteeData);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Text, ex.Message);
+                ShowMessageBox(Text, ex.Message);
             }
         }
+
+        private bool CheckAdminUser(string username, string password)
+        {
+            // Memeriksa apakah pengguna adalah admin berdasarkan username dan password
+            return isAdmin(username, password);
+        }
+
+        private void OpenAdminDashboard()
+        {
+            // Membuka dashboard admin
+            HideForm();
+            registerState.ActivateTrigger(RegisterState.bookTrigger.OPEN_DASHBOARD);
+            DashboardMentee dashboard = new DashboardMentee(menteeData);
+            dashboard.ShowDialog();
+        }
+
+        private void ShowMessageBox(string message, string title)
+        {
+            // Menampilkan dialog MessageBox dengan pesan dan judul tertentu
+            MessageBox.Show(message, title);
+        }
+
+ 
+
+        private void ActivateBookingTrigger()
+        {
+            // Mengaktifkan trigger untuk melakukan booking
+            LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
+        }
+
+        private void HideForm()
+        {
+            // Menyembunyikan form saat ini
+            this.Hide();
+        }
+
+        private void ShowDashboard(Mentee menteeData)
+        {
+            // Menampilkan dashboard mentee dengan data mentee yang berhasil diautentikasi
+            DashboardMentee dashboard = new DashboardMentee(menteeData);
+            dashboard.ShowDialog();
+        }
+
         public bool isAdmin(string username, string password)
         {
             if (username.Equals("admin") && password.Equals("admin"))

@@ -1,4 +1,4 @@
-﻿using mentoring_system.implementation;
+﻿using mentoring_system.Implementation;
 using mentoring_system.view.Mentee;
 using mentoring_system.model;
 using System;
@@ -15,8 +15,8 @@ namespace mentoring_system.view
 {
     public partial class ProfilePageMentee : Form
     {
-        mentee Mentee;
-        public ProfilePageMentee(mentee Mentee)
+        model.Mentee Mentee;
+        public ProfilePageMentee(model.Mentee Mentee)
         {
             InitializeComponent();
             this.Mentee = Mentee;

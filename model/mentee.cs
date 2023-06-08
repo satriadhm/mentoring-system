@@ -3,9 +3,9 @@ using System.Diagnostics.Contracts;
 
 namespace mentoring_system.model
 {
-    public class mentee : User
+    public class Mentee : User
     {
-        public mentee(string namaLengkap, string username, string password, string umur) : base(namaLengkap, username, password, umur)
+        public Mentee(string namaLengkap, string username, string password, string umur) : base(namaLengkap, username, password, umur)
         {
             Contract.Requires(!string.IsNullOrEmpty(namaLengkap));
             Contract.Requires(!string.IsNullOrEmpty(username));
