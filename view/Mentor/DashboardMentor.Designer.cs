@@ -52,7 +52,6 @@
             label5 = new Label();
             pictureBox2 = new PictureBox();
             userName = new Label();
-            mentorProfile = new Mentor.MentorProfile();
             panel4 = new Panel();
             labelRoleMentor = new Label();
             SubjekText = new Label();
@@ -377,14 +376,6 @@
             userName.Text = "{name}";
             userName.Click += userName_Click;
             // 
-            // mentorProfile
-            // 
-            mentorProfile.Location = new Point(279, 0);
-            mentorProfile.Margin = new Padding(3, 4, 3, 4);
-            mentorProfile.Name = "mentorProfile";
-            mentorProfile.Size = new Size(702, 653);
-            mentorProfile.TabIndex = 0;
-            // 
             // panel4
             // 
             panel4.Controls.Add(labelRoleMentor);
@@ -440,7 +431,6 @@
             Controls.Add(NavBar);
             Controls.Add(panel4);
             Controls.Add(requests1);
-            Controls.Add(mentorProfile);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
             Text = "Homepage";
@@ -486,9 +476,7 @@
         private PictureBox pictureBox2;
         private Label userName;
         private System.CodeDom.CodeTypeReference schedule1;
-        private Mentor.MentorProfile mentorSchedule1;
         private Panel panel2;
-        private Mentor.MentorProfile mentorProfile;
         private Panel panel4;
         private Mentor.MentorRequests requests1;
         private Label SubjekText;

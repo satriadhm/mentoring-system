@@ -31,17 +31,23 @@ namespace mentoring_system.view.Mentor
             }
         }
 
-        public void MenteeRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void AcceptBtn_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            DataGridViewRow selectedRow = MenteeRequests.SelectedRows[0];
+            string name = selectedRow.Cells[0].Value.ToString();
+            string date = selectedRow.Cells[1].Value.ToString();
+            try
             {
-                // Ambil nilai sel tertentu
-                menteeName = MenteeRequests.Rows[e.RowIndex].Cells[0].Value.ToString();
-                schedule = MenteeRequests.Rows[e.RowIndex].Cells[1].Value.ToString();
-                acceptancePage acceptance = new acceptancePage();
-                acceptance.ShowDialog();
-
-
+                string urlCloud = "http://178.128.215.35:5132/api/mentorship";
+                string urlLocal = "http://localhost:5132/api/mentorship";
+                genericsMentorship<String> x = new genericsMentorship<String>(1, name, date);
+                HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, x);
+                response.EnsureSuccessStatusCode();
+                MessageBox.Show("Berhasil menerima permintaan mentoring!");
+            }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

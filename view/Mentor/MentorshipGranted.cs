@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace mentoring_system.view.Mentor
 {
-    public partial class acceptancePage : Form
+    public partial class MentorshipGranted : UserControl
     {
-        public acceptancePage()
+        public MentorshipGranted()
         {
             InitializeComponent();
         }

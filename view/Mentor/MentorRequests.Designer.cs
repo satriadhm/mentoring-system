@@ -87,7 +87,7 @@
             MenteeRequests.ColumnHeadersHeight = 30;
             MenteeRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             MenteeRequests.Columns.AddRange(new DataGridViewColumn[] { nameColumn, dateColumn });
-            MenteeRequests.Location = new Point(35, 226);
+            MenteeRequests.Location = new Point(35, 158);
             MenteeRequests.Margin = new Padding(3, 4, 3, 4);
             MenteeRequests.Name = "MenteeRequests";
             MenteeRequests.RowHeadersVisible = false;
@@ -124,17 +124,18 @@
             AcceptBtn.TabIndex = 21;
             AcceptBtn.Text = "Accept";
             AcceptBtn.UseVisualStyleBackColor = false;
+            AcceptBtn.Click += AcceptBtn_Click;
             // 
             // MentorRequests
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(AcceptBtn);
             Controls.Add(DeclineBtn);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MenteeRequests);
-            Controls.Add(AcceptBtn);
-            Name = "Requests";
+            Name = "MentorRequests";
             Size = new Size(700, 600);
             ((System.ComponentModel.ISupportInitialize)MenteeRequests).EndInit();
             ResumeLayout(false);
