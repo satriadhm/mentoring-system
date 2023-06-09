@@ -16,6 +16,7 @@ namespace mentoring_system
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
+            HttpResponseMessage response;
             try
             {
                 if (string.IsNullOrEmpty(usernameTextbox.Text))
@@ -27,8 +28,8 @@ namespace mentoring_system
                 string usernameMentor = usernameTextbox.Text;
                 string passwordMentor = passwordTextBox.Text;
 
-                string url = $"http://178.128.215.35:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
-                HttpResponseMessage response = await client.GetAsync(url);
+                string url = $"http://128.199.77.50:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
+                response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
                 var mentorLogins = await response.Content.ReadAsAsync<List<Mentor>>();
@@ -49,7 +50,7 @@ namespace mentoring_system
             }
             catch (HttpRequestException ex)
             {
-                MessageBox.Show(ex.Message, "Login Page");
+                MessageBox.Show("Maaf, terjadi kegagalan koneksi ke server. Coba lagi nanti!", "Login Page");
             }
 
         }
