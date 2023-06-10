@@ -57,7 +57,6 @@
             SubjekText = new Label();
             panel5 = new Panel();
             mentorshipGranted1 = new Mentor.MentorshipGranted();
-            requests2 = new Mentor.Requests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -71,7 +70,7 @@
             // NavBar
             // 
             NavBar.AutoScroll = true;
-            NavBar.BackColor = SystemColors.ActiveBorder;
+            NavBar.BackColor = Color.MidnightBlue;
             NavBar.Controls.Add(LogOutBtn);
             NavBar.Controls.Add(YourClassBtn);
             NavBar.Controls.Add(Dropdown);
@@ -132,6 +131,7 @@
             // 
             // RequestsBtn
             // 
+            RequestsBtn.BackColor = Color.DarkSlateBlue;
             RequestsBtn.Dock = DockStyle.Top;
             RequestsBtn.FlatAppearance.BorderSize = 0;
             RequestsBtn.FlatStyle = FlatStyle.Flat;
@@ -144,7 +144,7 @@
             RequestsBtn.TabIndex = 1;
             RequestsBtn.Text = "Requests";
             RequestsBtn.TextAlign = ContentAlignment.MiddleLeft;
-            RequestsBtn.UseVisualStyleBackColor = true;
+            RequestsBtn.UseVisualStyleBackColor = false;
             RequestsBtn.Click += RequestsBtn_Click;
             // 
             // AppointmentBtn
@@ -391,7 +391,6 @@
             panel4.Controls.Add(label6);
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(mentorshipGranted1);
-            panel4.Controls.Add(requests2);
             panel4.Location = new Point(280, 0);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
@@ -434,13 +433,6 @@
             mentorshipGranted1.Name = "mentorshipGranted1";
             mentorshipGranted1.Size = new Size(699, 650);
             mentorshipGranted1.TabIndex = 12;
-            // 
-            // requests2
-            // 
-            requests2.Location = new Point(0, 3);
-            requests2.Name = "requests2";
-            requests2.Size = new Size(702, 647);
-            requests2.TabIndex = 0;
             // 
             // DashboardMentor
             // 

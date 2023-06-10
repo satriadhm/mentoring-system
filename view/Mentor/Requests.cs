@@ -46,7 +46,7 @@ namespace mentoring_system.view.Mentor
             {
                 string urlCloud = "http://178.128.215.35:5132/api/mentorship";
                 string urlLocal = "http://localhost:5132/api/mentorship";
-                genericsMentorship<String> x = new genericsMentorship<String>(1, name, date);
+                GenericsMentorship<String> x = new GenericsMentorship<String>(1, name, date);
                 HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, x);
                 response.EnsureSuccessStatusCode();
                 MessageBox.Show("Berhasil menerima permintaan mentoring!");
