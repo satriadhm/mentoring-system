@@ -30,7 +30,7 @@ namespace mentoring_system.view.Mentee
         public static string? selectedMentorName { get; set; }
         public static model.Mentee? menteeData { get; set; }
         
-        public static string urlCloud = "http://128.199.77.50:5132/api/mentor";
+        public static string urlCloud = "http://178.128.215.35:5132/api/mentor";
         
         public static string urlLocal = "http://localhost:5132/api/mentor";
 
