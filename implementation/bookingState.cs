@@ -58,7 +58,7 @@ namespace mentoring_system.controller
         // Postcondition: fungsi ini akan mengembalikan nilai currentState yang baru sesuai dengan trigger yang diberikan.
         // Exception: akan dihasilkan Exception jika currentState atau trigger yang diberikan tidak didefinisikan di dalam bookState atau bookTrigger, 
         //                 masing-masing.
-        private bookState GetNextState(bookState currentState, bookTrigger trigger)
+        public bookState GetNextState(bookState currentState, bookTrigger trigger)
         {
             Debug.Assert(Enum.IsDefined(typeof(bookState), currentState), "Invalid current state.");
             Debug.Assert(Enum.IsDefined(typeof(bookTrigger), trigger), "Invalid trigger.");
