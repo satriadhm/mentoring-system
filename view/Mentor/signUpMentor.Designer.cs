@@ -91,7 +91,6 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(335, 27);
             passwordTextBox.TabIndex = 17;
-            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // usernameTextBox
             // 
@@ -99,7 +98,6 @@
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(335, 27);
             usernameTextBox.TabIndex = 16;
-            usernameTextBox.TextChanged += usernameTextBox_TextChanged;
             // 
             // namaLengkapTextBox
             // 
@@ -107,7 +105,6 @@
             namaLengkapTextBox.Name = "namaLengkapTextBox";
             namaLengkapTextBox.Size = new Size(335, 27);
             namaLengkapTextBox.TabIndex = 15;
-            namaLengkapTextBox.TextChanged += namaLengkapTextBox_TextChanged;
             // 
             // pictureBoxLoginPageMentor
             // 
@@ -164,7 +161,6 @@
             dataStructureRadioButton.TabStop = true;
             dataStructureRadioButton.Text = "Data Structure";
             dataStructureRadioButton.UseVisualStyleBackColor = true;
-            dataStructureRadioButton.CheckedChanged += dataStructureRadioButton_CheckedChanged;
             // 
             // interactionDesignRadioButton
             // 
@@ -232,6 +228,7 @@
             MaximizeBox = false;
             Name = "signUpMentor";
             Text = "signUpMentor";
+            Load += signUpMentor_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoginPageMentor).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -34,7 +34,6 @@
             YourClassBtn = new Button();
             Dropdown = new Panel();
             RequestsBtn = new Button();
-            ScheduleBtn = new Button();
             AppointmentBtn = new Button();
             HomeBtn = new Button();
             panel2 = new Panel();
@@ -53,11 +52,12 @@
             label5 = new Label();
             pictureBox2 = new PictureBox();
             userName = new Label();
-            mentorProfile = new Mentor.MentorProfile();
             panel4 = new Panel();
             labelRoleMentor = new Label();
             SubjekText = new Label();
-            requests1 = new Mentor.Requests();
+            panel5 = new Panel();
+            mentorshipGranted1 = new Mentor.MentorshipGranted();
+            requests2 = new Mentor.Requests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -110,7 +110,7 @@
             YourClassBtn.FlatStyle = FlatStyle.Flat;
             YourClassBtn.Font = new Font("Segoe UI Semibold", 11.2F, FontStyle.Bold, GraphicsUnit.Point);
             YourClassBtn.ForeColor = SystemColors.Control;
-            YourClassBtn.Location = new Point(0, 289);
+            YourClassBtn.Location = new Point(0, 241);
             YourClassBtn.Name = "YourClassBtn";
             YourClassBtn.Padding = new Padding(15, 0, 0, 0);
             YourClassBtn.Size = new Size(273, 48);
@@ -118,16 +118,16 @@
             YourClassBtn.Text = "Your Class";
             YourClassBtn.TextAlign = ContentAlignment.MiddleLeft;
             YourClassBtn.UseVisualStyleBackColor = true;
+            YourClassBtn.Click += YourClassBtn_Click;
             // 
             // Dropdown
             // 
             Dropdown.BackColor = SystemColors.ButtonHighlight;
             Dropdown.Controls.Add(RequestsBtn);
-            Dropdown.Controls.Add(ScheduleBtn);
             Dropdown.Dock = DockStyle.Top;
             Dropdown.Location = new Point(0, 196);
             Dropdown.Name = "Dropdown";
-            Dropdown.Size = new Size(273, 93);
+            Dropdown.Size = new Size(273, 45);
             Dropdown.TabIndex = 4;
             // 
             // RequestsBtn
@@ -137,7 +137,7 @@
             RequestsBtn.FlatStyle = FlatStyle.Flat;
             RequestsBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             RequestsBtn.ForeColor = SystemColors.Control;
-            RequestsBtn.Location = new Point(0, 45);
+            RequestsBtn.Location = new Point(0, 0);
             RequestsBtn.Name = "RequestsBtn";
             RequestsBtn.Padding = new Padding(35, 0, 0, 0);
             RequestsBtn.Size = new Size(273, 45);
@@ -146,23 +146,6 @@
             RequestsBtn.TextAlign = ContentAlignment.MiddleLeft;
             RequestsBtn.UseVisualStyleBackColor = true;
             RequestsBtn.Click += RequestsBtn_Click;
-            // 
-            // ScheduleBtn
-            // 
-            ScheduleBtn.Dock = DockStyle.Top;
-            ScheduleBtn.FlatAppearance.BorderSize = 0;
-            ScheduleBtn.FlatStyle = FlatStyle.Flat;
-            ScheduleBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            ScheduleBtn.ForeColor = SystemColors.Control;
-            ScheduleBtn.Location = new Point(0, 0);
-            ScheduleBtn.Name = "ScheduleBtn";
-            ScheduleBtn.Padding = new Padding(35, 0, 0, 0);
-            ScheduleBtn.Size = new Size(273, 45);
-            ScheduleBtn.TabIndex = 0;
-            ScheduleBtn.Text = "Mentor Profile";
-            ScheduleBtn.TextAlign = ContentAlignment.MiddleLeft;
-            ScheduleBtn.UseVisualStyleBackColor = true;
-            ScheduleBtn.Click += button1_Click;
             // 
             // AppointmentBtn
             // 
@@ -227,7 +210,7 @@
             label7.Location = new Point(11, 1);
             label7.Margin = new Padding(10, 0, 3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(448, 62);
+            label7.Size = new Size(448, 55);
             label7.TabIndex = 0;
             label7.Text = "User 1 has booked the Programming Algorithm course";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -245,7 +228,7 @@
             tableLayoutPanel1.Controls.Add(label9, 0, 2);
             tableLayoutPanel1.Location = new Point(11, 432);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
@@ -259,10 +242,10 @@
             label8.AutoSize = true;
             label8.Dock = DockStyle.Left;
             label8.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(4, 64);
+            label8.Location = new Point(4, 57);
             label8.Name = "label8";
             label8.Padding = new Padding(10, 0, 3, 0);
-            label8.Size = new Size(360, 62);
+            label8.Size = new Size(360, 55);
             label8.TabIndex = 1;
             label8.Text = "Your UI/UX Design class will start in 1 hour";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -272,10 +255,10 @@
             label9.AutoSize = true;
             label9.Dock = DockStyle.Left;
             label9.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(4, 127);
+            label9.Location = new Point(4, 113);
             label9.Name = "label9";
             label9.Padding = new Padding(10, 0, 3, 0);
-            label9.Size = new Size(451, 64);
+            label9.Size = new Size(451, 55);
             label9.TabIndex = 2;
             label9.Text = "2 pending requests for Programming Algorithm Class";
             label9.TextAlign = ContentAlignment.MiddleCenter;
@@ -389,23 +372,16 @@
             userName.AutoSize = true;
             userName.Font = new Font("Segoe UI Semibold", 18.8F, FontStyle.Bold, GraphicsUnit.Point);
             userName.ForeColor = Color.DodgerBlue;
-            userName.Location = new Point(291, 45);
+            userName.Location = new Point(8, 33);
             userName.Name = "userName";
             userName.Size = new Size(123, 45);
             userName.TabIndex = 10;
             userName.Text = "{name}";
             userName.Click += userName_Click;
             // 
-            // mentorProfile
-            // 
-            mentorProfile.Location = new Point(279, 0);
-            mentorProfile.Margin = new Padding(3, 4, 3, 4);
-            mentorProfile.Name = "mentorProfile";
-            mentorProfile.Size = new Size(702, 653);
-            mentorProfile.TabIndex = 0;
-            // 
             // panel4
             // 
+            panel4.Controls.Add(userName);
             panel4.Controls.Add(labelRoleMentor);
             panel4.Controls.Add(SubjekText);
             panel4.Controls.Add(tableLayoutPanel1);
@@ -413,6 +389,9 @@
             panel4.Controls.Add(panel1);
             panel4.Controls.Add(panel3);
             panel4.Controls.Add(label6);
+            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(mentorshipGranted1);
+            panel4.Controls.Add(requests2);
             panel4.Location = new Point(280, 0);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
@@ -442,12 +421,26 @@
             SubjekText.TextAlign = ContentAlignment.MiddleLeft;
             SubjekText.Click += SubjekText_Click;
             // 
-            // requests1
+            // panel5
             // 
-            requests1.Location = new Point(279, 0);
-            requests1.Name = "requests1";
-            requests1.Size = new Size(702, 653);
-            requests1.TabIndex = 0;
+            panel5.Location = new Point(0, 0);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(702, 653);
+            panel5.TabIndex = 13;
+            // 
+            // mentorshipGranted1
+            // 
+            mentorshipGranted1.Location = new Point(0, 3);
+            mentorshipGranted1.Name = "mentorshipGranted1";
+            mentorshipGranted1.Size = new Size(699, 650);
+            mentorshipGranted1.TabIndex = 12;
+            // 
+            // requests2
+            // 
+            requests2.Location = new Point(0, 3);
+            requests2.Name = "requests2";
+            requests2.Size = new Size(702, 647);
+            requests2.TabIndex = 0;
             // 
             // DashboardMentor
             // 
@@ -455,11 +448,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(982, 653);
-            Controls.Add(userName);
             Controls.Add(NavBar);
             Controls.Add(panel4);
-            Controls.Add(mentorProfile);
-            Controls.Add(requests1);
             MinimumSize = new Size(800, 498);
             Name = "DashboardMentor";
             Text = "Homepage";
@@ -477,7 +467,6 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -505,13 +494,13 @@
         private PictureBox pictureBox2;
         private Label userName;
         private System.CodeDom.CodeTypeReference schedule1;
-        private Mentor.MentorProfile mentorSchedule1;
         private Panel panel2;
-        private Mentor.MentorProfile mentorProfile;
         private Panel panel4;
-        private Button ScheduleBtn;
         private Mentor.Requests requests1;
         private Label SubjekText;
         private Label labelRoleMentor;
+        private Mentor.MentorshipGranted mentorshipGranted1;
+        private Panel panel5;
+        private Mentor.Requests requests2;
     }
 }

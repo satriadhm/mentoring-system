@@ -1,4 +1,4 @@
-using mentoring_system.implementation;
+using mentoring_system.Implementation;
 using mentoring_system.model;
 using mentoring_system.view;
 
@@ -6,16 +6,17 @@ namespace mentoring_system
 {
     public partial class LoginMentor : Form
     {
-        registerstate registerState = new registerstate();
+        RegisterState registerState = new RegisterState();
 
         public LoginMentor()
         {
             InitializeComponent();
-            registerState.ActivateTrigger(registerstate.bookTrigger.OPEN_LOGIN_PAGE);
+            registerState.ActivateTrigger(RegisterState.bookTrigger.OPEN_LOGIN_PAGE);
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
+            HttpResponseMessage response;
             try
             {
                 if (string.IsNullOrEmpty(usernameTextbox.Text))
@@ -27,11 +28,11 @@ namespace mentoring_system
                 string usernameMentor = usernameTextbox.Text;
                 string passwordMentor = passwordTextBox.Text;
 
-                string url = $"http://128.199.77.50:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
-                HttpResponseMessage response = await client.GetAsync(url);
+                string url = $"http://178.128.215.35:5132/api/mentor?username={usernameMentor}&password={passwordMentor}";
+                response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
-                var mentorLogins = await response.Content.ReadAsAsync<List<mentor>>();
+                var mentorLogins = await response.Content.ReadAsAsync<List<Mentor>>();
 
                 for (int i = 0; i < mentorLogins.Count; i++)
                 {
@@ -49,7 +50,7 @@ namespace mentoring_system
             }
             catch (HttpRequestException ex)
             {
-                MessageBox.Show(ex.Message, "Login Page");
+                MessageBox.Show("Maaf, terjadi kegagalan koneksi ke server. Coba lagi nanti!", "Login Page");
             }
 
         }
@@ -58,5 +59,18 @@ namespace mentoring_system
         {
 
         }
+
+        public bool isValidSubject(string matkul)
+        {
+            string[] textSubjek = { "UI/UX Design", "Programming Algorithm", "Data Structure"};
+            return textSubjek.Contains(matkul);
+        }
+
+        public bool isMentor(string mentor)
+        {
+            string[] namaMentor = { "Rafidhia Haikal", "Farhan Mulya", "Putu Vidya", "Glorious Satria", "Kevin" };
+            return namaMentor.Contains(mentor);
+        }
+
     }
 }

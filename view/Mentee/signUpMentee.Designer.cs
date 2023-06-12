@@ -112,6 +112,7 @@
             umurTextBox.Name = "umurTextBox";
             umurTextBox.Size = new Size(335, 27);
             umurTextBox.TabIndex = 8;
+            umurTextBox.TextChanged += umurTextBox_TextChanged;
             // 
             // registerButton
             // 

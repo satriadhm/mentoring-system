@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mentoring_system.implementation
+namespace mentoring_system.Implementation
 {
     internal class ProfileSet<T>
     {

@@ -49,11 +49,12 @@ namespace mentoring_system.view
             newLeasonLearnedLabel = new Label();
             lessonLearnedQuantitativeLabel = new Label();
             lessonLearnedLabel = new Label();
-            panel3 = new Panel();
-            label2 = new Label();
+            appoinmentDoneLabel = new Panel();
+            appointmentDoneLabel = new Label();
             newAppointmentBookedLabel = new Label();
             AppointmentBookedQuantitativeLabel = new Label();
             appointmentBookedLabel = new Label();
+            label2 = new Label();
             panel4 = new Panel();
             MilestoneCongratulationsLabel = new Label();
             MilestoneQuantitativeLabel = new Label();
@@ -62,11 +63,12 @@ namespace mentoring_system.view
             bookingPage = new BookingPage();
             mySchedulePage = new MySchedulePage();
             panel5 = new Panel();
+            historyPanel = new Panel();
             label1 = new Label();
             panelNavbar.SuspendLayout();
             panelHeader.SuspendLayout();
             LessonLearnedPanel.SuspendLayout();
-            panel3.SuspendLayout();
+            appoinmentDoneLabel.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
@@ -213,6 +215,7 @@ namespace mentoring_system.view
             messageButton.Size = new Size(52, 42);
             messageButton.TabIndex = 2;
             messageButton.UseVisualStyleBackColor = true;
+            messageButton.Click += messageButton_Click;
             // 
             // profileButton
             // 
@@ -248,7 +251,7 @@ namespace mentoring_system.view
             greetingLabel.AutoSize = true;
             greetingLabel.Font = new Font("Segoe UI Historic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             greetingLabel.ForeColor = Color.SaddleBrown;
-            greetingLabel.Location = new Point(567, 76);
+            greetingLabel.Location = new Point(348, 9);
             greetingLabel.Name = "greetingLabel";
             greetingLabel.Size = new Size(341, 46);
             greetingLabel.TabIndex = 2;
@@ -299,27 +302,28 @@ namespace mentoring_system.view
             lessonLearnedLabel.TabIndex = 0;
             lessonLearnedLabel.Text = "Lesson Learned";
             // 
-            // panel3
+            // appoinmentDoneLabel
             // 
-            panel3.BackColor = Color.LightCoral;
-            panel3.Controls.Add(newAppointmentBookedLabel);
-            panel3.Controls.Add(AppointmentBookedQuantitativeLabel);
-            panel3.Controls.Add(appointmentBookedLabel);
-            panel3.Location = new Point(459, 162);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(206, 125);
-            panel3.TabIndex = 4;
+            appoinmentDoneLabel.BackColor = Color.LightCoral;
+            appoinmentDoneLabel.Controls.Add(appointmentDoneLabel);
+            appoinmentDoneLabel.Controls.Add(newAppointmentBookedLabel);
+            appoinmentDoneLabel.Controls.Add(AppointmentBookedQuantitativeLabel);
+            appoinmentDoneLabel.Controls.Add(appointmentBookedLabel);
+            appoinmentDoneLabel.Location = new Point(459, 162);
+            appoinmentDoneLabel.Name = "appoinmentDoneLabel";
+            appoinmentDoneLabel.Size = new Size(206, 125);
+            appoinmentDoneLabel.TabIndex = 4;
             // 
-            // label2
+            // appointmentDoneLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(16, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(117, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Lesson Learned";
+            appointmentDoneLabel.AutoSize = true;
+            appointmentDoneLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            appointmentDoneLabel.ForeColor = SystemColors.ButtonHighlight;
+            appointmentDoneLabel.Location = new Point(16, 11);
+            appointmentDoneLabel.Name = "appointmentDoneLabel";
+            appointmentDoneLabel.Size = new Size(144, 20);
+            appointmentDoneLabel.TabIndex = 3;
+            appointmentDoneLabel.Text = "Appointment Done";
             // 
             // newAppointmentBookedLabel
             // 
@@ -349,6 +353,17 @@ namespace mentoring_system.view
             appointmentBookedLabel.Name = "appointmentBookedLabel";
             appointmentBookedLabel.Size = new Size(100, 23);
             appointmentBookedLabel.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.RosyBrown;
+            label2.Location = new Point(550, 62);
+            label2.Name = "label2";
+            label2.Size = new Size(117, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Lesson Learned";
             // 
             // panel4
             // 
@@ -417,12 +432,22 @@ namespace mentoring_system.view
             // 
             // panel5
             // 
+            panel5.Controls.Add(historyPanel);
             panel5.Controls.Add(label2);
             panel5.Controls.Add(label1);
+            panel5.Controls.Add(greetingLabel);
             panel5.Location = new Point(219, 52);
             panel5.Name = "panel5";
             panel5.Size = new Size(701, 578);
             panel5.TabIndex = 9;
+            // 
+            // historyPanel
+            // 
+            historyPanel.BackColor = Color.NavajoWhite;
+            historyPanel.Location = new Point(25, 367);
+            historyPanel.Name = "historyPanel";
+            historyPanel.Size = new Size(636, 58);
+            historyPanel.TabIndex = 12;
             // 
             // label1
             // 
@@ -442,9 +467,8 @@ namespace mentoring_system.view
             ClientSize = new Size(920, 629);
             Controls.Add(panelHeader);
             Controls.Add(panel4);
-            Controls.Add(panel3);
+            Controls.Add(appoinmentDoneLabel);
             Controls.Add(LessonLearnedPanel);
-            Controls.Add(greetingLabel);
             Controls.Add(panelNavbar);
             Controls.Add(panel5);
             Controls.Add(coursePage);
@@ -458,14 +482,13 @@ namespace mentoring_system.view
             panelHeader.PerformLayout();
             LessonLearnedPanel.ResumeLayout(false);
             LessonLearnedPanel.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            appoinmentDoneLabel.ResumeLayout(false);
+            appoinmentDoneLabel.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -488,7 +511,7 @@ namespace mentoring_system.view
         private Label lessonLearnedLabel;
         private Button logoutButton;
         private Button logoutIcon;
-        private Panel panel3;
+        private Panel appoinmentDoneLabel;
         private Label newAppointmentBookedLabel;
         private Label AppointmentBookedQuantitativeLabel;
         private Label appointmentBookedLabel;
@@ -502,5 +525,7 @@ namespace mentoring_system.view
         private Panel panel5;
         private Label label1;
         private Label label2;
+        private Label appointmentDoneLabel;
+        private Panel historyPanel;
     }
 }

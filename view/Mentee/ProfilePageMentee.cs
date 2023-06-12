@@ -1,4 +1,4 @@
-﻿using mentoring_system.implementation;
+﻿using mentoring_system.Implementation;
 using mentoring_system.view.Mentee;
 using mentoring_system.model;
 using System;
@@ -15,8 +15,8 @@ namespace mentoring_system.view
 {
     public partial class ProfilePageMentee : Form
     {
-        mentee Mentee;
-        public ProfilePageMentee(mentee Mentee)
+        model.Mentee Mentee;
+        public ProfilePageMentee(model.Mentee Mentee)
         {
             InitializeComponent();
             this.Mentee = Mentee;
@@ -25,7 +25,7 @@ namespace mentoring_system.view
 
         public void LoadDataMentee()
         {
-            ProfileSet<string> profile = new ProfileSet<string>(Mentee.NamaLengkap,Mentee.umur,Mentee.userName,Mentee.umur);
+            ProfileSet<string> profile = new ProfileSet<string>(Mentee.NamaLengkap,Mentee.umur,Mentee.userName,Mentee.password);
             textBoxNamaLengkap.Text = profile.Getnama().ToString();
             textBoxUmur.Text = profile.Getumur().ToString();
             textBoxUserName.Text = profile.GetuserName().ToString();
@@ -56,15 +56,31 @@ namespace mentoring_system.view
 
         private void UpdateButtton_Click(object sender, EventArgs e)
         {
-            Mentee.NamaLengkap = textBoxNamaLengkap.Text;
-            Mentee.umur = textBoxUmur.Text;
-            Mentee.userName = textBoxUserName.Text;
-            Mentee.password = textBoxPassword.Text;
+            try
+            {
+                Mentee.NamaLengkap = textBoxNamaLengkap.Text;
+                Mentee.umur = textBoxUmur.Text;
+                Mentee.userName = textBoxUserName.Text;
+                Mentee.password = textBoxPassword.Text;
 
-            this.Hide();
-            DashboardMentee dashboard = new DashboardMentee(Mentee);
-            dashboard.ShowDialog();
+                if (string.IsNullOrEmpty(Mentee.NamaLengkap) || string.IsNullOrEmpty(Mentee.umur) || string.IsNullOrEmpty(Mentee.userName) || string.IsNullOrEmpty(Mentee.password))
+                {
+                    throw new Exception("Semua elemen profil harus diisi.");
+                }
+
+                this.Hide();
+                DashboardMentee dashboard = new DashboardMentee(Mentee);
+                dashboard.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan dalam sistem.\n" + ex.Message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
         }
+
+      
 
         private void CancelButton_Click(object sender, EventArgs e)
         {

@@ -4,16 +4,15 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentor : Form
     {
-        private mentor Mentor;
-        public DashboardMentor(mentor Mentor)
+        private model.Mentor Mentor;
+        public DashboardMentor(model.Mentor Mentor)
         {
-            InitializeComponent();
             this.Mentor = Mentor;
+            InitializeComponent();
             string[] textSubjek = { "Interaction Design", "Programming Algorithm", "Data Structure" };
             string[] role = { "Mentor", "Mente" };
 
             Dropdown.Visible = false;
-            mentorProfile.SendToBack();
             userName.Text = $"Welcome, {Mentor.NamaLengkap}";
             labelRoleMentor.Text = $"Your Role: {role[(int)Mentor.role]}";
             SubjekText.Text = $"Your Mentoring Subject: {textSubjek[(int)Mentor.Subjek]}";
@@ -37,10 +36,6 @@ namespace mentoring_system.view
             else
                 submenu.Visible = false;
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            mentorProfile.BringToFront();
-        }
 
         private void AppointmentBtn_Click(object sender, EventArgs e)
         {
@@ -52,32 +47,12 @@ namespace mentoring_system.view
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -105,24 +80,18 @@ namespace mentoring_system.view
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            mentorProfile.SendToBack();
-            requests1.SendToBack();
-            //profileMentor1.SendToBack();
+            requests2.SendToBack();
+            mentorshipGranted1.SendToBack();
         }
 
         private void RequestsBtn_Click(object sender, EventArgs e)
         {
-            requests1.BringToFront();
+            requests2.BringToFront();
         }
 
         private void label2_Click_1(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click_1(object sender, EventArgs e) //Profile Button
-        {
-            //profileMentor1.BringToFront();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -137,6 +106,11 @@ namespace mentoring_system.view
         private void labelRoleMentor_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void YourClassBtn_Click(object sender, EventArgs e)
+        {
+            mentorshipGranted1.BringToFront();
         }
     }
 }

@@ -15,18 +15,19 @@ namespace mentoring_system.view
 {
     public partial class DashboardMentee : Form
     {
-        mentee Mentee;
-        public DashboardMentee(mentee Mentee)
+        model.Mentee Mentee;
+        public DashboardMentee(model.Mentee Mentee)
         {
             // Precondition: parameter Mentee tidak boleh null
             Debug.Assert(Mentee != null, "Mentee should not be null");
             InitializeComponent();
             this.Mentee = Mentee;
-            string[] role = { "Mentor", "Mente" };
+            string[] role = { "Mentor", "Mentee" };
 
             coursePage.SendToBack();
             bookingPage.SendToBack();
             mySchedulePage.SendToBack();
+            
 
             label2.Text = $"Your Role: {role[(int)Mentee.role]}";
 
@@ -79,6 +80,13 @@ namespace mentoring_system.view
         private void labelRole_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void messageButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MessagePages messagePages = new MessagePages(Mentee);
+            messagePages.ShowDialog();
         }
     }
 }
