@@ -1,86 +1,107 @@
-﻿using mentoring_system.controller;
+﻿using mentoring_system.Abstraction;
+using mentoring_system.controller;
 using mentoring_system.Implementation;
 using mentoring_system.model;
+using System;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace mentoring_system.view.Mentee;
-
-public partial class signUpMentee : Form
+namespace mentoring_system.view.Mentee
 {
-    public static RegisterState registerState = new RegisterState();
-    public static bool isSignup { get; set; }
-    public static model.Mentee? menteeData { get; set; }
-
-    public signUpMentee()
+    public partial class signUpMentee : Form
     {
-        InitializeComponent();
-    }
-    private void ValidateFields()
-    {
-        // Memvalidasi bahwa semua field telah terisi
-        Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
-        Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
-        Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
-        Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
-    }
-    public async void registerButton_Click(object sender, EventArgs e)
-    {
-        // Pre Condition: Semua field harus terisi
-        ValidateFields();
+        private static RegisterState registerState = new RegisterState();
+        public static bool isSignup;
+        public static model.Mentee? menteeData;
 
-        string namaLengkapMentee = namaLengkapTextBox.Text;
-        string usernameMentee = usernameTextBox.Text;
-        string passwordMentee = passwordTextBox.Text;
-        string umurMentee = umurTextBox.Text;
-        string urlCloud = "http://178.128.215.35:5132/api/mentee";
-
-        menteeData = new(namaLengkapMentee, usernameMentee, passwordMentee, umurMentee);
-        try
+        public signUpMentee()
         {
-            await MenteeFunctionality.AddMenteeData(urlCloud, menteeData);
+            InitializeComponent();
         }
-        catch (Exception ex)
+
+        private void ValidateFields()
         {
-            // Exception: Menampilkan pesan error saat terjadi exception
-            System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
-            System.Diagnostics.Debug.WriteLine("Error: " + urlCloud);
+            // Validate that all fields are filled
+            Debug.Assert(!string.IsNullOrEmpty(namaLengkapTextBox.Text), "Nama lengkap tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(usernameTextBox.Text), "Username tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(passwordTextBox.Text), "Password tidak boleh kosong");
+            Debug.Assert(!string.IsNullOrEmpty(umurTextBox.Text), "Umur tidak boleh kosong");
         }
-        isSignup = true;
+
+        public async void registerButton_Click(object sender, EventArgs e)
+        {
+            ApiClient apiClient = new ApiClient(); // Contoh implementasi ApiClient
+            MenteeFunctionality menteeFunctionality = new MenteeFunctionality(apiClient);
+            // Precondition: All fields must be filled
+            ValidateFields();
 
 
-        HideForm(); 
-        ActivateBookingTrigger(); 
-        ShowDashboard(menteeData); 
-    }
-    private void HideForm()
-    {
-        // Menyembunyikan form saat ini
-        this.Hide();
-    }
+            string namaLengkapMentee = namaLengkapTextBox.Text;
+            string usernameMentee = usernameTextBox.Text;
+            string passwordMentee = passwordTextBox.Text;
+            string umurMentee = umurTextBox.Text;
+            string urlCloud = "http://178.128.215.35:5132/api/mentee";
 
-    private void ActivateBookingTrigger()
-    {
-        // Mengaktifkan trigger untuk melakukan booking
-        LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
-    }
+            // Hash the password
+            string hashedPassword = HashPassword(passwordMentee);
 
-    private void ShowDashboard(model.Mentee menteeData)
-    {
-        // Menampilkan dashboard mentee dengan data mentee yang baru ditambahkan
-        DashboardMentee dashboard = new DashboardMentee(menteeData);
-        dashboard.Show();
-    }
+            menteeData = new model.Mentee(namaLengkapMentee, usernameMentee, hashedPassword, umurMentee);
 
+            try
+            {
+                await menteeFunctionality.AddMenteeData(urlCloud, menteeData);
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception securely, avoid exposing sensitive information
+                Debug.WriteLine("Error: " + ex.Message);
+                Debug.WriteLine("Error: " + urlCloud);
+                // You might want to log the error and display a generic error message to the user
+                // rather than printing the exception details directly
+            }
 
-    private void loginButton_Click(object sender, EventArgs e)
-    {
-        this.Hide();
-        LoginMentee login = new LoginMentee();
-        login.Show();
-    }
+            isSignup = true;
 
-    private void umurTextBox_TextChanged(object sender, EventArgs e)
-    {
+            HideForm();
+            ActivateBookingTrigger();
+            ShowDashboard(menteeData);
+        }
 
+        private void HideForm()
+        {
+            // Hide the current form
+            this.Hide();
+        }
+
+        private void ActivateBookingTrigger()
+        {
+            // Activate the trigger to perform booking
+            LandingPage.state.ActivateTrigger(bookingState.bookTrigger.REGISTER);
+        }
+
+        private void ShowDashboard(model.Mentee menteeData)
+        {
+            // Display the mentee dashboard with the newly added mentee data
+            DashboardMentee dashboard = new DashboardMentee(menteeData);
+            dashboard.Show();
+        }
+
+        private string HashPassword(string password)
+        {
+            // Hash the password using a secure hashing algorithm (e.g., bcrypt)
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginMentee login = new LoginMentee();
+            login.Show();
+        }
     }
 }
