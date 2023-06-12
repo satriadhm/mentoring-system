@@ -69,7 +69,7 @@ namespace mentoring_system
         private bool CheckAdminUser(string username, string password)
         {
             // Memeriksa apakah pengguna adalah admin berdasarkan username dan password
-            return IsAdmin(username, password);
+            return isAdmin(username, password);
         }
 
         private void OpenAdminDashboard()
@@ -108,7 +108,7 @@ namespace mentoring_system
             dashboard.ShowDialog();
         }
 
-        public bool IsAdmin(string username, string password)
+        public bool isAdmin(string username, string password)
         {
             if (username.Equals("admin") && password.Equals("admin"))
             {

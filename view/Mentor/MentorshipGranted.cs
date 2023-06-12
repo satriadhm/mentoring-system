@@ -15,7 +15,7 @@ namespace mentoring_system.view.Mentor
         public async void GetMentoringSchedule()
         {
             string request = await client.GetStringAsync("http://178.128.215.35:5132/api/mentorship");
-            List<genericsMentorship<string>> mentoringList = JsonConvert.DeserializeObject<List<genericsMentorship<string>>>(request);
+            List<GenericsMentorship<string>> mentoringList = JsonConvert.DeserializeObject<List<GenericsMentorship<string>>>(request);
             for (int i = 0; i < mentoringList.Count; i++)
             {
                 MentoringSchedule.Rows.Add(mentoringList[i].MenteeID, mentoringList[i].MentorID);

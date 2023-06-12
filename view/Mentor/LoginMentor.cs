@@ -44,10 +44,6 @@ namespace mentoring_system
                     }
                 }
             }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message, "Login Page");
-            }
             catch (HttpRequestException ex)
             {
                 MessageBox.Show("Maaf, terjadi kegagalan koneksi ke server. Coba lagi nanti!", "Login Page");
