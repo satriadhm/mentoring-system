@@ -228,6 +228,7 @@
             MaximizeBox = false;
             Name = "signUpMentor";
             Text = "signUpMentor";
+            Load += signUpMentor_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxLoginPageMentor).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -1,4 +1,5 @@
-﻿using mentoring_system.controller;
+﻿using mentoring_system.Abstraction;
+using mentoring_system.controller;
 using mentoring_system.Implementation;
 using mentoring_system.model;
 using System;
@@ -11,8 +12,8 @@ namespace mentoring_system.view.Mentee
     public partial class signUpMentee : Form
     {
         private static RegisterState registerState = new RegisterState();
-        private static bool isSignup;
-        private static model.Mentee? menteeData;
+        public static bool isSignup;
+        public static model.Mentee? menteeData;
 
         public signUpMentee()
         {
@@ -30,8 +31,11 @@ namespace mentoring_system.view.Mentee
 
         public async void registerButton_Click(object sender, EventArgs e)
         {
+            ApiClient apiClient = new ApiClient(); // Contoh implementasi ApiClient
+            MenteeFunctionality menteeFunctionality = new MenteeFunctionality(apiClient);
             // Precondition: All fields must be filled
             ValidateFields();
+
 
             string namaLengkapMentee = namaLengkapTextBox.Text;
             string usernameMentee = usernameTextBox.Text;
@@ -46,7 +50,7 @@ namespace mentoring_system.view.Mentee
 
             try
             {
-                await MenteeFunctionality.AddMenteeData(urlCloud, menteeData);
+                await menteeFunctionality.AddMenteeData(urlCloud, menteeData);
             }
             catch (Exception ex)
             {

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace mentoring_system.Abstraction
 {
-    internal interface Interface1
+    internal interface IMenteeFunctionality
     {
+        Task AddMenteeData(string url, model.Mentee menteeData);
+        Task<model.Mentee> AuthenticateUser(string username, string password);
+
     }
 }

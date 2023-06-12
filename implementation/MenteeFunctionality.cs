@@ -14,9 +14,9 @@ namespace mentoring_system.Implementation
 {
     internal class MenteeFunctionality : IMenteeFunctionality
     {
-        private readonly IApiClient _apiClient;
+        private readonly ApiClient _apiClient;
 
-        public MenteeFunctionality(IApiClient apiClient)
+        public MenteeFunctionality(ApiClient apiClient)
         {
             _apiClient = apiClient;
         }
@@ -53,6 +53,7 @@ namespace mentoring_system.Implementation
                 {
                     Mentee loggedInUser = null;
                     Mentee[] result = await response.Content.ReadFromJsonAsync<Mentee[]>();
+                    Console.WriteLine(result);
 
                     foreach (Mentee mentee in result)
                     {

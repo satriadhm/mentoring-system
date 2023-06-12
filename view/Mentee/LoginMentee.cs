@@ -1,3 +1,4 @@
+using mentoring_system.Abstraction;
 using mentoring_system.controller;
 using mentoring_system.Implementation;
 using mentoring_system.model;
@@ -13,6 +14,9 @@ namespace mentoring_system
         RegisterState registerState = new RegisterState();
         public static Mentee menteeData { get; set; }
 
+        string urlCloud = "http://178.128.215.35:5132/api/mentee";
+
+
         HttpClient client = new HttpClient();
         public LoginMentee()
         {
@@ -22,6 +26,9 @@ namespace mentoring_system
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
+            ApiClient apiClient = new ApiClient(); // Contoh implementasi ApiClient
+            MenteeFunctionality menteeFunctionality = new MenteeFunctionality(apiClient);
+
             try
             {
                 bool isAdminUser = CheckAdminUser(usernameTextbox.Text, passwordTextBox.Text);
@@ -45,7 +52,8 @@ namespace mentoring_system
                     }
                     else
                     {
-                        menteeData = await MenteeFunctionality.AuthenticateUser(username, password);
+                      menteeData =  await menteeFunctionality.AuthenticateUser(username, password);
+                      Console.WriteLine(menteeData == null);
 
                         if (menteeData == null)
                         {
