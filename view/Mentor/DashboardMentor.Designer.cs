@@ -56,9 +56,9 @@
             labelRoleMentor = new Label();
             SubjekText = new Label();
             panel5 = new Panel();
-            mentorshipGranted1 = new Mentor.MentorshipGranted();
-            request1 = new Mentor.Request(Mentor);
             panel6 = new Panel();
+            mentorshipGranted1 = new Mentor.MentorshipGranted();
+            requests1 = new Mentor.Requests(Mentor);
             NavBar.SuspendLayout();
             Dropdown.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -394,7 +394,7 @@
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(panel6);
             panel4.Controls.Add(mentorshipGranted1);
-            panel4.Controls.Add(request1);
+            panel4.Controls.Add(requests1);
             panel4.Location = new Point(280, 0);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
@@ -431,6 +431,13 @@
             panel5.Size = new Size(702, 653);
             panel5.TabIndex = 13;
             // 
+            // panel6
+            // 
+            panel6.Location = new Point(0, 0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(705, 654);
+            panel6.TabIndex = 1;
+            // 
             // mentorshipGranted1
             // 
             mentorshipGranted1.Location = new Point(0, 3);
@@ -438,19 +445,12 @@
             mentorshipGranted1.Size = new Size(699, 650);
             mentorshipGranted1.TabIndex = 12;
             // 
-            // request1
+            // requests1
             // 
-            request1.Location = new Point(0, 0);
-            request1.Name = "request1";
-            request1.Size = new Size(699, 650);
-            request1.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            panel6.Location = new Point(0, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(705, 654);
-            panel6.TabIndex = 1;
+            requests1.Location = new Point(0, 0);
+            requests1.Name = "requests1";
+            requests1.Size = new Size(706, 650);
+            requests1.TabIndex = 0;
             // 
             // DashboardMentor
             // 
@@ -511,6 +511,6 @@
         private Mentor.MentorshipGranted mentorshipGranted1;
         private Panel panel5;
         private Panel panel6;
-        private Mentor.Request request1;
+        private Mentor.Requests requests1;
     }
 }
