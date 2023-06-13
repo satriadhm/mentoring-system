@@ -73,6 +73,26 @@ namespace mentoring_system.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4_40385_iphone_text_bubble_png_blue_blue_text_bubble {
+            get {
+                object obj = ResourceManager.GetObject("4-40385_iphone-text-bubble-png-blue-blue-text-bubble", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_text_message_bubble_text_message_bubble_iphone_text_bubble_text_bubble {
+            get {
+                object obj = ResourceManager.GetObject("png-text-message-bubble-text-message-bubble-iphone-text-bubble-text-bubble", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Profile_Avatar_PNG {
             get {
                 object obj = ResourceManager.GetObject("Profile-Avatar-PNG", resourceCulture);

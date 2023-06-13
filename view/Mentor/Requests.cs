@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Windows.Media.Protection.PlayReady;
 
 namespace mentoring_system.view.Mentor
 {
@@ -25,9 +25,10 @@ namespace mentoring_system.view.Mentor
             this.Mentor = Mentor;
             GetMenteeRequestAsync();
         }
+
         public async void GetMenteeRequestAsync()
         {
-            // Contract.Requires(Mentor != null, "The Mentor object should not be null.");
+            Contract.Requires(Mentor != null, "The Mentor object should not be null.");
 
             string request = await client.GetStringAsync("http://178.128.215.35:5132/api/mentorshipRequest");
             List<MentorshipRequest> requestsList = JsonConvert.DeserializeObject<List<MentorshipRequest>>(request);
@@ -46,7 +47,7 @@ namespace mentoring_system.view.Mentor
             {
                 string urlCloud = "http://178.128.215.35:5132/api/mentorship";
                 string urlLocal = "http://localhost:5132/api/mentorship";
-                GenericsMentorship<String> x = new GenericsMentorship<String>(1, name, date);
+                Mentorship<String> x = new Mentorship<String>(1, name, date);
                 HttpResponseMessage response = await client.PostAsJsonAsync(urlCloud, x);
                 response.EnsureSuccessStatusCode();
                 MessageBox.Show("Berhasil menerima permintaan mentoring!");
@@ -55,6 +56,7 @@ namespace mentoring_system.view.Mentor
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
     }
 }
