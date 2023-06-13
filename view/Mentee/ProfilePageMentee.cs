@@ -56,15 +56,31 @@ namespace mentoring_system.view
 
         private void UpdateButtton_Click(object sender, EventArgs e)
         {
-            Mentee.NamaLengkap = textBoxNamaLengkap.Text;
-            Mentee.umur = textBoxUmur.Text;
-            Mentee.userName = textBoxUserName.Text;
-            Mentee.password = textBoxPassword.Text;
+            try
+            {
+                Mentee.NamaLengkap = textBoxNamaLengkap.Text;
+                Mentee.umur = textBoxUmur.Text;
+                Mentee.userName = textBoxUserName.Text;
+                Mentee.password = textBoxPassword.Text;
 
-            this.Hide();
-            DashboardMentee dashboard = new DashboardMentee(Mentee);
-            dashboard.ShowDialog();
+                if (string.IsNullOrEmpty(Mentee.NamaLengkap) || string.IsNullOrEmpty(Mentee.umur) || string.IsNullOrEmpty(Mentee.userName) || string.IsNullOrEmpty(Mentee.password))
+                {
+                    throw new Exception("Semua elemen profil harus diisi.");
+                }
+
+                this.Hide();
+                DashboardMentee dashboard = new DashboardMentee(Mentee);
+                dashboard.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan dalam sistem.\n" + ex.Message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
         }
+
+      
 
         private void CancelButton_Click(object sender, EventArgs e)
         {

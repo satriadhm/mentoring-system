@@ -27,6 +27,7 @@ namespace mentoring_system.view
             coursePage.SendToBack();
             bookingPage.SendToBack();
             mySchedulePage.SendToBack();
+            
 
             label2.Text = $"Your Role: {role[(int)Mentee.role]}";
 
@@ -79,6 +80,13 @@ namespace mentoring_system.view
         private void labelRole_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void messageButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MessagePages messagePages = new MessagePages(Mentee);
+            messagePages.ShowDialog();
         }
     }
 }

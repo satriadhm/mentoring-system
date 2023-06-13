@@ -54,6 +54,7 @@ namespace mentoring_system.view
             newAppointmentBookedLabel = new Label();
             AppointmentBookedQuantitativeLabel = new Label();
             appointmentBookedLabel = new Label();
+            label2 = new Label();
             panel4 = new Panel();
             MilestoneCongratulationsLabel = new Label();
             MilestoneQuantitativeLabel = new Label();
@@ -62,6 +63,7 @@ namespace mentoring_system.view
             bookingPage = new BookingPage();
             mySchedulePage = new MySchedulePage();
             panel5 = new Panel();
+            historyPanel = new Panel();
             label1 = new Label();
             appointmentDoneLabel = new Label();
             historyPanel = new Panel();
@@ -215,6 +217,7 @@ namespace mentoring_system.view
             messageButton.Size = new Size(52, 42);
             messageButton.TabIndex = 2;
             messageButton.UseVisualStyleBackColor = true;
+            messageButton.Click += messageButton_Click;
             // 
             // profileButton
             // 
@@ -352,6 +355,17 @@ namespace mentoring_system.view
             appointmentBookedLabel.Name = "appointmentBookedLabel";
             appointmentBookedLabel.Size = new Size(100, 23);
             appointmentBookedLabel.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.RosyBrown;
+            label2.Location = new Point(550, 62);
+            label2.Name = "label2";
+            label2.Size = new Size(117, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Lesson Learned";
             // 
             // panel4
             // 

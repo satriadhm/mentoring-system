@@ -9,17 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Windows.Media.Protection.PlayReady;
 
 namespace mentoring_system.view.Mentor
 {
-    public partial class Requests : UserControl
+    public partial class Request : UserControl
     {
         private model.Mentor Mentor;
         static HttpClient client = new HttpClient();
         public static string? menteeName;
         public static string? schedule;
-        public Requests(model.Mentor Mentor)
+        public Request(model.Mentor Mentor)
         {
             InitializeComponent();
             this.Mentor = Mentor;
@@ -55,6 +54,23 @@ namespace mentoring_system.view.Mentor
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void DeclineBtn_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void MenteeRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }
