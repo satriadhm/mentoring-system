@@ -10,7 +10,7 @@ namespace mentoring_system.view
             this.Mentor = Mentor;
             InitializeComponent();
             string[] textSubjek = { "Interaction Design", "Programming Algorithm", "Data Structure" };
-            string[] role = { "Mentor", "Mente" };
+            string[] role = { "Mentor", "Mentee" };
 
             Dropdown.Visible = false;
             userName.Text = $"Welcome, {Mentor.NamaLengkap}";
