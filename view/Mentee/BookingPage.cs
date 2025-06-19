@@ -97,7 +97,6 @@ namespace mentoring_system.view.Mentee
             else
             {
                 menteeData = LoginMentee.menteeData;
-                Console.WriteLine(menteeData.NamaLengkap);
 
             }
 

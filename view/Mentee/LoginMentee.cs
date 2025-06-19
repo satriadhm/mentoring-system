@@ -53,7 +53,6 @@ namespace mentoring_system
                     else
                     {
                       menteeData =  await menteeFunctionality.AuthenticateUser(username, password);
-                      Console.WriteLine(menteeData == null);
 
                         if (menteeData == null)
                         {
@@ -61,6 +60,7 @@ namespace mentoring_system
                         }
                         else
                         {
+                            registerState.ActivateTrigger(RegisterState.bookTrigger.OPEN_DASHBOARD);
                             ActivateBookingTrigger();
                             HideForm();
                             ShowDashboard(menteeData);
